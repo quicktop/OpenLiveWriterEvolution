@@ -168,6 +168,8 @@ namespace OpenLiveWriter.Mshtml
             AddCommand(IDM.UNLINK);
             AddCommand(IDM.UNORDERLIST);
             AddCommand(IDM.VIEWSOURCE);
+            AddCommand(IDM.ZOOMPERCENT);
+            AddCommand(IDM.GETZOOM);
         }
 
         /// <summary>
@@ -823,8 +825,8 @@ namespace OpenLiveWriter.Mshtml
         public const uint REDO = 29;
         public const uint UNDO = 43;
         public const uint SELECTALL = 31;
-        //		public const uint ZOOMPERCENT =            50 ;
-        //		public const uint GETZOOM =                68 ;
+        public const uint ZOOMPERCENT = 50;
+        public const uint GETZOOM = 68;
         //		public const uint STOP =                   2138 ;
         public const uint COPY = 15;
         public const uint CUT = 16;
