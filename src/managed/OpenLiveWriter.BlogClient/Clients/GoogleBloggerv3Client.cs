@@ -99,6 +99,7 @@ namespace OpenLiveWriter.BlogClient.Clients
                 Permalink = post.Url,
                 Contents = post.Content,
                 DatePublished = post.Published.Value,
+                CommentPolicy = ConvertFromReaderComments(post.ReaderComments),
                 Categories = post.Labels?.Select(x => new BlogPostCategory(x)).ToArray() ?? new BlogPostCategory[0]
             };
         }
@@ -113,6 +114,35 @@ namespace OpenLiveWriter.BlogClient.Clients
             };
         }
 
+        private static string ConvertToReaderComments(BlogCommentPolicy commentPolicy)
+        {
+            switch (commentPolicy)
+            {
+                case BlogCommentPolicy.None:
+                    return "DONT_ALLOW_HIDE_EXISTING";
+                case BlogCommentPolicy.Closed:
+                    return "DONT_ALLOW_SHOW_EXISTING";
+                case BlogCommentPolicy.Open:
+                case BlogCommentPolicy.Unspecified:
+                default:
+                    return "ALLOW";
+            }
+        }
+
+        private static BlogCommentPolicy ConvertFromReaderComments(string readerComments)
+        {
+            switch (readerComments)
+            {
+                case "DONT_ALLOW_HIDE_EXISTING":
+                    return BlogCommentPolicy.None;
+                case "DONT_ALLOW_SHOW_EXISTING":
+                    return BlogCommentPolicy.Closed;
+                case "ALLOW":
+                default:
+                    return BlogCommentPolicy.Open;
+            }
+        }
+
         private static Post ConvertToGoogleBloggerPost(BlogPost post, IBlogClientOptions clientOptions)
         {
             var labels = post.Categories?.Select(x => x.Name).ToList();
@@ -123,6 +153,7 @@ namespace OpenLiveWriter.BlogClient.Clients
                 Content = post.Contents,
                 Labels = labels ?? new List<string>(),
                 Published = GetDatePublishedOverride(post, clientOptions),
+                ReaderComments = ConvertToReaderComments(post.CommentPolicy),
                 Title = post.Title,
             };
         }
