@@ -744,42 +744,76 @@ namespace OpenLiveWriter.BlogClient.Clients
             }).Execute();
         }
 
+        private static bool IsDrivePermissionError(Google.GoogleApiException ex)
+        {
+            return ex.HttpStatusCode == System.Net.HttpStatusCode.Forbidden
+                || ex.HttpStatusCode == System.Net.HttpStatusCode.Unauthorized
+                || (ex.Error != null && ex.Error.Errors != null
+                    && ex.Error.Errors.Any(e =>
+                        string.Equals(e.Reason, "insufficientPermissions", StringComparison.OrdinalIgnoreCase)
+                        || string.Equals(e.Reason, "forbidden", StringComparison.OrdinalIgnoreCase)
+                        || string.Equals(e.Reason, "authError", StringComparison.OrdinalIgnoreCase)));
+        }
+
+        private static BlogClientFileTransferException CreateDrivePermissionException(string filename, Google.GoogleApiException ex)
+        {
+            return new BlogClientFileTransferException(
+                String.Format(Res.Get(StringId.BCEFileTransferTransferringFile), Path.GetFileName(filename)),
+                "BloggerDrivePermissionError",
+                $"Image upload to Google Drive failed due to insufficient permissions. " +
+                $"Please remove and re-add your Blogger account in Open Live Writer to refresh the authentication token.\n" +
+                $"Details: {ex.Message}");
+        }
+
         private string PostNewImage(string imagesFolderName, string filename)
         {
-            var drive = GetDriveService();
-            var imagesFolder = GetBlogImagesFolder(drive, imagesFolderName);
-            FilesResource.CreateMediaUpload uploadReq;
-
-            // Create a FileStream for the image to upload
-            using (var imageFileStream = new System.IO.FileStream(filename, System.IO.FileMode.Open, System.IO.FileAccess.Read)) {
-                // Detect mime type for file based on extension
-                var imageMime = MimeMapping.GetMimeMapping(filename);
-                // Upload the image to the images folder, naming it with a GUID to prevent clashes
-                uploadReq = drive.Files.Create(new GoogleDriveData.File()
-                {
-                    Name = Guid.NewGuid().ToString(),
-                    Parents = new string[] { imagesFolder.Id },
-                    OriginalFilename = Path.GetFileName(filename)
-                }, imageFileStream, imageMime);
-                uploadReq.Fields = "id,webContentLink"; // Retrieve Id and WebContentLink fields
-                var uploadRes = uploadReq.Upload();
-                if (uploadRes.Status != Google.Apis.Upload.UploadStatus.Completed)
-                    throw new BlogClientFileTransferException(
-                        String.Format(Res.Get(StringId.BCEFileTransferTransferringFile), Path.GetFileName(filename)), 
-                        "BloggerDriveError",
-                        $"Google Drive image upload for {Path.GetFileName(filename)} failed.\nDetails: {uploadRes.Exception}");
-            }
-
-            // Make the uploaded file public
-            var imageFile = uploadReq.ResponseBody;
-            drive.Permissions.Create(new GoogleDriveData.Permission()
+            try
             {
-                Type = "anyone",
-                Role = "reader"
-            }, imageFile.Id).Execute();
-            
-            // Retrieve the appropiate URL for inlining the image, splitting off the download parameter
-            return imageFile.WebContentLink.Split('&').First();
+                var drive = GetDriveService();
+                var imagesFolder = GetBlogImagesFolder(drive, imagesFolderName);
+                FilesResource.CreateMediaUpload uploadReq;
+
+                // Create a FileStream for the image to upload
+                using (var imageFileStream = new System.IO.FileStream(filename, System.IO.FileMode.Open, System.IO.FileAccess.Read)) {
+                    // Detect mime type for file based on extension
+                    var imageMime = MimeMapping.GetMimeMapping(filename);
+                    // Upload the image to the images folder, naming it with a GUID to prevent clashes
+                    uploadReq = drive.Files.Create(new GoogleDriveData.File()
+                    {
+                        Name = Guid.NewGuid().ToString(),
+                        Parents = new string[] { imagesFolder.Id },
+                        OriginalFilename = Path.GetFileName(filename)
+                    }, imageFileStream, imageMime);
+                    uploadReq.Fields = "id,webContentLink"; // Retrieve Id and WebContentLink fields
+                    var uploadRes = uploadReq.Upload();
+                    if (uploadRes.Status != Google.Apis.Upload.UploadStatus.Completed)
+                    {
+                        // Check if the upload failure is due to a permissions issue
+                        if (uploadRes.Exception is Google.GoogleApiException gex && IsDrivePermissionError(gex))
+                            throw CreateDrivePermissionException(filename, gex);
+
+                        throw new BlogClientFileTransferException(
+                            String.Format(Res.Get(StringId.BCEFileTransferTransferringFile), Path.GetFileName(filename)),
+                            "BloggerDriveError",
+                            $"Google Drive image upload for {Path.GetFileName(filename)} failed.\nDetails: {uploadRes.Exception}");
+                    }
+                }
+
+                // Make the uploaded file public
+                var imageFile = uploadReq.ResponseBody;
+                drive.Permissions.Create(new GoogleDriveData.Permission()
+                {
+                    Type = "anyone",
+                    Role = "reader"
+                }, imageFile.Id).Execute();
+
+                // Retrieve the appropiate URL for inlining the image, splitting off the download parameter
+                return imageFile.WebContentLink.Split('&').First();
+            }
+            catch (Google.GoogleApiException ex) when (IsDrivePermissionError(ex))
+            {
+                throw CreateDrivePermissionException(filename, ex);
+            }
         }
         #endregion
 
