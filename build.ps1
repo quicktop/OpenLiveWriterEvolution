@@ -36,6 +36,14 @@ if (Test-Path $vswherePath) {
     $visualStudioLocation = (Get-VSSetupInstance | Select-VSSetupInstance -Latest).InstallationPath
 }
 
+if (-Not $visualStudioLocation)
+{
+    "Visual Studio installation not found."
+    "Ensure Visual Studio (2017 or later) or Build Tools for Visual Studio is installed."
+    "These can be downloaded from https://visualstudio.microsoft.com/downloads/"
+    exit 100
+}
+
 # Try "Current" path first (VS2019/VS2022/VS2026+), then fall back to versioned paths
 $msBuildExe = $visualStudioLocation + "\MSBuild\Current\Bin\msbuild.exe"
 IF (-Not (Test-Path -LiteralPath "$msBuildExe" -PathType Leaf))
