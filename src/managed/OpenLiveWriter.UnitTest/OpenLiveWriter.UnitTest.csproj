@@ -104,6 +104,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoreServices\XmlFileSettingsPersisterTest.cs" />
     <Compile Include="HtmlEditor\WordCounterTests\HebrewTextWordCount.cs" />
   </ItemGroup>
   <ItemGroup>
