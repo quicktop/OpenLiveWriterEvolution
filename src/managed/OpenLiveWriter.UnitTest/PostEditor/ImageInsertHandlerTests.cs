@@ -2,8 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for details.
 
 using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenLiveWriter.Extensibility.BlogClient;
@@ -14,19 +12,25 @@ namespace OpenLiveWriter.UnitTest.PostEditor
     [TestClass]
     public class ImageInsertHandlerTests
     {
+        // Minimal valid 1x1 white PNG (67 bytes)
+        private static readonly byte[] MinimalPng = {
+            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
+            0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
+            0x08, 0x02, 0x00, 0x00, 0x00, 0x90, 0x77, 0x53, 0xDE, 0x00, 0x00, 0x00,
+            0x0C, 0x49, 0x44, 0x41, 0x54, 0x08, 0xD7, 0x63, 0xF8, 0xCF, 0xC0, 0x00,
+            0x00, 0x00, 0x02, 0x00, 0x01, 0xE2, 0x21, 0xBC, 0x33, 0x00, 0x00, 0x00,
+            0x00, 0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82
+        };
+
         [TestMethod]
         public void LoadBitmapWithOomProtection_ValidImage_ReturnsBitmap()
         {
-            string tempFile = Path.GetTempFileName();
+            string tempFile = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + ".png");
             try
             {
-                // Create a small valid image
-                using (Bitmap bmp = new Bitmap(1, 1, PixelFormat.Format32bppArgb))
-                {
-                    bmp.Save(tempFile, ImageFormat.Png);
-                }
+                File.WriteAllBytes(tempFile, MinimalPng);
 
-                using (Bitmap result = ImageInsertHandler.LoadBitmapWithOomProtection(tempFile))
+                using (var result = ImageInsertHandler.LoadBitmapWithOomProtection(tempFile))
                 {
                     Assert.IsNotNull(result);
                     Assert.AreEqual(1, result.Width);
