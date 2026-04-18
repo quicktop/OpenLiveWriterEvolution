@@ -114,6 +114,7 @@
     <Compile Include="PostEditor\MalformedUrlHandlingTest.cs" />
     <Compile Include="Mshtml\ZoomHelperTests.cs" />
     <Compile Include="PostEditor\PostEditorStorageExceptionTests.cs" />
+    <Compile Include="PostEditor\ImageInsertHandlerTests.cs" />
     <Compile Include="SpellChecker\SpellingLanguageFallbackTest.cs" />
   </ItemGroup>
   <ItemGroup>

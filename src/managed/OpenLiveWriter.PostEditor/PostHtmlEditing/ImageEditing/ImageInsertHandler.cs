@@ -56,9 +56,11 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             ImageFilter inlineFilter = ImageFilterDecoratorAdapter.CreateImageDecoratorsFilter(imageInfo, ImageEmbedType.Embedded, invocationSource, clientOptions);
             ImageFilter targetFilter = ImageFilterDecoratorAdapter.CreateImageDecoratorsFilter(imageInfo, ImageEmbedType.Linked, invocationSource, clientOptions);
 
-            using (Bitmap inlineBitmap = new Bitmap(imageInfo.ImageSourceUri.LocalPath))
+            string imagePath = imageInfo.ImageSourceUri.LocalPath;
+
+            using (Bitmap inlineBitmap = LoadBitmapWithOomProtection(imagePath))
             {
-                string imgPath = writeImage(inlineBitmap, imageInfo.ImageSourceUri.LocalPath, inlinePrefix, inlineFilter, inlineFileCreator);
+                string imgPath = writeImage(inlineBitmap, imagePath, inlinePrefix, inlineFilter, inlineFileCreator);
                 string inlineImgPath = new Uri(UrlHelper.CreateUrlFromPath(imgPath)).ToString();
                 imageInfo.InlineImageUrl = inlineImgPath;
             }
@@ -70,9 +72,9 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             //imageInfo.LinkTarget = origLinkTarget;
             if (imageInfo.LinkTarget == LinkTargetType.IMAGE && !ImageDecoratorDirective.ShouldSuppressLinked)
             {
-                using (Bitmap targetBitmap = new Bitmap(imageInfo.ImageSourceUri.LocalPath))
+                using (Bitmap targetBitmap = LoadBitmapWithOomProtection(imagePath))
                 {
-                    string anchorPath = writeImage(targetBitmap, imageInfo.ImageSourceUri.LocalPath, "", targetFilter, linkedFileCreator);
+                    string anchorPath = writeImage(targetBitmap, imagePath, "", targetFilter, linkedFileCreator);
                     string targetUrl = new Uri(UrlHelper.CreateUrlFromPath(anchorPath)).ToString();
                     imageInfo.LinkTargetUrl = targetUrl;
                 }
@@ -125,7 +127,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
 
         public static Size WriteImageToFile(string sourceFile, int width, int height, string outputFile, bool preserveConstraints)
         {
-            using (Bitmap sourceImage = new Bitmap(sourceFile))
+            using (Bitmap sourceImage = LoadBitmapWithOomProtection(sourceFile))
             {
                 FixImageOrientation(sourceImage);
                 using (Stream imageOut = new FileStream(outputFile, FileMode.Create, FileAccess.Write))
@@ -145,7 +147,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             }
             if (preserveConstraints)
             {
-                using (Bitmap img = new Bitmap(outputFile))
+                using (Bitmap img = LoadBitmapWithOomProtection(outputFile))
                     return img.Size;
             }
             else
@@ -185,6 +187,28 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             catch (Exception)
             {
                 //image.PropertyItems will throw an exception if the image does not contain any exif data
+            }
+        }
+
+        /// <summary>
+        /// Loads a Bitmap from the specified file path, converting OutOfMemoryException
+        /// into a user-friendly BlogClientFileTransferException.
+        /// GDI+ throws OutOfMemoryException both for genuinely large images that exhaust
+        /// memory and for corrupt/unsupported image files.
+        /// </summary>
+        internal static Bitmap LoadBitmapWithOomProtection(string filePath)
+        {
+            try
+            {
+                return new Bitmap(filePath);
+            }
+            catch (OutOfMemoryException)
+            {
+                string fileName = Path.GetFileName(filePath);
+                throw new BlogClientFileTransferException(
+                    string.Format(CultureInfo.CurrentCulture, "Processing image: {0}", fileName),
+                    "ImageTooLarge",
+                    "The image is too large to process. Try resizing it to a smaller resolution before inserting.");
             }
         }
     }
