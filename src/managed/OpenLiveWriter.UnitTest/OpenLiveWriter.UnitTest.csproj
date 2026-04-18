@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreServices\XmlFileSettingsPersisterTest.cs" />
+    <Compile Include="CoreServices\XmlRpcResponseParsingTests.cs" />
     <Compile Include="HtmlEditor\WordCounterTests\HebrewTextWordCount.cs" />
     <Compile Include="PostEditor\Tables\TableEditorDisposeTest.cs" />
     <Compile Include="PostEditor\MalformedUrlHandlingTest.cs" />
