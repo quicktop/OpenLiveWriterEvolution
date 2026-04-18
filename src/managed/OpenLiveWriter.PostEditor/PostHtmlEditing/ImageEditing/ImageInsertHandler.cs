@@ -196,7 +196,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
         /// GDI+ throws OutOfMemoryException both for genuinely large images that exhaust
         /// memory and for corrupt/unsupported image files.
         /// </summary>
-        internal static Bitmap LoadBitmapWithOomProtection(string filePath)
+        public static Bitmap LoadBitmapWithOomProtection(string filePath)
         {
             try
             {
