@@ -190,7 +190,7 @@ namespace OpenLiveWriter
             }
         }
 
-        internal static AutoRecoverPromptResult AutoRecoverPromptFallback(IWin32Window window)
+        private static AutoRecoverPromptResult AutoRecoverPromptFallback(IWin32Window window)
         {
             string message = string.Format(CultureInfo.CurrentCulture,
                 "{0} found auto-saved posts. Would you like to recover them?\n\nYes = Recover posts\nNo = Discard posts\nCancel = Ask later",
