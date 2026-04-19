@@ -133,6 +133,7 @@
     <Compile Include="PostEditor\CategoryDropdownHeightTest.cs" />
     <Compile Include="PostEditor\PostTitleFilenameTest.cs" />
     <Compile Include="PostEditor\NullRibbonControlTest.cs" />
+    <Compile Include="BlogClient\PostDateTimezoneTest.cs" />
     <Compile Include="Controls\ImageCropMakeGrayTest.cs" />
     <Compile Include="SpellChecker\SpellCheckerInitializationTest.cs" />
   </ItemGroup>
