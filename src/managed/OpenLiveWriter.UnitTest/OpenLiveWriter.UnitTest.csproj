@@ -73,6 +73,10 @@
       <Project>{B6D10B42-F173-4086-BB81-96B724BA5594}</Project>
       <Name>OpenLiveWriter.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenLiveWriter.BlogClient\OpenLiveWriter.BlogClient.csproj">
+      <Project>{FE2EA529-26E6-42C3-9F6A-E58966995FFE}</Project>
+      <Name>OpenLiveWriter.BlogClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenLiveWriter.CoreServices\OpenLiveWriter.CoreServices.csproj">
       <Project>{9154B6B4-F2C3-4FB4-BE38-A26A6C9409EE}</Project>
       <Name>OpenLiveWriter.CoreServices</Name>
@@ -120,6 +124,7 @@
     <Compile Include="SpellChecker\SpellingLanguageFallbackTest.cs" />
     <Compile Include="PostEditor\CleanupHtmlIterationLimitTest.cs" />
     <Compile Include="BlogClient\GoogleBloggerExceptionHandlingTests.cs" />
+    <Compile Include="BlogClient\MetaweblogEditPostTests.cs" />
     <Compile Include="PostEditor\ValidatePanelFallbackTest.cs" />
   </ItemGroup>
   <ItemGroup>
