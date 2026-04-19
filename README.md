@@ -24,8 +24,6 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 to clarify expected behavior in our community.
 For more information see the [.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/OpenLiveWriter/OpenLiveWriter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 ### License
 Open Live Writer proudly uses the [MIT License](license.txt).
 

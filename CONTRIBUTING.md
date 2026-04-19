@@ -54,5 +54,4 @@ If you haven't already, please sign the [.NET Foundation CLA](http://cla2.dotnet
 permission to include your contributions in the next release of Open Live Writer.
 
 If you would like to discuss a change you are thinking of doing before you start work on it then feel free to raise an
-issue. The developers for Open Live Writer [chat on Gitter](https://gitter.im/OpenLiveWriter/OpenLiveWriter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) when they are online 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/OpenLiveWriter/OpenLiveWriter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+issue, or start a thread on [GitHub Discussions](https://github.com/OpenLiveWriter/OpenLiveWriter/discussions).
