@@ -3,6 +3,8 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 using Google.Apis.Auth.OAuth2;
@@ -176,7 +178,18 @@ namespace OpenLiveWriter.PostEditor.Configuration.Wizard
         {
             if (_userCredentials?.Token == null)
             {
-                ShowValidationError(buttonLogin, MessageId.GoogleBloggerLoginRequired);
+                try
+                {
+                    ShowValidationError(buttonLogin, MessageId.GoogleBloggerLoginRequired);
+                }
+                catch (Exception ex) when (ex is FileNotFoundException || ex is MissingManifestResourceException)
+                {
+                    System.Windows.Forms.MessageBox.Show(
+                        "Please sign in to your Google account to continue.",
+                        "Sign In Required",
+                        System.Windows.Forms.MessageBoxButtons.OK,
+                        System.Windows.Forms.MessageBoxIcon.Warning);
+                }
                 return false;
             }
 
