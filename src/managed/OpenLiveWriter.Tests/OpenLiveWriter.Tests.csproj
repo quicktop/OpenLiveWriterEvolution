@@ -124,6 +124,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BlogClient\Clients\BloggerMoreTagConversionTests.cs" />
     <Compile Include="BlogClient\Clients\StaticSite\StaticSiteItemFrontMatterTests.cs" />
     <Compile Include="HtmlParser\HtmlNormalizationTests.cs" />
     <Compile Include="HtmlParser\NestedListFixTests.cs" />
@@ -144,6 +145,10 @@
     <ProjectReference Include="..\OpenLiveWriter.BlogClient\OpenLiveWriter.BlogClient.csproj">
       <Project>{fe2ea529-26e6-42c3-9f6a-e58966995ffe}</Project>
       <Name>OpenLiveWriter.BlogClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenLiveWriter.Extensibility\OpenLiveWriter.Extensibility.csproj">
+      <Project>{A803C16E-6619-4017-883C-EA73EB947F34}</Project>
+      <Name>OpenLiveWriter.Extensibility</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenLiveWriter.HtmlEditor\OpenLiveWriter.HtmlEditor.csproj">
       <Project>{6A6872BC-67EF-4A42-A21A-30ECED376923}</Project>
