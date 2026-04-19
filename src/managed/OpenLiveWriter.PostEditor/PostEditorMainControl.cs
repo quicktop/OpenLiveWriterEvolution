@@ -454,35 +454,49 @@ namespace OpenLiveWriter.PostEditor
         private IUIRibbon ribbon;
         private void InitializeRibbon()
         {
-
-            IUIFramework framework = (IUIFramework)Activator.CreateInstance<Framework>();
-
-            Trace.Assert(framework != null, "Failed to create IUIFramework.");
-
-            ribbonControl = new RibbonControl(_htmlEditor.IHtmlEditorComponentContext, _htmlEditor);
-
-            int initializeResult = framework.Initialize(_mainFrameWindow.Handle, this);
-            Trace.Assert(initializeResult == HRESULT.S_OK, "Ribbon framework failed to initialize: " + initializeResult);
-
-            _framework = framework;
-
-            string nativeResourceDLL = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\OpenLiveWriter.Ribbon.dll";
-            IntPtr hMod = Kernel32.LoadLibrary(nativeResourceDLL);
-
-            using (new QuickTimer("IUIRibbonFramework::LoadUI"))
+            try
             {
-                int loadResult = _framework.LoadUI(hMod, "RIBBON_RIBBON");
-                Trace.Assert(loadResult == HRESULT.S_OK, "Ribbon failed to load: " + loadResult);
+                IUIFramework framework = (IUIFramework)Activator.CreateInstance<Framework>();
+
+                Trace.Assert(framework != null, "Failed to create IUIFramework.");
+
+                ribbonControl = new RibbonControl(_htmlEditor.IHtmlEditorComponentContext, _htmlEditor);
+
+                int initializeResult = framework.Initialize(_mainFrameWindow.Handle, this);
+                Trace.Assert(initializeResult == HRESULT.S_OK, "Ribbon framework failed to initialize: " + initializeResult);
+
+                _framework = framework;
+
+                string nativeResourceDLL = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\OpenLiveWriter.Ribbon.dll";
+                IntPtr hMod = Kernel32.LoadLibrary(nativeResourceDLL);
+
+                using (new QuickTimer("IUIRibbonFramework::LoadUI"))
+                {
+                    int loadResult = _framework.LoadUI(hMod, "RIBBON_RIBBON");
+                    Trace.Assert(loadResult == HRESULT.S_OK, "Ribbon failed to load: " + loadResult);
+                }
+
+                _framework.SetModes(mode);
+
+                CommandManager.Invalidate(CommandId.MRUList);
+                CommandManager.Invalidate(CommandId.OpenDraftSplit);
+                CommandManager.Invalidate(CommandId.OpenPostSplit);
+
+                ApplicationDiagnostics.TestModeChanged += OnTestModeChanged;
+                TestMode = ApplicationDiagnostics.TestMode;
             }
-
-            _framework.SetModes(mode);
-
-            CommandManager.Invalidate(CommandId.MRUList);
-            CommandManager.Invalidate(CommandId.OpenDraftSplit);
-            CommandManager.Invalidate(CommandId.OpenPostSplit);
-
-            ApplicationDiagnostics.TestModeChanged += OnTestModeChanged;
-            TestMode = ApplicationDiagnostics.TestMode;
+            catch (COMException ex)
+            {
+                Trace.Fail("Ribbon initialization failed with COMException: " + ex.Message);
+                ribbonControl = null;
+                _framework = null;
+            }
+            catch (Exception ex)
+            {
+                Trace.Fail("Ribbon initialization failed: " + ex.Message);
+                ribbonControl = null;
+                _framework = null;
+            }
         }
 
         protected override void OnSizeChanged(EventArgs e)
