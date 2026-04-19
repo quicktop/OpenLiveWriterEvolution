@@ -134,6 +134,19 @@ namespace OpenLiveWriter
 
         private static AutoRecoverPromptResult AutoRecoverPrompt(IWin32Window window, int count)
         {
+            try
+            {
+                return AutoRecoverPromptWithTaskDialog(window, count);
+            }
+            catch (Exception ex) when (ex is MissingMethodException || ex is EntryPointNotFoundException)
+            {
+                Trace.WriteLine("TaskDialog not available, using MessageBox fallback: " + ex.Message);
+                return AutoRecoverPromptFallback(window);
+            }
+        }
+
+        private static AutoRecoverPromptResult AutoRecoverPromptWithTaskDialog(IWin32Window window, int count)
+        {
             const int ID_RECOVER = 100,
                 ID_DISCARD = 101,
                 ID_ASKLATER = 2; // same as ID_CANCEL
@@ -149,7 +162,6 @@ namespace OpenLiveWriter
                 td.Content = string.Format(CultureInfo.CurrentCulture,
                                            Res.Get(StringId.AutoRecoverDialogContent),
                                            ApplicationEnvironment.ProductNameQualified);
-                //            td.MainIcon = TaskDialogIcon.Warning;
 
                 td.AllowDialogCancellation = true;
 
@@ -166,10 +178,6 @@ namespace OpenLiveWriter
                     case ID_RECOVER:
                         return AutoRecoverPromptResult.Recover;
                     case ID_DISCARD:
-                        // WinLive 225110 - Pass ActiveWin32Window here as owner instead of default ForegroundWin32Window
-                        // ForegroundWin32Window could return a window of an app that is in admin mode and if we are running
-                        // non-admin then trying to use that as parent for MessageBox would cause it to return 'No' without showing
-                        // the dialog.
                         if (DialogResult.Yes == DisplayMessage.Show(MessageId.AutoRecoverPromptDiscardConfirm, Win32WindowImpl.ActiveWin32Window))
                             return AutoRecoverPromptResult.Discard;
                         continue;
@@ -179,6 +187,25 @@ namespace OpenLiveWriter
                         Debug.Fail("Unknown ID " + result);
                         return AutoRecoverPromptResult.AskLater;
                 }
+            }
+        }
+
+        internal static AutoRecoverPromptResult AutoRecoverPromptFallback(IWin32Window window)
+        {
+            string message = string.Format(CultureInfo.CurrentCulture,
+                "{0} found auto-saved posts. Would you like to recover them?\n\nYes = Recover posts\nNo = Discard posts\nCancel = Ask later",
+                ApplicationEnvironment.ProductNameQualified);
+            DialogResult dr = MessageBox.Show(window as Form, message,
+                ApplicationEnvironment.ProductNameQualified,
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    return AutoRecoverPromptResult.Recover;
+                case DialogResult.No:
+                    return AutoRecoverPromptResult.Discard;
+                default:
+                    return AutoRecoverPromptResult.AskLater;
             }
         }
 
