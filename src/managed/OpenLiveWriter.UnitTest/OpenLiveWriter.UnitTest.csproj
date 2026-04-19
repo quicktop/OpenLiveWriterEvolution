@@ -135,6 +135,7 @@
     <Compile Include="PostEditor\NullRibbonControlTest.cs" />
     <Compile Include="BlogClient\PostDateTimezoneTest.cs" />
     <Compile Include="Controls\ImageCropMakeGrayTest.cs" />
+    <Compile Include="PostEditor\HtmlAltTextDecoratorTests.cs" />
     <Compile Include="SpellChecker\SpellCheckerInitializationTest.cs" />
   </ItemGroup>
   <ItemGroup>
