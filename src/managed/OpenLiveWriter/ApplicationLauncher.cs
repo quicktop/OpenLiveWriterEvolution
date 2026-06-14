@@ -32,7 +32,9 @@ namespace OpenLiveWriter
                     UpdateManager.CheckforUpdates();
 
                     // If the COM registration is not set up correctly, we won't be able to launch.
-                    RunningObjectTable.EnsureComRegistration();
+                    // Skip in portable mode — no registry writes allowed.
+                    if (!ApplicationEnvironment.IsPortableMode)
+                        RunningObjectTable.EnsureComRegistration();
 
                     // make sure blogging is configured before we proceed
                     if (EnsureBloggingConfigured(splashScreen))

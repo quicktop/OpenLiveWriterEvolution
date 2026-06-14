@@ -141,7 +141,8 @@ namespace OpenLiveWriter
                 InitializeApplicationEnvironment();
 
                 string downloadUrl = UpdateSettings.CheckForBetaUpdates ? UpdateSettings.BetaUpdateDownloadUrl : UpdateSettings.UpdateDownloadUrl;
-                RegisterSquirrelEventHandlers(downloadUrl);
+                if (!ApplicationEnvironment.IsPortableMode)
+                    RegisterSquirrelEventHandlers(downloadUrl);
                 
                 try
                 {
@@ -294,9 +295,9 @@ namespace OpenLiveWriter
                 TaskbarManager.Instance.ApplicationId = ApplicationEnvironment.TaskbarApplicationId;
 
             // Ensure the .wpost file association exists so the Jump List works correctly.
-            // This is normally set up during Squirrel install, but may be missing for
-            // xcopy/zip installs or if the registry entry was deleted.
-            EnsureWpostFileAssociation();
+            // Skip in portable mode — no registry writes allowed.
+            if (!ApplicationEnvironment.IsPortableMode)
+                EnsureWpostFileAssociation();
         }
 
         /// <summary>

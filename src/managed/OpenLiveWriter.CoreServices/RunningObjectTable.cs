@@ -128,14 +128,26 @@ namespace OpenLiveWriter.CoreServices
         {
             IMoniker mk = CreateMoniker(itemName);
 
-            // The ALLOW_ANY_CLIENT setting will be set to true if we've been launched via 'Run as administrator' at
-            // least once because this means we wrote the HKLM registry entries to allow passing the
-            // ROTFLAGS_ALLOWANYCLIENT flag.
-            var exeRegistrySettings = new RegistrySettingsPersister(Registry.CurrentUser, EXE_REGISTRY_PATH);
-            bool allowAnyClient = (bool)exeRegistrySettings.Get(ALLOW_ANY_CLIENT, typeof(bool), false);
-            int rotRegistrationFlags = allowAnyClient ?
-                (int)(RunningObjectTableFlags.RegistrationKeepsAlive | RunningObjectTableFlags.AllowAnyClient) :
-                (int)(RunningObjectTableFlags.RegistrationKeepsAlive);
+            int rotRegistrationFlags;
+            RegistrySettingsPersister exeRegistrySettings = null;
+
+            if (ApplicationEnvironment.IsPortableMode)
+            {
+                // In portable mode we never write COM AppID entries to the registry,
+                // so ROTFLAGS_ALLOWANYCLIENT is not available. Use basic registration only.
+                rotRegistrationFlags = (int)(RunningObjectTableFlags.RegistrationKeepsAlive);
+            }
+            else
+            {
+                // The ALLOW_ANY_CLIENT setting will be set to true if we've been launched via 'Run as administrator' at
+                // least once because this means we wrote the HKLM registry entries to allow passing the
+                // ROTFLAGS_ALLOWANYCLIENT flag.
+                exeRegistrySettings = new RegistrySettingsPersister(Registry.CurrentUser, EXE_REGISTRY_PATH);
+                bool allowAnyClient = (bool)exeRegistrySettings.Get(ALLOW_ANY_CLIENT, typeof(bool), false);
+                rotRegistrationFlags = allowAnyClient ?
+                    (int)(RunningObjectTableFlags.RegistrationKeepsAlive | RunningObjectTableFlags.AllowAnyClient) :
+                    (int)(RunningObjectTableFlags.RegistrationKeepsAlive);
+            }
 
             try
             {
@@ -147,7 +159,8 @@ namespace OpenLiveWriter.CoreServices
                 Trace.Fail("Exception thrown from IRunningObjectTable::Register: \r\n" + ex);
 
                 // If registration failed, try again without ROTFLAGS_ALLOWANYCLIENT because the AllowAnyClient setting might be out of date.
-                exeRegistrySettings.Set(ALLOW_ANY_CLIENT, false);
+                if (exeRegistrySettings != null)
+                    exeRegistrySettings.Set(ALLOW_ANY_CLIENT, false);
                 rotRegistrationFlags = (int)(RunningObjectTableFlags.RegistrationKeepsAlive);
                 int registration = _rot.Register(rotRegistrationFlags, obj, mk);
                 return new RegistrationHandle(this, registration);
