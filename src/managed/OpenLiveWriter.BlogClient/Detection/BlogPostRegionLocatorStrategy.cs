@@ -118,7 +118,17 @@ namespace OpenLiveWriter.BlogClient.Detection
             // Publish a temporary post so that we can examine HTML that will surround posts created with the editor
             temporaryPost = PostTemplate(new ProgressTick(progress, 25, 100));
             CheckCancelRequested(progress);
-            FetchTemporaryPostPage(progress, _blogHomepageUrl);
+
+            string targetUrl = _blogHomepageUrl;
+            if (temporaryPost != null && !string.IsNullOrEmpty(temporaryPost.Id) &&
+                string.Equals(_blogAccount.ClientType, "WordPress", StringComparison.OrdinalIgnoreCase))
+            {
+                var uri = new Uri(_blogHomepageUrl);
+                string separator = string.IsNullOrEmpty(uri.Query) ? "?" : "&";
+                targetUrl = _blogHomepageUrl.TrimEnd('/') + "/" + separator + "p=" + temporaryPost.Id;
+            }
+
+            FetchTemporaryPostPage(progress, targetUrl);
         }
 
         /// <summary>
