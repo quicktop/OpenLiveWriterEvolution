@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="OKButtonText" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>新增(&amp;D)...</value>
+  </data>
+  <data name="AddButton2" xml:space="preserve">
+    <value>新增(&amp;A)</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>使用者名稱：</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>使用者名稱(&amp;U)：</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼：</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>密碼(&amp;P)：</value>
+  </data>
+  <data name="RememberPassword" xml:space="preserve">
+    <value>記住我的密碼(&amp;R)</value>
+  </data>
+  <data name="ForgotMyPassword" xml:space="preserve">
+    <value>忘記我的密碼</value>
+  </data>
+  <data name="AboutAbout" xml:space="preserve">
+    <value>關於 {0}(&amp;T)</value>
+  </data>
+  <data name="AboutCopyright" xml:space="preserve">
+    <value>版權所有 © .NET Foundation。保留所有權利。</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="AccountPanel" xml:space="preserve">
+    <value>帳戶</value>
+  </data>
+  <data name="AddWeblogAccount" xml:space="preserve">
+    <value>新增部落格帳戶</value>
+  </data>
+  <data name="CWBasicHomepage" xml:space="preserve">
+    <value>部落格首頁網址(&amp;H)：</value>
+  </data>
+  <data name="CWBasicText" xml:space="preserve">
+    <value>若要使用 {0}，您必須擁有部落格服務的帳戶。如果您還沒有現有部落格服務的帳戶，請立即建立一個。</value>
+  </data>
+  <data name="CWBasicTitle" xml:space="preserve">
+    <value>設定 {0} 以搭配 {1} 使用</value>
+  </data>
+  <data name="CWBasicTitleDefaultService" xml:space="preserve">
+    <value>您的部落格</value>
+  </data>
+  <data name="CWConfirmFTPServer" xml:space="preserve">
+    <value>FTP 伺服器</value>
+  </data>
+  <data name="CWConfirmSwitchToWeblog" xml:space="preserve">
+    <value>立即切換到此部落格(&amp;S)</value>
+  </data>
+  <data name="CWConfirmText" xml:space="preserve">
+    <value>請確認您要儲存這些設定。</value>
+  </data>
+  <data name="CWConfirmThanks" xml:space="preserve">
+    <value>部落格設定成功！</value>
+  </data>
+  <data name="CWConfirmUploadSettings" xml:space="preserve">
+    <value>上傳圖片至：</value>
+  </data>
+  <data name="CWConfirmWeblogName" xml:space="preserve">
+    <value>部落格名稱</value>
+  </data>
+  <data name="CWSpacesUsername" xml:space="preserve">
+    <value>Microsoft 帳戶(&amp;M)：</value>
+  </data>
+</root>

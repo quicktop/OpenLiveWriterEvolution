@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Command.SavePost.CommandBarButtonText" xml:space="preserve">
+    <value>儲存草稿</value>
+  </data>
+  <data name="Command.SavePost.LabelDescription" xml:space="preserve">
+    <value>儲存此文章的本機草稿。</value>
+  </data>
+  <data name="Command.SavePost.LabelTitle" xml:space="preserve">
+    <value>儲存(&amp;S)</value>
+  </data>
+  <data name="Command.SavePost.MenuText" xml:space="preserve">
+    <value>儲存本機草稿(&amp;S)</value>
+  </data>
+  <data name="Command.SavePost.Text" xml:space="preserve">
+    <value>儲存本機草稿</value>
+  </data>
+  <data name="Command.SavePost.TooltipDescription" xml:space="preserve">
+    <value>儲存此文章的本機草稿。</value>
+  </data>
+  <data name="Command.SavePost.TooltipTitle" xml:space="preserve">
+    <value>儲存 (Ctrl+S)</value>
+  </data>
+  <data name="Command.AddWeblog.LabelTitle" xml:space="preserve">
+    <value>新增部落格帳戶(&amp;A)...</value>
+  </data>
+  <data name="Command.AddWeblog.MenuText" xml:space="preserve">
+    <value>新增部落格帳戶(&amp;A)...</value>
+  </data>
+  <data name="Command.AddWeblog.Text" xml:space="preserve">
+    <value>新增部落格帳戶...</value>
+  </data>
+  <data name="Command.AddWeblog.TooltipDescription" xml:space="preserve">
+    <value>在 Writer 中新增部落格帳戶。</value>
+  </data>
+  <data name="Command.AddWeblog.TooltipTitle" xml:space="preserve">
+    <value>新增部落格帳戶</value>
+  </data>
+  <data name="Command.Close.LabelTitle" xml:space="preserve">
+    <value>結束(&amp;X)</value>
+  </data>
+  <data name="Command.Close.MenuText" xml:space="preserve">
+    <value>關閉(&amp;C)</value>
+  </data>
+  <data name="Command.Close.Text" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Command.Close.TooltipDescription" xml:space="preserve">
+    <value>關閉 Open Live Writer。</value>
+  </data>
+  <data name="Command.Accounts.LabelTitle" xml:space="preserve">
+    <value>管理部落格帳戶(&amp;M)...</value>
+  </data>
+  <data name="Command.Accounts.MenuText" xml:space="preserve">
+    <value>帳戶(&amp;A)...</value>
+  </data>
+  <data name="Command.Accounts.TooltipDescription" xml:space="preserve">
+    <value>新增、移除及編輯部落格帳戶。</value>
+  </data>
+  <data name="Command.Accounts.TooltipTitle" xml:space="preserve">
+    <value>管理部落格帳戶</value>
+  </data>
+  <data name="Command.Bold.LabelTitle" xml:space="preserve">
+    <value>粗體</value>
+  </data>
+  <data name="Command.Bold.Text" xml:space="preserve">
+    <value>粗體</value>
+  </data>
+  <data name="Command.Bold.TooltipDescription" xml:space="preserve">
+    <value>將選取的文字設為粗體。</value>
+  </data>
+  <data name="Command.Bold.TooltipTitle" xml:space="preserve">
+    <value>粗體 (Ctrl+B)</value>
+  </data>
+  <data name="Command.Italic.LabelTitle" xml:space="preserve">
+    <value>斜體</value>
+  </data>
+  <data name="Command.Italic.Text" xml:space="preserve">
+    <value>斜體</value>
+  </data>
+  <data name="Command.Italic.TooltipDescription" xml:space="preserve">
+    <value>將選取的文字設為斜體。</value>
+  </data>
+  <data name="Command.Italic.TooltipTitle" xml:space="preserve">
+    <value>斜體 (Ctrl+I)</value>
+  </data>
+  <data name="Command.Underline.LabelTitle" xml:space="preserve">
+    <value>底線</value>
+  </data>
+  <data name="Command.Underline.Text" xml:space="preserve">
+    <value>底線</value>
+  </data>
+  <data name="Command.Underline.TooltipDescription" xml:space="preserve">
+    <value>將選取的文字套用底線。</value>
+  </data>
+  <data name="Command.Underline.TooltipTitle" xml:space="preserve">
+    <value>底線 (Ctrl+U)</value>
+  </data>
+  <data name="Command.Strikethrough.LabelTitle" xml:space="preserve">
+    <value>刪除線</value>
+  </data>
+  <data name="Command.Strikethrough.Text" xml:space="preserve">
+    <value>刪除線</value>
+  </data>
+  <data name="Command.Strikethrough.TooltipDescription" xml:space="preserve">
+    <value>將選取的文字套用刪除線。</value>
+  </data>
+  <data name="Command.Strikethrough.TooltipTitle" xml:space="preserve">
+    <value>刪除線</value>
+  </data>
+</root>
