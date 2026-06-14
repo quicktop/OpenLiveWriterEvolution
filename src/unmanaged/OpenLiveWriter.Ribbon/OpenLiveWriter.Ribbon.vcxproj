@@ -18,18 +18,18 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <!-- PlatformToolset: Use v143 (VS2022) as default, with fallback support for other versions -->
-  <!-- VS2019=v142, VS2022=v143, VS2026=v144. Override via command line: /p:PlatformToolset=v142 -->
+  <!-- PlatformToolset: Use v145 (VS2025) as default, with fallback support for other versions -->
+  <!-- VS2019=v142, VS2022=v143, VS2025=v145. Override via command line: /p:PlatformToolset=v143 -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset Condition="'$(PlatformToolset)'==''">v143</PlatformToolset>
+    <PlatformToolset Condition="'$(PlatformToolset)'==''">v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset Condition="'$(PlatformToolset)'==''">v143</PlatformToolset>
+    <PlatformToolset Condition="'$(PlatformToolset)'==''">v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

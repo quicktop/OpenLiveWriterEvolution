@@ -1,3 +1,6 @@
+## Distribution / portable build output
+dist/
+
 ## Ignore automatically generated files.
 src/managed/GlobalAssemblyVersionInfo.cs
 src/unmanaged/version.h
