@@ -936,6 +936,13 @@ namespace OpenLiveWriter.PostEditor
         }
         private void _currentEditor_TitleChanged(object sender, EventArgs e)
         {
+            if (_preserveSourceFormattingForRoundTrip &&
+                !_suppressNormalEditorChangeTracking &&
+                _currentEditor == _normalHtmlContentEditor)
+            {
+                _normalEditorChangedSinceSourceLoad = true;
+            }
+
             if (TitleChanged != null)
                 TitleChanged(this, e);
         }
@@ -1685,6 +1692,15 @@ namespace OpenLiveWriter.PostEditor
             if (contentEditor == null)
                 return;
 
+            bool switchingSourceToWysiwyg =
+                _currentEditor == _codeHtmlContentEditor &&
+                contentEditor == _normalHtmlContentEditor &&
+                CurrentEditingMode == EditingMode.Wysiwyg;
+            bool switchingWysiwygToSource =
+                _currentEditor == _normalHtmlContentEditor &&
+                contentEditor == _codeHtmlContentEditor &&
+                CurrentEditingMode == EditingMode.Source;
+
             // state to transfer from editor to editor (default if no existing editor)
             string htmlTitle = String.Empty;
             string htmlContents = String.Empty;
@@ -1707,11 +1723,33 @@ namespace OpenLiveWriter.PostEditor
                     componentContext.AfterInitialInsertion += new EventHandler(ContentEditor_AfterInitialInsertion);
                 }
 
-                htmlTitle = _currentEditor.GetEditedTitleHtml();
-                htmlContents = Body;
+                if (switchingWysiwygToSource &&
+                    _preserveSourceFormattingForRoundTrip &&
+                    !_normalEditorChangedSinceSourceLoad)
+                {
+                    htmlTitle = _sourceRoundTripTitle;
+                    htmlContents = _sourceRoundTripHtml;
+                }
+                else
+                {
+                    htmlTitle = _currentEditor.GetEditedTitleHtml();
+                    htmlContents = Body;
 
-                //refresh smart content HTML (deal with the case where user edits the content directly in the source editor)
-                htmlContents = SmartContentWorker.PerformOperation(htmlContents, GetStructuredEditorHtml, true, this, true);
+                    if (switchingSourceToWysiwyg)
+                    {
+                        _sourceRoundTripTitle = htmlTitle;
+                        _sourceRoundTripHtml = htmlContents;
+                        _preserveSourceFormattingForRoundTrip = true;
+                        _normalEditorChangedSinceSourceLoad = false;
+                    }
+                    else if (switchingWysiwygToSource)
+                    {
+                        _preserveSourceFormattingForRoundTrip = false;
+                    }
+
+                    //refresh smart content HTML (deal with the case where user edits the content directly in the source editor)
+                    htmlContents = SmartContentWorker.PerformOperation(htmlContents, GetStructuredEditorHtml, true, this, true);
+                }
                 isDirty = _currentEditor.IsDirty;
                 _currentEditor.EditorControl.Visible = false;
             }
@@ -1734,13 +1772,27 @@ namespace OpenLiveWriter.PostEditor
             _currentEditor.EditorControl.Visible = true;
             _currentEditor.EditorControl.BringToFront();
 
-            LoadEditorHtml(htmlTitle, htmlContents, _currentEditorAccount.HomepageBaseUrl, true);
+            _suppressNormalEditorChangeTracking = switchingSourceToWysiwyg;
+            try
+            {
+                LoadEditorHtml(htmlTitle, htmlContents, _currentEditorAccount.HomepageBaseUrl, true);
 
-            _currentEditor.IsDirty = isDirty;
+                _currentEditor.IsDirty = isDirty;
+            }
+            finally
+            {
+                _suppressNormalEditorChangeTracking = false;
+            }
 
             // set the focus in the editor
             _currentEditor.Focus();
         }
+
+        private bool _preserveSourceFormattingForRoundTrip;
+        private bool _normalEditorChangedSinceSourceLoad;
+        private bool _suppressNormalEditorChangeTracking;
+        private string _sourceRoundTripTitle;
+        private string _sourceRoundTripHtml;
 
         private int _makingInitialInsertion = 0;
         private void ContentEditor_AfterInitialInsertion(object sender, EventArgs e)
@@ -1840,6 +1892,14 @@ namespace OpenLiveWriter.PostEditor
 
         void editor_IsDirtyEvent(object sender, EventArgs e)
         {
+            if (_preserveSourceFormattingForRoundTrip &&
+                !_suppressNormalEditorChangeTracking &&
+                _currentEditor == _normalHtmlContentEditor &&
+                CurrentEditingMode == EditingMode.Wysiwyg)
+            {
+                _normalEditorChangedSinceSourceLoad = true;
+            }
+
             if (WordCountSettings.EnableRealTimeWordCount)
             {
                 wordCountTimer.Stop();
