@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Home Tab displays correctly
+﻿###Test Plan for Ensuring Home Tab displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer  | Open Live Writer Opens at Home Tab with last blog used selected in Publish area  |  |
+Open Live Writer Evolution  | Open Live Writer Evolution Opens at Home Tab with last blog used selected in Publish area  |  |
  **Clipboard** | | | 
 Hover on Clipboard | Nothing happens | | 
 Click on Clipboard | Nothing happens |  |  
@@ -114,7 +114,7 @@ Click on Find | Ensure Find dialog box is displayed | |
 Hover over Select All  | Message explaining Select All displayed | |
 Click on Select All | Ensure all contents in the blog post are selected | |
 **Home post display** | | |
-Open Live Writer  | Ensure empty blog post is displayed | |
+Open Live Writer Evolution  | Ensure empty blog post is displayed | |
 Click on Preview | Ensure empty blog post is displayed as if the blog post has been published | | 
 Click on source | Ensure blog post is displayed as html | | 
 Check lower left corner | Ensure Draft - Unsaved is displayed | |  

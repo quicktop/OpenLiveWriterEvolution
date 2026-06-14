@@ -1,62 +1,48 @@
-# Open Live Writer
-Open Live Writer makes it easy to write, preview, and post to your blog.
-For more information see http://www.OpenLiveWriter.com/.
+# Open Live Writer Evolution
+Open Live Writer Evolution makes it easy to write, preview, and post to your blog.
+This is a community-driven fork of Open Live Writer, focused on modern WordPress compatibility and long-term maintenance.
 
 ### Installation
-You can install the latest version of Open Live Writer alongside an [older version of Windows Live Writer](http://windows.microsoft.com/en-us/windows-live/essentials). Visit
-http://www.OpenLiveWriter.com to download and install the latest release.
+Clone or download this repository and build from source. See the **Building** section below.
 
 ### Latest News
-The current version of Open Live Writer is our first open source version.
-For a [list of known issues see GitHub](https://github.com/OpenLiveWriter/OpenLiveWriter/issues) or take a
-look at the [roadmap](roadmap.md) to see what the current plans are.
+OpenLiveWriterEvolution is an active fork of Open Live Writer with improvements including:
+- Fixed WordPress theme detection compatibility
+- Bug fixes in background color detection
+- Improved URL handling for modern WordPress sites
 
-For the latest news and updates about Open Live Writer, you can follow us on Twitter 
-([@OpenLiveWriter](https://twitter.com/OpenLiveWriter)), by keeping an eye on the website
- http://www.OpenLiveWriter.com or by watching this repo and subscribing to notifications.
+For a list of known issues or to report bugs, see the [Issues](https://github.com/quicktop/OpenLiveWriterEvolution/issues) page.
 
 ### Contributing
-Open Live Writer is an open source project and wouldn't exist without the passionate community of volunteer
-[contributors](https://github.com/OpenLiveWriter/OpenLiveWriter/graphs/contributors).
+Open Live Writer Evolution is an open source project and welcomes community contributions.
 If you would like to help out then please see the [Contributing](CONTRIBUTING.md) guide.
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/)
 to clarify expected behavior in our community.
-For more information see the [.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
 
 ### License
-Open Live Writer proudly uses the [MIT License](license.txt).
+Open Live Writer Evolution uses the [MIT License](license.txt).
 
 ### History
-The product that became Live Writer was originally created by a small, super-talented team of engineers including 
-JJ Allaire, Joe Cheng, Charles Teague, and Spike Washburn. The team was acquired by Microsoft 
+The product that became Live Writer was originally created by a small, super-talented team of engineers including
+JJ Allaire, Joe Cheng, Charles Teague, and Spike Washburn. The team was acquired by Microsoft
 in 2006 and organized with the Spaces team. Becky Pezely joined the team and over time, the team grew and shipped
 many popular releases of Windows Live Writer.
 
-As Microsoft was planning for the version of Windows Live that would coincide with Windows 8 operating system
-release, the teams that built the Windows Live client apps for Windows were encouraged to focus on building a 
-smaller set of Windows 8 apps designed to work well with both traditional PC input mechanisms and touch. 
-With the rise of micro-blogging platforms and other forms of sharing, eventually this team decided to conclude
-their work on Windows Live Writer with Windows Live Writer 2012.
+Microsoft concluded active development with Windows Live Writer 2012. In December 2015 Microsoft donated the code
+to the .NET Foundation, and the community released it as Open Live Writer.
 
-Even though there was no active development, Windows Live Writer continued to be a favorite tool of a passionate
-community of Windows PC users for authoring, editing, and publishing blog posts. Data from WordPress.com at the 
-time suggested that Windows Live Writer (even two years after active development ended) was the #1 app for authoring
-a blog post to WordPress.com from a Windows PC. 
-
-A few employees at Microsoft took an interest in reviving Live Writer as an open source project in their
-spare time.  By January 2015, a group of about a half-dozen engineers interested in spending some of their
-volunteer time to help release an updated version of Live Writer had found each other and began work on getting
-this open source fork of Live Writer formed and ready to ship. In December 2015 Microsoft donated the code
-to the .NET Foundation and this passionate group of volunteer engineers rapidly assembled the first open source
-version.
+Open Live Writer Evolution is a further fork of Open Live Writer, continuing development with a focus on
+modern blog platform compatibility, particularly WordPress.
 
 ### Building
-Open Live Writer can be built by running build.cmd found in this directory.   
-It can be opened in Visual Studio.  The solution is in src/managed/writer.sln -- if you see errors in Visual Studio run build.cmd from the command prompt and it should be resolved.
-The main program is src/managed/OpenLiveWriter/ApplicationMain.cs .
-To run from Visual Studio, set the startup project to OpenLiveWriter.
+Open Live Writer Evolution can be built by running `build.cmd` found in this directory.
+It can be opened in Visual Studio. The solution is in `src/managed/writer.sln` -- if you see errors in Visual Studio, run `build.cmd` from the command prompt first.
+The main program is `src/managed/OpenLiveWriter/ApplicationMain.cs`.
+To run from Visual Studio, set the startup project to `OpenLiveWriter`.
+
+**Prerequisites:** Visual Studio 2017 or later (or Build Tools for Visual Studio) with the .NET Framework 4.6.1 Developer Pack and Desktop development with C++ workload.
 
 ### .NET Foundation
 
-The Open Live Writer project is supported by the [.NET Foundation](http://www.dotnetfoundation.org).
+This project is based on code originally supported by the [.NET Foundation](http://www.dotnetfoundation.org).

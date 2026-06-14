@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Web Proxy tab works correctly
+﻿###Test Plan for Ensuring Web Proxy tab works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Web Proxy | Ensure Web Proxy dialog box matches below | |

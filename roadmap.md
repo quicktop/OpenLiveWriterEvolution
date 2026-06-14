@@ -1,51 +1,41 @@
-Below is a roadmap of potential Open Live Writer features and releases
+Below is a roadmap of Open Live Writer Evolution features and releases
 
-## v0.5 - Initial release
-First public release of Open Live Writer
+## Inherited from Open Live Writer
 
-#### Key use cases(s): 
-* **Blog content**: Publish a blog post with text + image
-* **Blog host platforms**: Publish to WordPress.com, hosted WordPress, and Blogger 
-* **OS Platform(s)**: Windows 10, time permitting, maybe Windows 7 and Windows 8
+### v0.6.3 (baseline)
+The version inherited from Open Live Writer at the time this fork was created.
 
-#### Specific features:
-* Update copyright statements
-* Remove code for wlw: protocol launcher
-* Verify and test existing error and crash reporting
+#### Features carried over:
+* Multi-platform blog support (WordPress, Blogger, TypePad, etc.)
+* WYSIWYG HTML editing via MSHTML
+* Image upload and management
+* Spell checking
+* Plugin extensibility
+* Multi-language support (70+ locales)
 
+---
 
-## v0.6 - Quick fixes
-Set of quick fixes to Open Live Writer addressing customer feedback and helping us get more customer feedback
-* Responses to customer feedback coming-in immediately after release
-* (If necessary) Additional telemetry to help diagnose potential issues
+## Open Live Writer Evolution Releases
 
+### v0.7 - WordPress Compatibility
+Focus on fixing WordPress-specific issues and modern site compatibility.
 
-## v1.0 - Feature Complete
-Close to feature parity with Windows Live Writer 
-* Support for multiple languages
-* Full test suite - important for making it easier to accept pull requests
+#### Bug fixes:
+* Fixed WordPress theme detection URL reconstruction (`about:` protocol handling)
+* Fixed URL handling to preserve port numbers when rebuilding post URLs
+* Removed debug artifact that wrote to hardcoded `c:\temp\docImage.png`
+* Fixed `Bitmap` memory leak in background color detection
 
-Full list of features/issues at:
+#### Compatibility:
+* WordPress Application Passwords supported out of the box (WordPress 5.6+)
+* Tested against WordPress 7.0 XML-RPC endpoint
 
-### Key use case(s):
-* **Blog content**: Publish a blog post with text, images, embedded video, embedded tweets, other popular embedded content
-* **Blog host platforms**: v0.5 plus TypePad, LiveJournal, and other popular blogging platforms 
-* **OS Platform(s)**: Windows 10, Windows 7 and Windows 8 depending on level of investment required
+### v0.8 - Modern Infrastructure (planned)
+* Upgrade to .NET Framework 4.8 or .NET 8
+* Replace MSHTML editor with WebView2
+* CI/CD improvements
 
-### Specific features:
-* Add Test Suite
-* Add find and replace functionality
-* Multiple languages
-
-
-## v1.0.1 - Minor bug fixes to feature complete release
-
-## v1.1 - Smaller New Features
-First release after v1.0 that includes new features
-* Azure Active Directory (AAD) support for authentication (#71)
-* Additional publishing targets
-  * Facebook status update
-  * Twitter status
-* Support for Markdown editing and previews
-
-## v2.0 - Major New Features
+### v1.0 - REST API Support (planned)
+* WordPress REST API client to replace XML-RPC
+* Full Gutenberg/block editor awareness
+* OAuth2 authentication support for WordPress.com

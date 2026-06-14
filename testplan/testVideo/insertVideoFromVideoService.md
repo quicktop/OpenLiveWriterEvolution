@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Video Dialog Boxes work correctly
+﻿###Test Plan for Ensuring Video Dialog Boxes work correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer |  |  |
+Open Live Writer Evolution |  |  |
 Click on Video | | | 
 Click on From Video Service | Ensure Insert Video Dialog box opens | |
 | Ensure From Video Service is open | |

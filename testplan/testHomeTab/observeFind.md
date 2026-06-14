@@ -1,7 +1,7 @@
-###Test Plan for Ensuring File Tab displays correctly
+﻿###Test Plan for Ensuring File Tab displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Live writer should be at home tab | | |
 Post should be a new blank post | | |
 Add a short post, include title and at least one paragraph | | 

@@ -1,7 +1,7 @@
-###Test Plan for Ensuring File Tab displays correctly
+﻿###Test Plan for Ensuring File Tab displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer  |   |  |
+Open Live Writer Evolution  |   |  |
 Click on File Tab |  The following are present | |
  | New Post   | | 
  | Open Local Draft  | |

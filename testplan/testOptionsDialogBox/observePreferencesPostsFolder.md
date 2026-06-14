@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Options Preferences dialog box displays correctly
+﻿###Test Plan for Ensuring Options Preferences dialog box displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Preferences | Ensure that the dialog box matches image below  | | *Note that this is the default when selecting options*

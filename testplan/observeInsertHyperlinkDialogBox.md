@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Insert Hyperlink displays correctly
+﻿###Test Plan for Ensuring Insert Hyperlink displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer  |   |  |
+Open Live Writer Evolution  |   |  |
 **Interact with dialog box and then hit cancel** |  | 
 Navigate to Insert Hyperlink |  |  | 
 Click on Hyperlink on Home Tab | | |

@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Insert Tab displays correctly
+﻿###Test Plan for Ensuring Insert Tab displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer  |   |  |
+Open Live Writer Evolution  |   |  |
 Click on Insert Tab | The following are present | |
  | **Breaks** | |
  | Horizonal Line | | 

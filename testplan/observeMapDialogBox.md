@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Insert Map dialog box works correctly
+﻿###Test Plan for Ensuring Insert Map dialog box works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer | | | 
+Open Live Writer Evolution | | | 
 Click on Insert | | |
 Click on Map | Observe the dialog box matches the below image | |
 Click on dropdown and select Road | Observe that dialog box displays a road map | |

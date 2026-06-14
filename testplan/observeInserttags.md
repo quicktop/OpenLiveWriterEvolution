@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Insert Tags dialog box works correctly
+﻿###Test Plan for Ensuring Insert Tags dialog box works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer | | | 
+Open Live Writer Evolution | | | 
 Click on Insert | | |
 Click on Post Tags | Ensure that Insert Tags dialog box matches image below  | | 
 Enter tags | Ensure tags display properly | | 

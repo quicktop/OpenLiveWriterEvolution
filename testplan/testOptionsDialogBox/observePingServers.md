@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Ping Servers tab works correctly
+﻿###Test Plan for Ensuring Ping Servers tab works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Ping Servers | Ensure Ping Servers dialog box matches below | |

@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Tags Options box works correctly
+﻿###Test Plan for Ensuring Tags Options box works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer | | | 
+Open Live Writer Evolution | | | 
 Click on Insert | | |
 Click on Post Tags | | | 
 Select (Customize Providers) | Ensure Tag Options | |

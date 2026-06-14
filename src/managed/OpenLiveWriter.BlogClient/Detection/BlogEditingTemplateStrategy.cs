@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -480,19 +479,11 @@ namespace OpenLiveWriter.BlogClient.Detection
             HtmlScreenCaptureCore screenCapture = new HtmlScreenCaptureCore(documentHtml, 800);
             DocumentSnapshotHandler snapshotHandler = new DocumentSnapshotHandler(divElement.id);
             screenCapture.HtmlDocumentAvailable += new HtmlDocumentAvailableHandlerCore(snapshotHandler.HtmlDocumentAvailable);
-            Bitmap docImage = screenCapture.CaptureHtml(3000);
-            using (Graphics g = Graphics.FromImage(docImage))
+            using (Bitmap docImage = screenCapture.CaptureHtml(3000))
             {
-                Rectangle rect = snapshotHandler.rect;
-                g.DrawRectangle(new Pen(Color.Blue, 1), rect);
+                Color c = docImage.GetPixel(snapshotHandler.rect.X + 5, snapshotHandler.rect.Y + 5);
+                return c;
             }
-            using (FileStream fs = new FileStream(@"c:\temp\docImage.png", FileMode.Create))
-            {
-                docImage.Save(fs, ImageFormat.Png);
-            }
-
-            Color c = docImage.GetPixel(snapshotHandler.rect.X + 5, snapshotHandler.rect.Y + 5);
-            return c;
         }
 
         private class DocumentSnapshotHandler

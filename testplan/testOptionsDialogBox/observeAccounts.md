@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Automatic Linking dialog box displays correctly
+﻿###Test Plan for Ensuring Automatic Linking dialog box displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Accounts | Ensure that Accounts tab is selected and matches below | |

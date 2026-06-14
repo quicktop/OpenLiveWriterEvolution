@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Options Preferences dialog box displays correctly
+﻿###Test Plan for Ensuring Options Preferences dialog box displays correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Preferences | Ensure that the dialog box matches image below  | | *Note that this is the default when selecting options*
@@ -79,7 +79,7 @@ Select "Close window after publishing" | | |
 Deselect all other check boxes | | | 
 Click OK | | |
 Write a blog post | | | 
-Publish | Observe Open Live Writer window closes after publishing  | | |  
+Publish | Observe Open Live Writer Evolution window closes after publishing  | | |  
 Click on File | | |
 Click on Options | | |
 Click on Preferences | | | Appears to be default behavior
@@ -88,7 +88,7 @@ Deselect "Close window after publishing" | | |
 Delect all other check boxes | | | 
 Click OK | | |
 Edit blog post | | | 
-Publish | Observe that Open Live Writer window remains  | | |  
+Publish | Observe that Open Live Writer Evolution window remains  | | |  
 | | | 
 Click on File | | |
 Click on Options | | |

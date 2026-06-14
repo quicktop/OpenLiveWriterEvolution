@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Plug-ins tab works correctly
+﻿###Test Plan for Ensuring Plug-ins tab works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Open Live Writer  |  |  |
+Open Open Live Writer Evolution  |  |  |
 Click on File | | | 
 Click on Options | | |
 Click on Plug-ins | Ensure that Plug-Ins Box is open | | 

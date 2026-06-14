@@ -1,4 +1,4 @@
-###Test Plan for Ensuring that OpenLiveWriter opens correctly
+﻿###Test Plan for Ensuring that OpenLiveWriter opens correctly
 Steps                 | Desired Results                | Complete | Comments
 ----------------------|--------------------------------|----------| --------
 OpenLiveWriter opens |  |   |
@@ -8,7 +8,7 @@ Observe top line  | OpenLiveWriter Icon |      |
   | Undo Icon |  |  
   | Redo Icon |  |
   | Down Arrow |  |
-  | Page Title reads Untitled - Open Live Writer |  |
+  | Page Title reads Untitled - Open Live Writer Evolution |  |
   | Minimize |  |
   | Maximize |  |
   | Close |  |

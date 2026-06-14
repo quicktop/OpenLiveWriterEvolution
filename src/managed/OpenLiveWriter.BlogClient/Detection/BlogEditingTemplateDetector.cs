@@ -584,20 +584,27 @@ namespace OpenLiveWriter.BlogClient.Detection
             //   - AND primaryTitleRegion is a link
             if (primaryTitleRegion != null && regions.BodyRegion == null && primaryTitleRegion.tagName.ToLower() == "a")
             {
-                // Title region was detected, but body region was not. 
+                // Title region was detected, but body region was not.
                 // It is possible that only titles are shown on the homepage
                 // Try requesting the post itself, and loading regions from the post itself
 
-                // HACK Somewhere the 'about:' protocol replaces http/https, replace it again with the correct protocol
-                var pathMatch = new Regex("^about:(.*)$").Match((primaryTitleRegion as IHTMLAnchorElement).href);
-                Debug.Assert(pathMatch.Success); // Assert that this URL is to the format we expect
-                var newPostPath = pathMatch.Groups[1].Value; // Grab the path from the URL
-                var homepageUri = new Uri(_blogHomepageUrl);
-                var newPostUrl = $"{homepageUri.Scheme}://{homepageUri.Host}{newPostPath}"; // Recreate the full post URL
+                // MSHTML sometimes rewrites URLs with 'about:' protocol; strip it to get the real path
+                var href = (primaryTitleRegion as IHTMLAnchorElement).href;
+                var pathMatch = new Regex("^about:(.*)$").Match(href);
+                var newPostPath = pathMatch.Success ? pathMatch.Groups[1].Value : href;
 
-                // Set the NextTryPostUrl flag in the region locater
-                // This will indicate to the other thread that another page should be parsed
-                _nextTryPostUrl = newPostUrl;
+                // If the extracted path is already an absolute URL, use it directly;
+                // otherwise reconstruct using the homepage host (use Authority to preserve port)
+                if (Uri.TryCreate(newPostPath, UriKind.Absolute, out Uri absolutePostUri))
+                {
+                    _nextTryPostUrl = absolutePostUri.ToString();
+                }
+                else
+                {
+                    var homepageUri = new Uri(_blogHomepageUrl);
+                    _nextTryPostUrl = $"{homepageUri.Scheme}://{homepageUri.Authority}/{newPostPath.TrimStart('/')}";
+                }
+
                 return null;
             }
 

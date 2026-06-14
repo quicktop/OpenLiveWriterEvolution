@@ -1,7 +1,7 @@
-#Test Plan for Ensuring that Plug-In Options works properly
+﻿#Test Plan for Ensuring that Plug-In Options works properly
 Steps                 | Desired Results                | Complete | Comments
 ----------------------|--------------------------------|----------| --------
-Open Live Writer | | |
+Open Live Writer Evolution | | |
 Click on Plug-in options | Ensure Options dialog box opens | |
 | Ensure that Plug-ins tab is selected | | 
 | Click Cancel | Ensure dialog box closes | | 

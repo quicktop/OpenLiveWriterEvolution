@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Add/Edit Tag Provider box works correctly
+﻿###Test Plan for Ensuring Add/Edit Tag Provider box works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer | | | 
+Open Live Writer Evolution | | | 
 Click on Insert | | |
 Click on Post Tags | | | 
 Select (Customize Providers) from Provider drop down | Ensure Tag Options dialog box opens | |

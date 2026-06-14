@@ -1,7 +1,7 @@
-###Test Plan for Ensuring Publish dialog box works correctly
+﻿###Test Plan for Ensuring Publish dialog box works correctly
 Steps                  | Desired Results                | Complete | Comments
 --------------------------|--------------------------------------------|----------| --------
-Open Live Writer  |   |  |
+Open Live Writer Evolution  |   |  |
 Click on File | | | 
 Click on Publish |  | | 
 Click on Yes | Publishing Your Post dialog box displayes | | 
