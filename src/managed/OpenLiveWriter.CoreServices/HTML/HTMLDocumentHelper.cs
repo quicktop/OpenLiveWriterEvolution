@@ -551,6 +551,15 @@ namespace OpenLiveWriter.CoreServices
             htmlDoc.write(html);
             htmlDoc.close();
 
+            // Wait for document to be ready to avoid NullReferenceException on subsequent element attribute manipulation
+            int readyTimeout = 0;
+            while (htmlDoc.readyState != "complete" && readyTimeout < 100)
+            {
+                System.Windows.Forms.Application.DoEvents();
+                System.Threading.Thread.Sleep(5);
+                readyTimeout++;
+            }
+
             if (escapeNonResourcePaths && baseUrl != null)
                 EscapeNonResourceRelativePaths(htmlDoc, baseUrl);
 
@@ -1339,23 +1348,33 @@ namespace OpenLiveWriter.CoreServices
 
         private static void ResetPath(string attributeName, IHTMLElement element, string baseUrl)
         {
-            // For this element, try to find the attribute containing a relative path
-            string relativePath = null;
-
-            Object pathObject = element.getAttribute(attributeName, HTMLAttributeFlags.DoNotEscapePaths);
-            if (pathObject != DBNull.Value)
+            try
             {
-                if (pathObject is String)
-                    relativePath = (string)pathObject;
+                if (element == null)
+                    return;
+
+                // For this element, try to find the attribute containing a relative path
+                string relativePath = null;
+
+                Object pathObject = element.getAttribute(attributeName, HTMLAttributeFlags.DoNotEscapePaths);
+                if (pathObject != null && pathObject != DBNull.Value)
+                {
+                    if (pathObject is String)
+                        relativePath = (string)pathObject;
+                }
+
+                // If a relative path was discovered and its not an internal anchor, reset it
+                if (relativePath != null && !relativePath.StartsWith("#", StringComparison.OrdinalIgnoreCase) && !UrlHelper.IsUrl(relativePath))
+                {
+                    // Reset the value of the attribute to the escaped Path
+                    element.setAttribute(attributeName,
+                    UrlHelper.EscapeRelativeURL(baseUrl, relativePath),
+                    HTMLAttributeFlags.CaseInSensitive);
+                }
             }
-
-            // If a relative path was discovered and its not an internal anchor, reset it
-            if (relativePath != null && !relativePath.StartsWith("#", StringComparison.OrdinalIgnoreCase) && !UrlHelper.IsUrl(relativePath))
+            catch (Exception ex)
             {
-                // Reset the value of the attribute to the escaped Path
-                element.setAttribute(attributeName,
-                UrlHelper.EscapeRelativeURL(baseUrl, relativePath),
-                HTMLAttributeFlags.CaseInSensitive);
+                Trace.WriteLine("Ignore exception during ResetPath: " + ex.ToString());
             }
         }
 

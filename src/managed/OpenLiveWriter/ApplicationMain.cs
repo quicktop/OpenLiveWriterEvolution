@@ -35,6 +35,11 @@ namespace OpenLiveWriter
         [STAThread]
         public static void Main(string[] args)
         {
+            // Force MSHTML to use IE11 rendering engine so that modern CSS (flexbox, grid,
+            // CSS variables, calc, etc.) works correctly in the editor and preview tabs.
+            // This must be done before any MSHTML component is initialized.
+            SetMshtmlBrowserEmulation();
+
             // WinLive 281407: Remove the current working directory from the dll search path
             // This prevents a rogue dll (wlidcli.dll) from being loaded while doing
             // something like opening a .wpost from a network location.
@@ -91,6 +96,26 @@ namespace OpenLiveWriter
         /// <summary>
         /// Initializes the Internet features that should be applied to the embedded browsers launched by this process.
         /// </summary>
+        private static void SetMshtmlBrowserEmulation()
+        {
+            // Tell MSHTML to use IE11 "Edge" rendering (value 11001) for this process.
+            // Without this, hosted MSHTML defaults to IE7 quirks mode and ignores modern CSS
+            // such as display:flex/grid, CSS variables, and calc().
+            // Must be called before any MSHTML component is created.
+            try
+            {
+                string exeName = System.IO.Path.GetFileName(
+                    System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+                const string keyPath = @"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION";
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    key?.SetValue(exeName, 11001, RegistryValueKind.DWord);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine("SetMshtmlBrowserEmulation failed: " + ex.Message);
+            }
+        }
+
         public static void InitInternetFeatures()
         {
             //Turn on Local Machine Lockdown mode.  This ensures HTML accidentally executed in the

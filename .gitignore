@@ -205,4 +205,4 @@ FakesAssemblies/
 
 #Visual Studio specific files
 *.VC.opendb
-*.VC.db
+*.VC.dbeditor_template_debug.html

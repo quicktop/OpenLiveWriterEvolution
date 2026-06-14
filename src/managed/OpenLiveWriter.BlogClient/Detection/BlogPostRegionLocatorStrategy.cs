@@ -227,12 +227,11 @@ namespace OpenLiveWriter.BlogClient.Detection
         private Stream DownloadBlogPage(string blogPageUrl, IProgressHost progress)
         {
             ProgressTick tick = new ProgressTick(progress, 50, 100);
-            IHTMLDocument2 doc2 = null;
             MemoryStream resultStream = null;
             // WinLive 221984: Theme detection timing out intermittently on WordPress.com
             // The temp post *often* takes more than a minute to show up on the blog home page.
             // The download progress dialog has a cancel button, we'll try a lot before giving up.
-            for (int i = 0; i < 30 && doc2 == null; i++)
+            for (int i = 0; i < 30 && resultStream == null; i++)
             {
                 if (progress.CancelRequested)
                     throw new OperationCancelledException();
@@ -246,27 +245,41 @@ namespace OpenLiveWriter.BlogClient.Detection
                 // Add random parameter to URL to bypass cache
                 var urlRandom = UrlHelper.AppendQueryParameters(blogPageUrl, new string[] { Guid.NewGuid().ToString() });
 
-                using (HttpWebResponse resp = _pageDownloader(urlRandom, 60000))
+                try
                 {
-                    MemoryStream memStream = new MemoryStream();
-                    using (Stream respStream = resp.GetResponseStream())
-                        StreamHelper.Transfer(respStream, memStream);
-
-                    //read in the HTML file and determine if it contains the title element
-                    memStream.Seek(0, SeekOrigin.Begin);
-                    doc2 = HTMLDocumentHelper.GetHTMLDocumentFromStream(memStream, urlRandom);
-                    if (HTMLDocumentHelper.FindElementContainingText(doc2, TEMPORARY_POST_TITLE_GUID) == null)
+                    using (HttpWebResponse resp = _pageDownloader(urlRandom, 60000))
                     {
-                        doc2 = null;
+                        MemoryStream memStream = new MemoryStream();
+                        using (Stream respStream = resp.GetResponseStream())
+                            StreamHelper.Transfer(respStream, memStream);
+
+                        //read in the HTML file and determine if it contains the title element
+                        memStream.Seek(0, SeekOrigin.Begin);
+                        string htmlContent;
+                        using (StreamReader reader = new StreamReader(memStream, Encoding.UTF8))
+                        {
+                            htmlContent = reader.ReadToEnd();
+                        }
+
+                        if (htmlContent.IndexOf(TEMPORARY_POST_TITLE_GUID, StringComparison.OrdinalIgnoreCase) != -1)
+                        {
+                            byte[] bytes = Encoding.UTF8.GetBytes(htmlContent);
+                            resultStream = new MemoryStream(bytes);
+                        }
+                        else
+                        {
+                            string snippet = htmlContent.Length > 500 ? htmlContent.Substring(0, 500) : htmlContent;
+                            Trace.WriteLine("Temporary post GUID not found in HTML. Url: " + urlRandom + " Snippet: " + snippet.Replace("\r", "").Replace("\n", " "));
+                        }
                         memStream.Dispose();
                     }
-                    else
-                    {
-                        resultStream = memStream;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("Exception during DownloadBlogPage: " + ex.ToString());
                 }
             }
-            if (doc2 == null)
+            if (resultStream == null)
             {
                 throw new OperationTimedOutException();
             }
@@ -376,7 +389,21 @@ namespace OpenLiveWriter.BlogClient.Detection
             if (normalizedTitleText.IndexOf(normalizedBodyText, StringComparison.CurrentCulture) != -1) //body text is a subset of the title text
                 throw new ArgumentException("Content text is not unique enough to use for style detection");
 
-            blogPageContents = DownloadBlogPage(_blogHomepageUrl, progress);
+            string targetUrl = _blogHomepageUrl;
+            if (mostRecentPost != null && !string.IsNullOrEmpty(mostRecentPost.Permalink) &&
+                Uri.TryCreate(mostRecentPost.Permalink, UriKind.Absolute, out Uri permalinkUri))
+            {
+                targetUrl = mostRecentPost.Permalink;
+            }
+            else if (mostRecentPost != null && !string.IsNullOrEmpty(mostRecentPost.Id) &&
+                     string.Equals(_blogAccount.ClientType, "WordPress", StringComparison.OrdinalIgnoreCase))
+            {
+                var uri = new Uri(_blogHomepageUrl);
+                string separator = string.IsNullOrEmpty(uri.Query) ? "?" : "&";
+                targetUrl = _blogHomepageUrl.TrimEnd('/') + "/" + separator + "p=" + mostRecentPost.Id;
+            }
+
+            blogPageContents = DownloadBlogPage(targetUrl, progress);
         }
 
         public override BlogPostRegions LocateRegionsOnUIThread(IProgressHost progress, string pageUrl)

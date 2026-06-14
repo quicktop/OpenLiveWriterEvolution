@@ -93,6 +93,9 @@ namespace OpenLiveWriter.PostEditor
             // initialize normal editor
             InitializeNormalEditor(postEditingSite, internetSecurityManager, templateStrategy, dlControlFlags);
 
+            // initialize Chromium/WebView2 preview editor
+            InitializePreviewEditor();
+
             // initialize source editor
             if (GlobalEditorOptions.SupportsFeature(ContentEditorFeature.SourceEditor))
                 InitializeSourceEditor();
@@ -213,6 +216,12 @@ namespace OpenLiveWriter.PostEditor
 
             // register the control
             RegisterEditor(_codeHtmlContentEditor);
+        }
+
+        private void InitializePreviewEditor()
+        {
+            _previewHtmlContentEditor = new BlogPostWebViewPreviewEditorControl(CommandManager);
+            RegisterEditor(_previewHtmlContentEditor);
         }
 
         protected Command[] _views;
@@ -708,6 +717,12 @@ namespace OpenLiveWriter.PostEditor
             UnregisterEditor(_normalHtmlContentEditor);
             DisposeHtmlEditor(_normalHtmlContentEditor);
 
+            if (_previewHtmlContentEditor != null)
+            {
+                UnregisterEditor(_previewHtmlContentEditor);
+                _previewHtmlContentEditor.Dispose();
+            }
+
             if (_codeHtmlContentEditor != null)
             {
                 UnregisterEditor(_codeHtmlContentEditor);
@@ -812,6 +827,8 @@ namespace OpenLiveWriter.PostEditor
 
             //update editing context of the editors
             _normalHtmlContentEditor.UpdateEditingContext();
+            if (_previewHtmlContentEditor != null)
+                _previewHtmlContentEditor.UpdateEditingContext();
             if (_codeHtmlContentEditor != null)
                 _codeHtmlContentEditor.UpdateEditingContext();
         }
@@ -1231,7 +1248,13 @@ namespace OpenLiveWriter.PostEditor
                 bool isDirty = _currentEditor.IsDirty;
 
                 if (CurrentEditingMode == EditingMode.Preview)
+                {
+                    BlogPostWebViewPreviewEditorControl previewEditor = _currentEditor as BlogPostWebViewPreviewEditorControl;
+                    if (previewEditor != null)
+                        previewEditor.SetPostHtmlSnapshot(title, html);
+
                     UpdateHtmlForPreview(ref html);
+                }
                 else if (CurrentEditingMode == EditingMode.PlainText)
                 {
                     UpdateHtmlForPlainText(ref html, false);
@@ -1679,6 +1702,10 @@ namespace OpenLiveWriter.PostEditor
             switch (CurrentEditingMode)
             {
                 case EditingMode.Preview:
+                    contentEditor = BlogPostWebViewPreviewEditorControl.IsRuntimeAvailable()
+                                        ? (IBlogPostHtmlEditor)_previewHtmlContentEditor
+                                        : _normalHtmlContentEditor;
+                    break;
                 case EditingMode.Wysiwyg:
                 case EditingMode.PlainText:
                     contentEditor = _normalHtmlContentEditor;
@@ -2915,6 +2942,7 @@ namespace OpenLiveWriter.PostEditor
         protected BlogPostHtmlEditorControl _normalHtmlContentEditor;
         protected HtmlEditorSidebarHost _htmlEditorSidebarHost;
         private BlogPostHtmlSourceEditorControl _codeHtmlContentEditor;
+        private BlogPostWebViewPreviewEditorControl _previewHtmlContentEditor;
 
         List<IDisposable> _itemsToDisposeOnEditorClose = new List<IDisposable>();
 

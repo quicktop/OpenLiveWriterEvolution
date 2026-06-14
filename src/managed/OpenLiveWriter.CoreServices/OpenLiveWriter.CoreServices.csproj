@@ -161,6 +161,7 @@
     <Compile Include="HTML\HtmlCleaner.cs" />
     <Compile Include="HTML\HTMLColorHelper.cs" />
     <Compile Include="HTML\HTMLCombiner.cs" />
+    <Compile Include="HTML\CssFlexGridRewriter.cs" />
     <Compile Include="HTML\HTMLDocumentHelper.cs" />
     <Compile Include="HTML\HTMLElementHelper.cs" />
     <Compile Include="HTML\HTMLMetaData.cs" />

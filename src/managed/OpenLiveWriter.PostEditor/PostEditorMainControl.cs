@@ -1239,7 +1239,6 @@ namespace OpenLiveWriter.PostEditor
 
                         if (templates.Length != 0)
                         {
-                            editSettings.EditorTemplateHtmlFiles = templates;
                             if (backgroundColor != null)
                             {
                                 IDictionary hpo = settings.HomePageOverrides ?? new Hashtable();
@@ -1248,6 +1247,7 @@ namespace OpenLiveWriter.PostEditor
 
                                 settings.HomePageOverrides = hpo;
                             }
+                            editSettings.EditorTemplateHtmlFiles = templates;
                             FireWeblogSettingsChangedEvent(blogID, true);
                             return true;
                         }

@@ -22,7 +22,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
     /// </summary>
     public class PostHtmlEditingSettings : IDisposable
     {
-        public static string UA_COMPATIBLE_STRING = "IE=EmulateIE9";
+        public static string UA_COMPATIBLE_STRING = "IE=11";
 
         private string _blogId;
         public PostHtmlEditingSettings(string blogId)
@@ -98,9 +98,9 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             // Sometimes templateHtmlFile is relative, sometimes it is already absolute (from older builds).
             templateHtmlFile = MakeAbsolute(templateHtmlFile);
 
+            string templateHtml;
             if (templateHtmlFile != null && File.Exists(templateHtmlFile))
             {
-                string templateHtml;
                 using (StreamReader reader = new StreamReader(templateHtmlFile, Encoding.UTF8))
                     templateHtml = reader.ReadToEnd();
 
@@ -120,6 +120,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
                     }
                     templateHtml = templateHtml.Replace(origPath, newUri);
                 }
+                templateHtml = Regex.Replace(templateHtml, @"\bmedia=([""'])not all\1", "media=$1all$1", RegexOptions.IgnoreCase);
 
                 /* Parse meta tags in order to set MSHTML emulation for IE9
                    As of Internet Explorer 10, support for element behaviors have been removed.
@@ -142,22 +143,24 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
                 } else
                 {
                     // Prepend meta tag for IE9 emulation
-                    int i = templateHtml.IndexOf("<HEAD>", StringComparison.OrdinalIgnoreCase);
-                    if (i > 0)
+                    Match headMatch = Regex.Match(templateHtml, @"<head\b[^>]*>", RegexOptions.IgnoreCase);
+                    if (headMatch.Success)
                     {
-                        templateHtml = (templateHtml.Substring(0, i + 6)
-                                        + $"<meta http-equiv=\"X-UA-Compatible\" content=\"{UA_COMPATIBLE_STRING}\" />"
-                                        + templateHtml.Substring(i + 6));
+                        templateHtml = templateHtml.Insert(headMatch.Index + headMatch.Length,
+                                        $"<meta http-equiv=\"X-UA-Compatible\" content=\"{UA_COMPATIBLE_STRING}\" />");
                     }
                 }
-
-
-                return templateHtml;
             }
             else
             {
-                return BlogEditingTemplate.GetDefaultTemplateHtml(forceRTL, templateType != BlogEditingTemplateType.Normal);
+                templateHtml = BlogEditingTemplate.GetDefaultTemplateHtml(forceRTL, templateType != BlogEditingTemplateType.Normal);
             }
+
+            // IE11 supports flexbox and grid natively; no CSS emulation needed.
+            // Just ensure the media="not all" workaround from theme detection is lifted.
+            // (RewriteStyleBlocks is a no-op now — media attribute replacement was already applied above.)
+
+            return templateHtml;
         }
 
         private string MakeAbsolute(string templateHtmlFile)

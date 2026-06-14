@@ -5,6 +5,7 @@ using mshtml;
 using OpenLiveWriter.BlogClient.Clients;
 using OpenLiveWriter.Controls;
 using OpenLiveWriter.CoreServices;
+using OpenLiveWriter.CoreServices.HTML;
 using OpenLiveWriter.CoreServices.Progress;
 using OpenLiveWriter.Extensibility.BlogClient;
 using OpenLiveWriter.Localization;
@@ -282,7 +283,7 @@ namespace OpenLiveWriter.BlogClient.Detection
                         if (BlogEditingTemplate.ValidateTemplate(webLayoutTemplate))
                         {
                             // download supporting files
-                            string templateFile = DownloadTemplateFiles(webLayoutTemplate, _blogHomepageUrl, new ProgressTick(progress, 20, 100));
+                            string templateFile = DownloadTemplateFiles(webLayoutTemplate, _blogHomepageUrl, new ProgressTick(progress, 20, 100), BlogEditingTemplateType.Framed);
 
                             // return the template
                             templateFiles.FramedTemplate = new BlogEditingTemplateFile(BlogEditingTemplateType.Framed, templateFile);
@@ -299,7 +300,7 @@ namespace OpenLiveWriter.BlogClient.Detection
                         if (BlogEditingTemplate.ValidateTemplate(webPreviewTemplate))
                         {
                             // download supporting files
-                            string templateFile = DownloadTemplateFiles(webPreviewTemplate, _blogHomepageUrl, new ProgressTick(progress, 20, 100));
+                            string templateFile = DownloadTemplateFiles(webPreviewTemplate, _blogHomepageUrl, new ProgressTick(progress, 20, 100), BlogEditingTemplateType.Webpage);
 
                             // return the template
                             templateFiles.WebPageTemplate = new BlogEditingTemplateFile(BlogEditingTemplateType.Webpage, templateFile);
@@ -487,7 +488,7 @@ namespace OpenLiveWriter.BlogClient.Detection
                         string baseUrl = HTMLDocumentHelper.GetBaseUrl(editingTemplate, _blogHomepageUrl);
 
                         // Download the template stylesheets and embedded resources (this lets the editing template load faster..and works offline!)
-                        string templateFile = DownloadTemplateFiles(editingTemplate, baseUrl, new ProgressTick(parseTick, 4, 5));
+                        string templateFile = DownloadTemplateFiles_OnUIThread(_parentControl, editingTemplate, baseUrl, new ProgressTick(parseTick, 4, 5), templateTypes[i]);
                         templateFiles.Add(new BlogEditingTemplateFile(templateTypes[i], templateFile));
 
                     }
@@ -571,6 +572,18 @@ namespace OpenLiveWriter.BlogClient.Detection
         }
         private delegate BlogEditingTemplate TemplateParser(BlogPostRegionLocatorStrategy regionLocator, IProgressHost progress, string postUrl);
 
+        private string DownloadTemplateFiles_OnUIThread(Control uiContext, string templateContents, string templateUrl, IProgressHost progress, BlogEditingTemplateType templateType)
+        {
+            return (string)uiContext.Invoke(
+                new DownloadTemplateDelegate(DownloadTemplateFiles), 
+                new object[] {
+                    templateContents,
+                    templateUrl,
+                    progress,
+                    templateType });
+        }
+        private delegate string DownloadTemplateDelegate(string templateContents, string templateUrl, IProgressHost progress, BlogEditingTemplateType templateType);
+
         private BlogEditingTemplate ParseBlogPostIntoTemplate(BlogPostRegionLocatorStrategy regionLocator, IProgressHost progress, string postUrl)
         {
             progress.UpdateProgress(Res.Get(StringId.ProgressCreatingEditingTemplate));
@@ -624,6 +637,9 @@ namespace OpenLiveWriter.BlogClient.Detection
             if (regions.BodyRegion == null)
                 throw new Exception("Unable to locate post body region.");
 
+            if (IsWordPressBlog())
+                WordPressThemeSanitizer.Clean(regions.Document, primaryTitleRegion, regions.BodyRegion);
+
             BlogEditingTemplate template = GenerateBlogTemplate((IHTMLDocument3)regions.Document, primaryTitleRegion, regions.TitleRegions, regions.BodyRegion);
 
             progress.UpdateProgress(100, 100);
@@ -639,6 +655,9 @@ namespace OpenLiveWriter.BlogClient.Detection
         /// <returns>The title region in closest proximity to the post body element.</returns>
         protected static IHTMLElement GetPrimaryEditableTitleElement(IHTMLElement bodyElement, IHTMLDocument doc, IHTMLElement[] titleElements)
         {
+            if (bodyElement == null || titleElements == null || titleElements.Length == 0)
+                return titleElements != null && titleElements.Length > 0 ? titleElements[0] : null;
+
             IHTMLDocument2 doc2 = (IHTMLDocument2)doc;
             IHTMLElement titleElement = titleElements[0];
             if (titleElements.Length > 1)
@@ -680,7 +699,7 @@ namespace OpenLiveWriter.BlogClient.Detection
             return titleElement;
         }
 
-        private string DownloadTemplateFiles(string templateContents, string templateUrl, IProgressHost progress)
+        private string DownloadTemplateFiles(string templateContents, string templateUrl, IProgressHost progress, BlogEditingTemplateType templateType)
         {
             progress.UpdateProgress(Res.Get(StringId.ProgressDownloadingSupportingFiles));
             FileBasedSiteStorage files = new FileBasedSiteStorage(_blogTemplateDir);
@@ -727,6 +746,14 @@ namespace OpenLiveWriter.BlogClient.Detection
                 //fix up the files
                 FixupDownloadedFiles(blogTemplateFile, files, downloader.PathToken);
 
+                if (ShouldRewriteCssForMshtml(templateType))
+                {
+                    // Rewrite flex/grid CSS in downloaded stylesheets for IE9-mode MSHTML edit templates.
+                    // Webpage preview templates are loaded by WebView2 when available and should keep original CSS.
+                    foreach (string cssFile in Directory.GetFiles(_blogTemplateDir, "*.css", SearchOption.AllDirectories))
+                        CssFlexGridRewriter.RewriteFile(cssFile);
+                }
+
                 //complete the progress.
                 progress.UpdateProgress(100, 100);
 
@@ -749,6 +776,172 @@ namespace OpenLiveWriter.BlogClient.Detection
         private BlogEditingTemplate GenerateBlogTemplate(IHTMLDocument3 doc, IHTMLElement titleElement, IHTMLElement[] allTitleElements, IHTMLElement bodyElement)
         {
             return templateStrategy.GenerateBlogTemplate(doc, titleElement, allTitleElements, bodyElement);
+        }
+
+        private static bool ShouldRewriteCssForMshtml(BlogEditingTemplateType templateType)
+        {
+            return templateType != BlogEditingTemplateType.Webpage;
+        }
+
+        private bool IsWordPressBlog()
+        {
+            return _blogAccount != null &&
+                   string.Equals(_blogAccount.ClientType, "WordPress", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static class WordPressThemeSanitizer
+        {
+            private static readonly string[] PluginAssetPathMarkers =
+            {
+                "/wp-content/plugins/",
+                "\\/wp-content\\/plugins\\/"
+            };
+
+            private static readonly string[] PluginDomMarkers =
+            {
+                "addtoany", "adsbygoogle", "cookie", "gdpr", "jetpack", "newsletter",
+                "popup", "share", "sharing", "social", "subscribe", "wpcf7", "wpforms"
+            };
+
+            public static void Clean(IHTMLDocument document, IHTMLElement titleElement, IHTMLElement bodyElement)
+            {
+                try
+                {
+                    IHTMLDocument2 doc2 = document as IHTMLDocument2;
+                    IHTMLDocument3 doc3 = document as IHTMLDocument3;
+                    if (doc2 == null || doc3 == null)
+                        return;
+
+                    RemovePluginAssets(doc3);
+                    RemovePluginDomNoise(doc3, titleElement, bodyElement);
+                }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("WordPress theme sanitizer failed: " + ex);
+                }
+            }
+
+            private static void RemovePluginAssets(IHTMLDocument3 doc)
+            {
+                RemoveMatchingElements(doc.getElementsByTagName("script"), IsPluginAssetElement);
+                RemoveMatchingElements(doc.getElementsByTagName("link"), IsPluginAssetElement);
+                RemoveMatchingElements(doc.getElementsByTagName("style"), IsPluginAssetElement);
+            }
+
+            private static bool IsPluginAssetElement(IHTMLElement element)
+            {
+                string value = GetAttribute(element, "src") + " " +
+                               GetAttribute(element, "href") + " " +
+                               GetAttribute(element, "id");
+                return ContainsAny(value, PluginAssetPathMarkers) ||
+                       (ContainsAny(value, PluginDomMarkers) && ContainsAny(value, new[] { "-css", "-js", "_css", "_js" }));
+            }
+
+            private static void RemovePluginDomNoise(IHTMLDocument3 doc, IHTMLElement titleElement, IHTMLElement bodyElement)
+            {
+                IHTMLElementCollection all = doc.getElementsByTagName("*");
+                ArrayList removeList = new ArrayList();
+
+                foreach (IHTMLElement element in all)
+                {
+                    if (element == null || IsProtectedElement(element, titleElement, bodyElement))
+                        continue;
+
+                    string tagName = element.tagName ?? string.Empty;
+                    if (!IsBodyNoiseCandidate(tagName))
+                        continue;
+
+                    string markerText = GetAttribute(element, "id") + " " +
+                                        GetAttribute(element, "className") + " " +
+                                        GetAttribute(element, "role") + " " +
+                                        GetAttribute(element, "data-plugin") + " " +
+                                        GetAttribute(element, "data-name");
+
+                    if (ContainsAny(markerText, PluginDomMarkers))
+                        removeList.Add(element);
+                }
+
+                foreach (IHTMLElement element in removeList)
+                    HTMLElementHelper.RemoveElement(element);
+            }
+
+            private static bool IsBodyNoiseCandidate(string tagName)
+            {
+                return string.Equals(tagName, "DIV", StringComparison.OrdinalIgnoreCase) ||
+                       string.Equals(tagName, "ASIDE", StringComparison.OrdinalIgnoreCase) ||
+                       string.Equals(tagName, "SECTION", StringComparison.OrdinalIgnoreCase) ||
+                       string.Equals(tagName, "IFRAME", StringComparison.OrdinalIgnoreCase) ||
+                       string.Equals(tagName, "FORM", StringComparison.OrdinalIgnoreCase);
+            }
+
+            private static bool IsProtectedElement(IHTMLElement element, IHTMLElement titleElement, IHTMLElement bodyElement)
+            {
+                return IsSameOrAncestor(element, titleElement) ||
+                       IsSameOrAncestor(element, bodyElement) ||
+                       IsSameOrDescendant(element, titleElement) ||
+                       IsSameOrDescendant(element, bodyElement);
+            }
+
+            private static bool IsSameOrAncestor(IHTMLElement candidate, IHTMLElement element)
+            {
+                while (element != null)
+                {
+                    if (candidate.sourceIndex == element.sourceIndex)
+                        return true;
+                    element = element.parentElement;
+                }
+                return false;
+            }
+
+            private static bool IsSameOrDescendant(IHTMLElement candidate, IHTMLElement element)
+            {
+                while (candidate != null)
+                {
+                    if (candidate.sourceIndex == element.sourceIndex)
+                        return true;
+                    candidate = candidate.parentElement;
+                }
+                return false;
+            }
+
+            private static void RemoveMatchingElements(IHTMLElementCollection elements, Predicate<IHTMLElement> predicate)
+            {
+                ArrayList removeList = new ArrayList();
+                foreach (IHTMLElement element in elements)
+                {
+                    if (predicate(element))
+                        removeList.Add(element);
+                }
+
+                foreach (IHTMLElement element in removeList)
+                    HTMLElementHelper.RemoveElement(element);
+            }
+
+            private static string GetAttribute(IHTMLElement element, string name)
+            {
+                try
+                {
+                    object value = element.getAttribute(name, 0);
+                    return value == null || value == DBNull.Value ? string.Empty : value.ToString();
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+
+            private static bool ContainsAny(string value, string[] needles)
+            {
+                if (string.IsNullOrEmpty(value))
+                    return false;
+
+                foreach (string needle in needles)
+                {
+                    if (value.IndexOf(needle, StringComparison.OrdinalIgnoreCase) >= 0)
+                        return true;
+                }
+                return false;
+            }
         }
 
         BlogEditingTemplateStrategy templateStrategy = BlogEditingTemplateStrategies.GetTemplateStrategy(BlogEditingTemplateStrategies.StrategyType.FramedWysiwyg);
