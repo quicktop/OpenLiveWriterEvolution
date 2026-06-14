@@ -124,6 +124,6 @@ if (-Not (Test-Path env:OLW_CONFIG))
 =======================================================
 "@
 Get-Date
-$buildCommand = "`"$msBuildExe`" $solutionFile /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
+$buildCommand = "`"$msBuildExe`" `"$solutionFile`" /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
 "Running build command '$buildCommand'"
 Invoke-Expression "& $buildCommand"
