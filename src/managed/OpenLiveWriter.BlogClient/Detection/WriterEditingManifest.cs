@@ -89,18 +89,20 @@ namespace OpenLiveWriter.BlogClient.Detection
                 catch (WebException ex)
                 {
                     // Not modified -- return ONLY an updated downloadInfo (not a document)
-                    HttpWebResponse errorResponse = ex.Response as HttpWebResponse;
-                    if (errorResponse != null && errorResponse.StatusCode == HttpStatusCode.NotModified)
+                    using (HttpWebResponse errorResponse = ex.Response as HttpWebResponse)
                     {
-                        return new WriterEditingManifest(
-                            new WriterEditingManifestDownloadInfo(
-                                downloadInfo.SourceUrl,
-                                HttpRequestHelper.GetExpiresHeader(errorResponse),
-                                downloadInfo.LastModified,
-                                HttpRequestHelper.GetETagHeader(errorResponse)));
+                        if (errorResponse != null && errorResponse.StatusCode == HttpStatusCode.NotModified)
+                        {
+                            return new WriterEditingManifest(
+                                new WriterEditingManifestDownloadInfo(
+                                    downloadInfo.SourceUrl,
+                                    HttpRequestHelper.GetExpiresHeader(errorResponse),
+                                    downloadInfo.LastModified,
+                                    HttpRequestHelper.GetETagHeader(errorResponse)));
+                        }
+                        else
+                            throw;
                     }
-                    else
-                        throw;
                 }
 
                 // read headers
@@ -108,18 +110,21 @@ namespace OpenLiveWriter.BlogClient.Detection
                 DateTime lastModified = response.LastModified;
                 string eTag = HttpRequestHelper.GetETagHeader(response);
 
-                // read document
-                using (Stream stream = response.GetResponseStream())
+                using (response)
                 {
-                    XmlDocument manifestXmlDocument = new XmlDocument();
-                    manifestXmlDocument.Load(stream);
+                    // read document
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        XmlDocument manifestXmlDocument = new XmlDocument();
+                        manifestXmlDocument.Load(stream);
 
-                    // return the manifest
-                    return new WriterEditingManifest(
-                        new WriterEditingManifestDownloadInfo(downloadInfo.SourceUrl, expires, lastModified, eTag),
-                        manifestXmlDocument,
-                        blogClient,
-                        credentials);
+                        // return the manifest
+                        return new WriterEditingManifest(
+                            new WriterEditingManifestDownloadInfo(downloadInfo.SourceUrl, expires, lastModified, eTag),
+                            manifestXmlDocument,
+                            blogClient,
+                            credentials);
+                    }
                 }
             }
             catch (Exception ex)

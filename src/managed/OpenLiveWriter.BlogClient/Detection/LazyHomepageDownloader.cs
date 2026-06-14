@@ -59,7 +59,8 @@ namespace OpenLiveWriter.BlogClient.Detection
                 {
                     try
                     {
-                        using (Stream homepageStream = _requestHandler(_homepageUrl, 5000, null).GetResponseStream())
+                        using (HttpWebResponse response = _requestHandler(_homepageUrl, 5000, null))
+                        using (Stream homepageStream = response.GetResponseStream())
                         {
                             if (homepageStream != null)
                                 _rawBytes = StreamHelper.AsBytes(homepageStream);

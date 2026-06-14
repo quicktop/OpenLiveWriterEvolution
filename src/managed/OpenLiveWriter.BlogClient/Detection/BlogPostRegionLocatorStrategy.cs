@@ -217,8 +217,8 @@ namespace OpenLiveWriter.BlogClient.Detection
         private Stream DownloadBlogPage(string blogPageUrl, IProgressHost progress)
         {
             ProgressTick tick = new ProgressTick(progress, 50, 100);
-            MemoryStream memStream = new MemoryStream();
             IHTMLDocument2 doc2 = null;
+            MemoryStream resultStream = null;
             // WinLive 221984: Theme detection timing out intermittently on WordPress.com
             // The temp post *often* takes more than a minute to show up on the blog home page.
             // The download progress dialog has a cancel button, we'll try a lot before giving up.
@@ -236,16 +236,25 @@ namespace OpenLiveWriter.BlogClient.Detection
                 // Add random parameter to URL to bypass cache
                 var urlRandom = UrlHelper.AppendQueryParameters(blogPageUrl, new string[] { Guid.NewGuid().ToString() });
 
-                HttpWebResponse resp = _pageDownloader(urlRandom, 60000);
-                memStream = new MemoryStream();
-                using (Stream respStream = resp.GetResponseStream())
-                    StreamHelper.Transfer(respStream, memStream);
+                using (HttpWebResponse resp = _pageDownloader(urlRandom, 60000))
+                {
+                    MemoryStream memStream = new MemoryStream();
+                    using (Stream respStream = resp.GetResponseStream())
+                        StreamHelper.Transfer(respStream, memStream);
 
-                //read in the HTML file and determine if it contains the title element
-                memStream.Seek(0, SeekOrigin.Begin);
-                doc2 = HTMLDocumentHelper.GetHTMLDocumentFromStream(memStream, urlRandom);
-                if (HTMLDocumentHelper.FindElementContainingText(doc2, TEMPORARY_POST_TITLE_GUID) == null)
-                    doc2 = null;
+                    //read in the HTML file and determine if it contains the title element
+                    memStream.Seek(0, SeekOrigin.Begin);
+                    doc2 = HTMLDocumentHelper.GetHTMLDocumentFromStream(memStream, urlRandom);
+                    if (HTMLDocumentHelper.FindElementContainingText(doc2, TEMPORARY_POST_TITLE_GUID) == null)
+                    {
+                        doc2 = null;
+                        memStream.Dispose();
+                    }
+                    else
+                    {
+                        resultStream = memStream;
+                    }
+                }
             }
             if (doc2 == null)
             {
@@ -254,8 +263,8 @@ namespace OpenLiveWriter.BlogClient.Detection
             tick.UpdateProgress(100, 100);
 
             //return the stream
-            memStream.Seek(0, SeekOrigin.Begin);
-            return memStream;
+            resultStream.Seek(0, SeekOrigin.Begin);
+            return resultStream;
 
         }
 
@@ -551,10 +560,12 @@ namespace OpenLiveWriter.BlogClient.Detection
                 throw new OperationCancelledException();
             tick.UpdateProgress(0, 0, Res.Get(StringId.ProgressDownloadingWeblogEditingStyle));
 
-            HttpWebResponse resp = _pageDownloader(blogHomepageUrl, 60000);
             MemoryStream memStream = new MemoryStream();
-            using (Stream respStream = resp.GetResponseStream())
-                StreamHelper.Transfer(respStream, memStream);
+            using (HttpWebResponse resp = _pageDownloader(blogHomepageUrl, 60000))
+            {
+                using (Stream respStream = resp.GetResponseStream())
+                    StreamHelper.Transfer(respStream, memStream);
+            }
 
             //read in the HTML file and determine if it contains the title element
             memStream.Seek(0, SeekOrigin.Begin);

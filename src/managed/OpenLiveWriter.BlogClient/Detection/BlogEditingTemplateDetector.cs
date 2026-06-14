@@ -581,15 +581,28 @@ namespace OpenLiveWriter.BlogClient.Detection
             // IF
             //   - primaryTitleRegion is not null (title found)
             //   - BodyRegion is null (no post body found)
-            //   - AND primaryTitleRegion is a link
-            if (primaryTitleRegion != null && regions.BodyRegion == null && primaryTitleRegion.tagName.ToLower() == "a")
+            IHTMLElement containingAnchor = null;
+            if (primaryTitleRegion != null && regions.BodyRegion == null)
+            {
+                if (primaryTitleRegion.tagName.ToLower() == "a")
+                {
+                    containingAnchor = primaryTitleRegion;
+                }
+                else
+                {
+                    containingAnchor = HTMLElementHelper.GetContainingAnchorElement(primaryTitleRegion) as IHTMLElement;
+                }
+            }
+
+            //   - AND containingAnchor is not null
+            if (containingAnchor != null)
             {
                 // Title region was detected, but body region was not.
                 // It is possible that only titles are shown on the homepage
                 // Try requesting the post itself, and loading regions from the post itself
 
                 // MSHTML sometimes rewrites URLs with 'about:' protocol; strip it to get the real path
-                var href = (primaryTitleRegion as IHTMLAnchorElement).href;
+                var href = (containingAnchor as IHTMLAnchorElement).href;
                 var pathMatch = new Regex("^about:(.*)$").Match(href);
                 var newPostPath = pathMatch.Success ? pathMatch.Groups[1].Value : href;
 
@@ -607,6 +620,9 @@ namespace OpenLiveWriter.BlogClient.Detection
 
                 return null;
             }
+
+            if (regions.BodyRegion == null)
+                throw new Exception("Unable to locate post body region.");
 
             BlogEditingTemplate template = GenerateBlogTemplate((IHTMLDocument3)regions.Document, primaryTitleRegion, regions.TitleRegions, regions.BodyRegion);
 
