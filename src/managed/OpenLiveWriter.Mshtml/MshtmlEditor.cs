@@ -575,6 +575,7 @@ editingOption.Key, editingOption.Value, ex.ToString()));
         /// Default zoom percentage.
         /// </summary>
         private const int DefaultZoomPercent = 100;
+        private static readonly bool ZoomPercentCommandAvailable = IDM.ZOOMPERCENT != IDM.JUSTIFYFULL;
 
         /// <summary>
         /// Handles Ctrl+=, Ctrl+-, and Ctrl+0 zoom keyboard shortcuts by
@@ -621,7 +622,7 @@ editingOption.Key, editingOption.Value, ex.ToString()));
         {
             try
             {
-                if (Commands.ContainsKey(IDM.ZOOMPERCENT))
+                if (ZoomPercentCommandAvailable && Commands.ContainsKey(IDM.ZOOMPERCENT))
                 {
                     object value = Commands[IDM.ZOOMPERCENT].GetValue();
                     if (value is IConvertible && !(value is DBNull))
@@ -642,7 +643,7 @@ editingOption.Key, editingOption.Value, ex.ToString()));
         /// </summary>
         private void SetZoomPercent(int zoomPercent)
         {
-            if (Commands.ContainsKey(IDM.ZOOMPERCENT))
+            if (ZoomPercentCommandAvailable && Commands.ContainsKey(IDM.ZOOMPERCENT))
             {
                 Commands[IDM.ZOOMPERCENT].Execute(zoomPercent);
             }
