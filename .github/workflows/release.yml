@@ -1,0 +1,88 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+env:
+  SOLUTION_PATH: src/managed/writer.sln
+  OLW_CONFIG: Release
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET Framework 4.6.1 Developer Pack
+        run: |
+          choco install netfx-4.6.1-devpack -y --no-progress
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore ${{ env.SOLUTION_PATH }}
+
+      - name: Determine Version and Tag
+        id: determine_version
+        shell: powershell
+        run: |
+          $ver = Get-Content version.txt -Raw
+          $ver = $ver.Trim()
+          echo "VERSION=$ver" >> $env:GITHUB_ENV
+          
+          if ($env:GITHUB_REF -like "refs/tags/*") {
+              $tag = $env:GITHUB_REF -replace "refs/tags/", ""
+          } else {
+              $tag = "v$ver"
+          }
+          echo "RELEASE_TAG=$tag" >> $env:GITHUB_ENV
+
+      - name: Build solution (Release)
+        run: |
+          msbuild ${{ env.SOLUTION_PATH }} `
+            /nologo `
+            /maxcpucount `
+            /verbosity:minimal `
+            /p:Configuration=${{ env.OLW_CONFIG }} `
+            /p:PlatformToolset=v143
+
+      - name: Package Portable Zip
+        shell: powershell
+        run: |
+          $binDir = "src/managed/bin/${{ env.OLW_CONFIG }}/i386/Writer"
+          $zipPath = "OpenLiveWriterEvolution-Portable.zip"
+          Compress-Archive -Path "$binDir/*" -DestinationPath $zipPath -Force
+
+      - name: Create GitHub Release and Upload Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Open Live Writer Evolution ${{ env.RELEASE_TAG }}
+          body: |
+            Welcome to Open Live Writer Evolution!
+            
+            This release is automatically built and packaged by GitHub Actions.
+            
+            ### 📦 Download Portable
+            - **[OpenLiveWriterEvolution-Portable.zip](https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/OpenLiveWriterEvolution-Portable.zip)**
+            
+            ### 📝 Changes
+            - Build commit: `${{ github.sha }}`
+          draft: false
+          prerelease: false
+          files: |
+            OpenLiveWriterEvolution-Portable.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

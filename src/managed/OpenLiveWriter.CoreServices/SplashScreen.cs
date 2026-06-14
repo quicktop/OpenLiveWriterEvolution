@@ -64,7 +64,6 @@ namespace OpenLiveWriter.CoreServices
         {
             const float scaleFactor = 2f; // Assume logos are already at 2x scaling
             var fdnLogoBmp = new Bitmap(this.GetType(), "Images.NetFoundationLogo2x.png");
-            var logoBmp = new Bitmap(this.GetType(), "Images.SplashScreenLogo2x.png");
 
             var fdnLogoSize = new Size(
                 (int)Math.Ceiling(fdnLogoBmp.Width * (DisplayHelper.ScalingFactorX / scaleFactor)),
@@ -72,6 +71,62 @@ namespace OpenLiveWriter.CoreServices
             _fdnLogoBitmap = new Bitmap(fdnLogoBmp, fdnLogoSize);
             pictureBoxFdnLogo.Image = _fdnLogoBitmap;
             pictureBoxFdnLogo.Size = _fdnLogoBitmap.Size;
+            fdnLogoBmp.Dispose();
+
+            Bitmap logoBmpRaw = new Bitmap(this.GetType(), "Images.SplashScreenLogo2x.png");
+            Bitmap logoBmp = new Bitmap(logoBmpRaw.Width, logoBmpRaw.Height + 50);
+            using (Graphics g = Graphics.FromImage(logoBmp))
+            {
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
+                // Draw original logo
+                g.DrawImage(logoBmpRaw, 0, 0, logoBmpRaw.Width, logoBmpRaw.Height);
+
+                // Draw "EVOLUTION" text with tracking/spacing
+                string evoText = "EVOLUTION";
+                using (Font font = new Font("Segoe UI", 13f, FontStyle.Bold))
+                using (Brush brush = new SolidBrush(Color.FromArgb(235, 235, 235))) // slightly soft white
+                {
+                    float charSpacing = 16f; // unscaled spacing
+                    
+                    // Measure characters
+                    float totalWidth = 0;
+                    float[] charWidths = new float[evoText.Length];
+                    for (int i = 0; i < evoText.Length; i++)
+                    {
+                        string charStr = evoText[i].ToString();
+                        using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
+                        {
+                            SizeF size = g.MeasureString(charStr, font, new PointF(0, 0), sf);
+                            charWidths[i] = size.Width;
+                            totalWidth += size.Width;
+                        }
+                        if (i < evoText.Length - 1)
+                        {
+                            totalWidth += charSpacing;
+                        }
+                    }
+
+                    // Right-align under "Writer" (right edge at logoBmpRaw.Width)
+                    float startX = logoBmpRaw.Width - totalWidth - 4f; 
+                    float y = 112f; // position below the main logo (which is 97px tall)
+
+                    float currentX = startX;
+                    for (int i = 0; i < evoText.Length; i++)
+                    {
+                        string charStr = evoText[i].ToString();
+                        using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
+                        {
+                            g.DrawString(charStr, font, brush, currentX, y, sf);
+                        }
+                        currentX += charWidths[i] + charSpacing;
+                    }
+                }
+            }
+            logoBmpRaw.Dispose();
 
             var logoBmpSize = new Size(
                 (int)Math.Ceiling(logoBmp.Width * (DisplayHelper.ScalingFactorX / scaleFactor)),
@@ -79,6 +134,7 @@ namespace OpenLiveWriter.CoreServices
             _logoBitmap = new Bitmap(logoBmp, logoBmpSize);
             pictureBoxLogo.Image = _logoBitmap;
             pictureBoxLogo.Size = _logoBitmap.Size;
+            logoBmp.Dispose();
         }
 
         private void FixLayout()
