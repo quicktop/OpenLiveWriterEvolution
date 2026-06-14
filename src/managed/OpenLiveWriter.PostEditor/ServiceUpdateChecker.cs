@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Collections;
 using System.Diagnostics;
-using Microsoft.Win32;
 using OpenLiveWriter.BlogClient.Providers;
 using OpenLiveWriter.CoreServices;
 using OpenLiveWriter.CoreServices.Progress;
@@ -17,7 +16,6 @@ using OpenLiveWriter.CoreServices.Threading;
 using OpenLiveWriter.Extensibility.BlogClient;
 using OpenLiveWriter.Interop.Windows;
 using OpenLiveWriter.PostEditor.Configuration;
-using System.Security.AccessControl;
 
 namespace OpenLiveWriter.PostEditor
 {
@@ -52,17 +50,20 @@ namespace OpenLiveWriter.PostEditor
                     // fire-up a blog settings detector to query for changes
                     BlogSettingsDetector settingsDetector = new BlogSettingsDetector(settingsDetectionContext);
                     settingsDetector.SilentMode = true;
-                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ApplicationEnvironment.SettingsRootKeyName + @"\Weblogs\" + _blogId + @"\HomepageOptions"))
+                    bool hasHomepageOptions = false;
+                    using (BlogSettings settings = BlogSettings.ForBlogId(_blogId))
                     {
-                        if (key != null)
-                        {
-                            settingsDetector.IncludeFavIcon = false;
-                            settingsDetector.IncludeCategories = settingsDetectionContext.BlogSupportsCategories;
-                            settingsDetector.UseManifestCache = true;
-                            settingsDetector.IncludeHomePageSettings = false;
-                            settingsDetector.IncludeCategoryScheme = false;
-                            settingsDetector.IncludeInsecureOperations = false;
-                        }
+                        hasHomepageOptions = settings.HomePageOverrides != null && settings.HomePageOverrides.Count > 0;
+                    }
+
+                    if (hasHomepageOptions)
+                    {
+                        settingsDetector.IncludeFavIcon = false;
+                        settingsDetector.IncludeCategories = settingsDetectionContext.BlogSupportsCategories;
+                        settingsDetector.UseManifestCache = true;
+                        settingsDetector.IncludeHomePageSettings = false;
+                        settingsDetector.IncludeCategoryScheme = false;
+                        settingsDetector.IncludeInsecureOperations = false;
                     }
                     settingsDetector.IncludeImageEndpoints = false;
                     settingsDetector.DetectSettings(SilentProgressHost.Instance);

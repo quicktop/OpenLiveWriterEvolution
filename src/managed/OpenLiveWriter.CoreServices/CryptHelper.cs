@@ -165,6 +165,10 @@ namespace OpenLiveWriter.CoreServices
                 byte[] stored = File.ReadAllBytes(keyPath);
                 if (stored.Length == KEY_FILE_LENGTH)
                     return stored;
+
+                ZeroFill(stored);
+                throw new CryptographicException(
+                    "Portable encryption key has an unsupported length. Delete UserData\\encryption.key and reconfigure stored credentials.");
             }
 
             // First run: generate 64 bytes of cryptographically random key material

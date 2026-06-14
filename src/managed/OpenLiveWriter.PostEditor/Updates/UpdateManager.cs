@@ -21,6 +21,9 @@ namespace OpenLiveWriter.PostEditor.Updates
         public static void CheckforUpdates(bool forceCheck = false)
         {
 #if !DesktopUWP
+            if (ApplicationEnvironment.IsPortableMode)
+                return;
+
             // Update using Squirrel if not a Desktop UWP package
             var checkNow = forceCheck || UpdateSettings.AutoUpdate;
             var downloadUrl = UpdateSettings.CheckForBetaUpdates ?

@@ -118,41 +118,44 @@ namespace OpenLiveWriter.PostEditor
                 }
             }
 
-            // watch registry for new plugins
-
-            // HKCU
-            RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.CURRENT_USER, _pluginsKey, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), true);
-            if (_pluginsKey != PLUGIN_LEGACY_KEY)
+            if (!ApplicationEnvironment.IsPortableMode)
             {
-                try
-                {
-                    RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.CURRENT_USER, PLUGIN_LEGACY_KEY, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), true);
-                }
-                catch
-                {
-                    Trace.WriteLine("Not monitoring legacy registry key in HKCU.");
-                }
-            }
+                // watch registry for new plugins
 
-            // HKLM (this may not work for limited users and/or on Vista)
-            try
-            {
-                RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.LOCAL_MACHINE, _pluginsKey, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), false);
+                // HKCU
+                RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.CURRENT_USER, _pluginsKey, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), true);
                 if (_pluginsKey != PLUGIN_LEGACY_KEY)
                 {
                     try
                     {
-                        RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.LOCAL_MACHINE, PLUGIN_LEGACY_KEY, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), false);
+                        RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.CURRENT_USER, PLUGIN_LEGACY_KEY, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), true);
                     }
                     catch
                     {
-                        Trace.WriteLine("Not monitoring legacy registry key in HKLM.");
+                        Trace.WriteLine("Not monitoring legacy registry key in HKCU.");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Error occurred attempting to register for HKLM PluginAssembly change notifications: " + ex.ToString());
+
+                // HKLM (this may not work for limited users and/or on Vista)
+                try
+                {
+                    RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.LOCAL_MACHINE, _pluginsKey, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), false);
+                    if (_pluginsKey != PLUGIN_LEGACY_KEY)
+                    {
+                        try
+                        {
+                            RegistryMonitor.Instance.AddRegistryChangeListener(HKEY.LOCAL_MACHINE, PLUGIN_LEGACY_KEY, new RegistryKeyEventHandler(OnPluginRegistryKeyChanged), false);
+                        }
+                        catch
+                        {
+                            Trace.WriteLine("Not monitoring legacy registry key in HKLM.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error occurred attempting to register for HKLM PluginAssembly change notifications: " + ex.ToString());
+                }
             }
 
         }
@@ -213,7 +216,8 @@ namespace OpenLiveWriter.PostEditor
                     pluginLoader.LoadPluginsFromDirectory(PluginDirectory, showErrors);
 
                 // load from plugins specified in the registry
-                LoadPluginsFromRegistryPaths(pluginLoader, showErrors);
+                if (!ApplicationEnvironment.IsPortableMode)
+                    LoadPluginsFromRegistryPaths(pluginLoader, showErrors);
 
                 // load from legacy plugin directory
                 if (PluginDirectoryLegacy != null && Directory.Exists(PluginDirectoryLegacy))
