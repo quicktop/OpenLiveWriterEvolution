@@ -33,6 +33,12 @@ namespace OpenLiveWriter.CoreServices
             // This is necessary to avoid problems connecting to Blogger server from behind a proxy.
             ServicePointManager.Expect100Continue = false;
 
+            // TLS 1.0 and 1.1 are deprecated by WordPress.com and most modern hosts.
+            // .NET 4.6.1 on Windows 7 may still negotiate TLS 1.0 by default; explicitly
+            // require TLS 1.2. TLS 1.3 requires .NET 4.8+ so we cannot enable it here,
+            // but Windows 10/11 will negotiate it automatically at the OS level.
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             try
             {
                 // Add WSSE support everywhere.

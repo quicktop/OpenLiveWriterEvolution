@@ -27,12 +27,12 @@
 	
 	<provider>
 		<id>556A165F-DA11-463c-BB4A-C77CC9047F22</id>
-		<name>Wordpress.com</name>	
+		<name>Wordpress.com</name>
 		<description>
 			WordPress is a state-of-the-art semantic personal publishing platform with a focus on aesthetics, web standards, and usability.
-		</description>	
-		<link>http://www.wordpress.com/</link>
-		<clientType>MovableType</clientType>
+		</description>
+		<link>https://www.wordpress.com/</link>
+		<clientType>WordPress</clientType>
 		<postApiUrl>
 		<![CDATA[
 		https://<username>.wordpress.com/xmlrpc.php
@@ -128,9 +128,9 @@
 	
 	<provider>
 		<id>82E6C828-8764-4af1-B289-647FC84E7093</id>
-		<name>WordPress (Custom Installation)</name>	
+		<name>WordPress (Custom Installation)</name>
 		<description>WordPress is a state-of-the-art semantic personal publishing platform with a focus on aesthetics, web standards, and usability.</description>
-		<clientType>MovableType</clientType>
+		<clientType>WordPress</clientType>
 		<postApiUrl>
 		<![CDATA[
 		https://<hostname>/<wp_path>/xmlrpc.php

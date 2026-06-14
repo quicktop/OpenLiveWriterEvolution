@@ -963,6 +963,15 @@ namespace OpenLiveWriter.BlogClient.Clients
                 return new BlogClientAccessDeniedException(faultCode, faultString);
             else if (faultCode == "17")
                 return new BlogClientInvalidPostIdException(faultCode, faultString);
+            // WordPress returns fault 405 when XML-RPC is disabled via the xmlrpc_enabled filter
+            // or by security plugins. Give the user an actionable message instead of a generic error.
+            else if (faultCode == "405" ||
+                     faultString.IndexOf("XML-RPC", StringComparison.OrdinalIgnoreCase) >= 0 &&
+                     faultString.IndexOf("disabl", StringComparison.OrdinalIgnoreCase) >= 0)
+                return new BlogClientProviderException(faultCode,
+                    "XML-RPC is disabled on this WordPress site. " +
+                    "Go to WordPress Dashboard > Settings > Writing and enable XML-RPC, " +
+                    "or ask your hosting provider to allow xmlrpc.php.");
             else
                 return null;
         }
