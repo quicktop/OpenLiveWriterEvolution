@@ -25,7 +25,7 @@ namespace OpenLiveWriter.CoreServices
         // We use a unique, culture-invariant, hard-coded string here to avoid any inadvertent breaking changes.
         public static string TaskbarApplicationId = "Open Live Writer - {3DDDAFC5-5C01-4BCF-B81A-A4976A0999E9}";
 
-        private const string DefaultProductName = "Open Live Writer";
+        private const string DefaultProductName = "Open Live Writer Evolution";
         private const string AppDataFolderName = "OpenLiveWriter";              // Squirrel installs the app to the folder that matches nuspec's ID.
         private const string DefaultSettingsRootKeyName = @"Software\\OpenLiveWriter";
 
@@ -476,6 +476,14 @@ namespace OpenLiveWriter.CoreServices
                 if (_portable == null)
                     throw new InvalidOperationException("ApplicationEnvironment has not been initialized");
                 return _portable.Value;
+            }
+        }
+
+        public static bool IsInitialized
+        {
+            get
+            {
+                return _portable != null;
             }
         }
         private static bool? _portable;

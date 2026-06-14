@@ -64,79 +64,136 @@
   <data name="CancelButton" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="ApplyButton" xml:space="preserve">
+    <value>套用(&amp;A)</value>
+  </data>
   <data name="CloseButton" xml:space="preserve">
     <value>關閉</value>
   </data>
-  <data name="AddButton" xml:space="preserve">
-    <value>新增(&amp;D)...</value>
+  <data name="Options" xml:space="preserve">
+    <value>選項</value>
   </data>
-  <data name="AddButton2" xml:space="preserve">
-    <value>新增(&amp;A)</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>使用者名稱：</value>
-  </data>
-  <data name="UsernameLabel" xml:space="preserve">
-    <value>使用者名稱(&amp;U)：</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>密碼：</value>
-  </data>
-  <data name="PasswordLabel" xml:space="preserve">
-    <value>密碼(&amp;P)：</value>
-  </data>
-  <data name="RememberPassword" xml:space="preserve">
-    <value>記住我的密碼(&amp;R)</value>
-  </data>
-  <data name="ForgotMyPassword" xml:space="preserve">
-    <value>忘記我的密碼</value>
-  </data>
-  <data name="AboutAbout" xml:space="preserve">
-    <value>關於 {0}(&amp;T)</value>
-  </data>
-  <data name="AboutCopyright" xml:space="preserve">
-    <value>版權所有 © .NET Foundation。保留所有權利。</value>
-  </data>
-  <data name="Blog" xml:space="preserve">
-    <value>部落格</value>
+  <data name="OptionsButton" xml:space="preserve">
+    <value>選項...</value>
   </data>
   <data name="AccountPanel" xml:space="preserve">
-    <value>帳戶</value>
+    <value>帳號</value>
   </data>
-  <data name="AddWeblogAccount" xml:space="preserve">
-    <value>新增部落格帳戶</value>
+  <data name="Name" xml:space="preserve">
+    <value>部落格</value>
   </data>
-  <data name="CWBasicHomepage" xml:space="preserve">
-    <value>部落格首頁網址(&amp;H)：</value>
+  <data name="Configuration" xml:space="preserve">
+    <value>設定</value>
   </data>
-  <data name="CWBasicText" xml:space="preserve">
-    <value>若要使用 {0}，您必須擁有部落格服務的帳戶。如果您還沒有現有部落格服務的帳戶，請立即建立一個。</value>
+  <data name="WeblogName" xml:space="preserve">
+    <value>部落格名稱(&amp;B):</value>
   </data>
-  <data name="CWBasicTitle" xml:space="preserve">
-    <value>設定 {0} 以搭配 {1} 使用</value>
+  <data name="WeblogProvider" xml:space="preserve">
+    <value>部落格服務:</value>
   </data>
-  <data name="CWBasicTitleDefaultService" xml:space="preserve">
-    <value>您的部落格</value>
+  <data name="HomepageUrl" xml:space="preserve">
+    <value>網站位址:</value>
   </data>
-  <data name="CWConfirmFTPServer" xml:space="preserve">
-    <value>FTP 伺服器</value>
+  <data name="Username" xml:space="preserve">
+    <value>使用者名稱:</value>
   </data>
-  <data name="CWConfirmSwitchToWeblog" xml:space="preserve">
-    <value>立即切換到此部落格(&amp;S)</value>
+  <data name="Password" xml:space="preserve">
+    <value>密碼:</value>
   </data>
-  <data name="CWConfirmText" xml:space="preserve">
-    <value>請確認您要儲存這些設定。</value>
+  <data name="ViewWeblogCapabilities" xml:space="preserve">
+    <value>查看部落格功能</value>
   </data>
-  <data name="CWConfirmThanks" xml:space="preserve">
-    <value>部落格設定成功！</value>
+  <data name="UpdateAccountConfiguration" xml:space="preserve">
+    <value>更新帳號資訊(&amp;U)...</value>
   </data>
-  <data name="CWConfirmUploadSettings" xml:space="preserve">
-    <value>上傳圖片至：</value>
+  <data name="WeblogSettings" xml:space="preserve">
+    <value>部落格選項 - {0}</value>
   </data>
-  <data name="CWConfirmWeblogName" xml:space="preserve">
-    <value>部落格名稱</value>
+  <data name="ImagesPanel" xml:space="preserve">
+    <value>圖片</value>
   </data>
-  <data name="CWSpacesUsername" xml:space="preserve">
-    <value>Microsoft 帳戶(&amp;M)：</value>
+  <data name="ImagesUpload" xml:space="preserve">
+    <value>上傳</value>
+  </data>
+  <data name="ImagesText" xml:space="preserve">
+    <value>當你在文章中加入圖片時，要將圖片上傳到這個部落格服務，還是上傳到 FTP 站台？</value>
+  </data>
+  <data name="ImagesBlogOpt" xml:space="preserve">
+    <value>部落格服務(&amp;B)</value>
+  </data>
+  <data name="ImagesFtpOpt" xml:space="preserve">
+    <value>FTP 站台(&amp;F):</value>
+  </data>
+  <data name="ImagesFtpConfig" xml:space="preserve">
+    <value>變更 FTP 設定(&amp;C)...</value>
+  </data>
+  <data name="EditingName" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="EditingStyle" xml:space="preserve">
+    <value>部落格佈景主題</value>
+  </data>
+  <data name="EditingText" xml:space="preserve">
+    <value>在線上變更佈景主題後，請按一下「更新佈景主題」以查看最新樣式。</value>
+  </data>
+  <data name="EditingUsing" xml:space="preserve">
+    <value>編輯文章時使用你的部落格佈景主題，預覽文章發佈到線上後的外觀。</value>
+  </data>
+  <data name="EditingUpdate" xml:space="preserve">
+    <value>更新佈景主題(&amp;U)</value>
+  </data>
+  <data name="EditingRTLName" xml:space="preserve">
+    <value>文字方向</value>
+  </data>
+  <data name="EditingRTLExplanation" xml:space="preserve">
+    <value>變更部落格文章的閱讀方向。</value>
+  </data>
+  <data name="EditingRTLDefault" xml:space="preserve">
+    <value>預設 ({0})</value>
+  </data>
+  <data name="EditingRTLYes" xml:space="preserve">
+    <value>由右至左</value>
+  </data>
+  <data name="EditingRTLNo" xml:space="preserve">
+    <value>由左至右</value>
+  </data>
+  <data name="PluginPrefName" xml:space="preserve">
+    <value>外掛程式</value>
+  </data>
+  <data name="AdvancedName" xml:space="preserve">
+    <value>進階</value>
+  </data>
+  <data name="AdvancedTransport" xml:space="preserve">
+    <value>字元集</value>
+  </data>
+  <data name="AdvancedText" xml:space="preserve">
+    <value>為你的部落格文章選擇其他編碼類型。預設為 UTF-8。</value>
+  </data>
+  <data name="AdvancedDefault" xml:space="preserve">
+    <value>預設 ({0})</value>
+  </data>
+  <data name="AdvancedXHTMLGroupName" xml:space="preserve">
+    <value>標記語言</value>
+  </data>
+  <data name="AdvancedXHTMLLabel" xml:space="preserve">
+    <value>選擇使用 HTML 或 XHTML 作為標記語言。預設為 HTML。</value>
+  </data>
+  <data name="AdvancedXHTMLDefault" xml:space="preserve">
+    <value>預設 ({0})</value>
+  </data>
+  <data name="MarkupTypeHTML" xml:space="preserve">
+    <value>HTML</value>
+  </data>
+  <data name="MarkupTypeXHTML" xml:space="preserve">
+    <value>XHTML</value>
+  </data>
+  <data name="AdvancedBlogOverride" xml:space="preserve">
+    <value>其他部落格設定</value>
+  </data>
+  <data name="AdvancedEmbedTags" xml:space="preserve">
+    <value>Embed 標籤(&amp;E):</value>
+  </data>
+  <data name="AdvancedScripts" xml:space="preserve">
+    <value>Script 指令碼(&amp;S):</value>
   </data>
 </root>

@@ -131,10 +131,10 @@ namespace OpenLiveWriter.CoreServices
             int rotRegistrationFlags;
             RegistrySettingsPersister exeRegistrySettings = null;
 
-            if (ApplicationEnvironment.IsPortableMode)
+            if (!ApplicationEnvironment.IsInitialized || ApplicationEnvironment.IsPortableMode)
             {
-                // In portable mode we never write COM AppID entries to the registry,
-                // so ROTFLAGS_ALLOWANYCLIENT is not available. Use basic registration only.
+                // Before ApplicationEnvironment is initialized we cannot safely read
+                // registry-backed settings. Portable mode also must avoid registry.
                 rotRegistrationFlags = (int)(RunningObjectTableFlags.RegistrationKeepsAlive);
             }
             else

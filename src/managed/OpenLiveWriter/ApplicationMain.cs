@@ -151,9 +151,9 @@ namespace OpenLiveWriter
                     // {
                     try
                     {
-                        // TODO:OLW
-                        // Load the culture.
-                        LoadCulture("en");
+                        // Load the system UI culture by default. Missing localized
+                        // resources fall back to the neutral English resources.
+                        LoadCulture(CultureInfo.CurrentUICulture.Name);
 
                         // Apply any culture overrides.
                         WriterCommandLineOptions opts = WriterCommandLineOptions.Create(args);
