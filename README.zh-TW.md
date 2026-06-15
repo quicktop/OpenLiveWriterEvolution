@@ -2,6 +2,8 @@
 Open Live Writer Evolution 讓您可以輕鬆撰寫、預覽並發布文章到您的部落格。
 這是 Open Live Writer 的一個社群驅動分支（Fork），專注於現代 WordPress 相容性以及長期維護。
 
+![繁體中文介面 — Ribbon 工具列與部落格設定](docs/images/SCREENSHOT-2.jpg)
+
 ---
 
 ## 與 Open Live Writer 的差異
@@ -53,6 +55,12 @@ Open Live Writer Evolution 透過以下方式改進佈景主題偵測：
 - 修正了 `PostEditorMainControl` 中的背景顏色偵測順序。
 - 修正了下載的部落格範本中 `media="not all"` 樣式表被抑制的問題。
 - 改進了 `HTMLDocumentHelper.StringToHTMLDoc` 和 `ResetPath` 的空值安全性。
+
+---
+
+## 螢幕截圖
+
+![文章編輯介面 — 支援 Flexbox 與 CSS Grid 的現代 WordPress 佈景主題](docs/images/SCREENSHOT-1.jpg)
 
 ---
 
