@@ -127,3 +127,35 @@ Get-Date
 $buildCommand = "`"$msBuildExe`" `"$solutionFile`" /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
 "Running build command '$buildCommand'"
 Invoke-Expression "& $buildCommand"
+
+if ($LASTEXITCODE -ne 0) {
+    "Build failed with exit code $LASTEXITCODE"
+    exit $LASTEXITCODE
+}
+
+@"
+
+=======================================================
+ Copying output to dist\OpenLiveWriterEvolution-Portable
+=======================================================
+"@
+
+$binDir = "$PSSCRIPTROOT\src\managed\bin\$env:OLW_CONFIG\i386\Writer"
+$distDir = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable"
+
+if (Test-Path $distDir) {
+    try {
+        Remove-Item $distDir -Recurse -Force -ErrorAction Stop
+    } catch {
+        "Warning: could not fully clean dist dir (files may be in use). Copying over existing files."
+    }
+}
+if (-not (Test-Path $distDir)) {
+    New-Item $distDir -ItemType Directory | Out-Null
+}
+Copy-Item "$binDir\*" $distDir -Recurse -Force
+"Copied to '$distDir'"
+
+# Create culture.cfg so the portable defaults to Traditional Chinese without any launcher
+[System.IO.File]::WriteAllText("$distDir\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)
+"Created culture.cfg (zh-TW) in portable"

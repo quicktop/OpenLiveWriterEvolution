@@ -58,118 +58,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OKButtonText" xml:space="preserve">
-    <value>確定</value>
+  <data name="AboutAbout" xml:space="preserve">
+    <value>關於(&amp;T) {0}</value>
   </data>
-  <data name="CancelButton" xml:space="preserve">
-    <value>取消</value>
+  <data name="AboutConfigurationVersion" xml:space="preserve">
+    <value>設定版本：{0}</value>
   </data>
-  <data name="ApplyButton" xml:space="preserve">
-    <value>套用(&amp;A)</value>
+  <data name="AboutCopyright" xml:space="preserve">
+    <value>著作權所有 © .NET Foundation。保留一切權利。</value>
   </data>
-  <data name="CloseButton" xml:space="preserve">
-    <value>關閉</value>
-  </data>
-  <data name="Options" xml:space="preserve">
-    <value>選項</value>
-  </data>
-  <data name="OptionsButton" xml:space="preserve">
-    <value>選項...</value>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>{0}</value>
   </data>
   <data name="AccountPanel" xml:space="preserve">
     <value>帳號</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>部落格</value>
+  <data name="AddButton" xml:space="preserve">
+    <value>新增(&amp;D)...</value>
   </data>
-  <data name="Configuration" xml:space="preserve">
-    <value>設定</value>
+  <data name="AddButton2" xml:space="preserve">
+    <value>新增(&amp;A)</value>
   </data>
-  <data name="WeblogName" xml:space="preserve">
-    <value>部落格名稱(&amp;B):</value>
+  <data name="AdvancedBlogOverride" xml:space="preserve">
+    <value>其他部落格設定</value>
   </data>
-  <data name="WeblogProvider" xml:space="preserve">
-    <value>部落格服務:</value>
-  </data>
-  <data name="HomepageUrl" xml:space="preserve">
-    <value>網站位址:</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>使用者名稱:</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>密碼:</value>
-  </data>
-  <data name="ViewWeblogCapabilities" xml:space="preserve">
-    <value>查看部落格功能</value>
-  </data>
-  <data name="UpdateAccountConfiguration" xml:space="preserve">
-    <value>更新帳號資訊(&amp;U)...</value>
-  </data>
-  <data name="WeblogSettings" xml:space="preserve">
-    <value>部落格選項 - {0}</value>
-  </data>
-  <data name="ImagesPanel" xml:space="preserve">
-    <value>圖片</value>
-  </data>
-  <data name="ImagesUpload" xml:space="preserve">
-    <value>上傳</value>
-  </data>
-  <data name="ImagesText" xml:space="preserve">
-    <value>當你在文章中加入圖片時，要將圖片上傳到這個部落格服務，還是上傳到 FTP 站台？</value>
-  </data>
-  <data name="ImagesBlogOpt" xml:space="preserve">
-    <value>部落格服務(&amp;B)</value>
-  </data>
-  <data name="ImagesFtpOpt" xml:space="preserve">
-    <value>FTP 站台(&amp;F):</value>
-  </data>
-  <data name="ImagesFtpConfig" xml:space="preserve">
-    <value>變更 FTP 設定(&amp;C)...</value>
-  </data>
-  <data name="EditingName" xml:space="preserve">
-    <value>編輯</value>
-  </data>
-  <data name="EditingStyle" xml:space="preserve">
-    <value>部落格佈景主題</value>
-  </data>
-  <data name="EditingText" xml:space="preserve">
-    <value>在線上變更佈景主題後，請按一下「更新佈景主題」以查看最新樣式。</value>
-  </data>
-  <data name="EditingUsing" xml:space="preserve">
-    <value>編輯文章時使用你的部落格佈景主題，預覽文章發佈到線上後的外觀。</value>
-  </data>
-  <data name="EditingUpdate" xml:space="preserve">
-    <value>更新佈景主題(&amp;U)</value>
-  </data>
-  <data name="EditingRTLName" xml:space="preserve">
-    <value>文字方向</value>
-  </data>
-  <data name="EditingRTLExplanation" xml:space="preserve">
-    <value>變更部落格文章的閱讀方向。</value>
-  </data>
-  <data name="EditingRTLDefault" xml:space="preserve">
+  <data name="AdvancedDefault" xml:space="preserve">
     <value>預設 ({0})</value>
   </data>
-  <data name="EditingRTLYes" xml:space="preserve">
-    <value>由右至左</value>
-  </data>
-  <data name="EditingRTLNo" xml:space="preserve">
-    <value>由左至右</value>
-  </data>
-  <data name="PluginPrefName" xml:space="preserve">
-    <value>外掛程式</value>
+  <data name="AdvancedEmbedTags" xml:space="preserve">
+    <value>Embed 標籤(&amp;E)：</value>
   </data>
   <data name="AdvancedName" xml:space="preserve">
     <value>進階</value>
   </data>
-  <data name="AdvancedTransport" xml:space="preserve">
-    <value>字元集</value>
+  <data name="AdvancedScripts" xml:space="preserve">
+    <value>Script 指令碼(&amp;S)：</value>
   </data>
   <data name="AdvancedText" xml:space="preserve">
     <value>為你的部落格文章選擇其他編碼類型。預設為 UTF-8。</value>
   </data>
-  <data name="AdvancedDefault" xml:space="preserve">
+  <data name="AdvancedTransport" xml:space="preserve">
+    <value>字元集</value>
+  </data>
+  <data name="AdvancedXHTMLDefault" xml:space="preserve">
     <value>預設 ({0})</value>
   </data>
   <data name="AdvancedXHTMLGroupName" xml:space="preserve">
@@ -178,8 +109,2152 @@
   <data name="AdvancedXHTMLLabel" xml:space="preserve">
     <value>選擇使用 HTML 或 XHTML 作為標記語言。預設為 HTML。</value>
   </data>
-  <data name="AdvancedXHTMLDefault" xml:space="preserve">
+  <data name="Alignment" xml:space="preserve">
+    <value>對齊</value>
+  </data>
+  <data name="AlignMenuItem" xml:space="preserve">
+    <value>對齊(&amp;A)</value>
+  </data>
+  <data name="AllFilesFilterString" xml:space="preserve">
+    <value>所有檔案 (*.*)</value>
+  </data>
+  <data name="AllowAutoUpdate" xml:space="preserve">
+    <value>自動更新(&amp;U)帳號資訊（類別、連結、功能及服務供應商延伸模組）</value>
+  </data>
+  <data name="AllowProviderExtensions" xml:space="preserve">
+    <value>允許部落格服務供應商延伸模組(&amp;B)（按鈕會新增到功能區帳號索引標籤的捷徑群組）</value>
+  </data>
+  <data name="AltTextEditorTitle" xml:space="preserve">
+    <value>替代文字</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>外觀</value>
+  </data>
+  <data name="ApplyButton" xml:space="preserve">
+    <value>套用(&amp;A)</value>
+  </data>
+  <data name="AutoRecoverDialogButtonAskLater" xml:space="preserve">
+    <value>稍後詢問(&amp;A)</value>
+  </data>
+  <data name="AutoRecoverDialogButtonDiscard" xml:space="preserve">
+    <value>永久捨棄變更(&amp;D)</value>
+  </data>
+  <data name="AutoRecoverDialogButtonRecover" xml:space="preserve">
+    <value>立即復原變更（建議）(&amp;R)</value>
+  </data>
+  <data name="AutoRecoverDialogContent" xml:space="preserve">
+    <value>{0} 上次使用時沒有正常關閉。有未儲存的變更可供復原。您要立即復原這些變更嗎？</value>
+  </data>
+  <data name="AutoRecoverDialogInstruction" xml:space="preserve">
+    <value>復原未儲存的變更？</value>
+  </data>
+  <data name="AutoreplaceEmoticons" xml:space="preserve">
+    <value>以表情符號圖案取代文字表情符號(&amp;E)</value>
+  </data>
+  <data name="AutoreplaceFormTitle" xml:space="preserve">
+    <value>自動取代</value>
+  </data>
+  <data name="AutoreplaceOtherChars" xml:space="preserve">
+    <value>取代其他特殊字元(&amp;P)</value>
+  </data>
+  <data name="AutoreplacePrefererencesPanel" xml:space="preserve">
+    <value>自動取代</value>
+  </data>
+  <data name="AutoreplaceReplacementValue" xml:space="preserve">
+    <value>取代值：</value>
+  </data>
+  <data name="AutoreplaceSmartQuotes" xml:space="preserve">
+    <value>以「彎引號」取代「直引號」(&amp;Q)</value>
+  </data>
+  <data name="AutoreplaceTypographic" xml:space="preserve">
+    <value>以破折號（—）取代連字號（--）(&amp;Y)</value>
+  </data>
+  <data name="AutoreplaceWordorPhrase" xml:space="preserve">
+    <value>單字或片語：</value>
+  </data>
+  <data name="BCEAuthenticationMessage" xml:space="preserve">
+    <value>請檢查您的使用者名稱和密碼。
+
+{0} - {1}</value>
+  </data>
+  <data name="BCEAuthenticationTitle" xml:space="preserve">
+    <value>帳號登入失敗</value>
+  </data>
+  <data name="BCEConnectionErrorMessage" xml:space="preserve">
+    <value>嘗試連線到下列位址的部落格時發生錯誤：
+
+{0}
+
+{1}</value>
+  </data>
+  <data name="BCEConnectionErrorTitle" xml:space="preserve">
+    <value>網路連線錯誤</value>
+  </data>
+  <data name="BCEFileIOMessage" xml:space="preserve">
+    <value>存取檔案 {0} 時發生未預期的錯誤
+
+{1} - {2}</value>
+  </data>
+  <data name="BCEFileIOTitle" xml:space="preserve">
+    <value>檔案存取錯誤</value>
+  </data>
+  <data name="BCEFileTransferConnectingToDestination" xml:space="preserve">
+    <value>正在連線到檔案目的地</value>
+  </data>
+  <data name="BCEFileTransferDisconnectingFromDestination" xml:space="preserve">
+    <value>正在中斷與檔案目的地的連線</value>
+  </data>
+  <data name="BCEFileTransferMessage" xml:space="preserve">
+    <value>執行 {0} 時發生錯誤
+
+({1}) {2}</value>
+  </data>
+  <data name="BCEFileTransferTitle" xml:space="preserve">
+    <value>檔案傳輸錯誤</value>
+  </data>
+  <data name="BCEFileTransferTransferringFile" xml:space="preserve">
+    <value>正在傳輸檔案 {0}</value>
+  </data>
+  <data name="BCEFileUploadNotSupportedMessage" xml:space="preserve">
+    <value>此部落格不支援檔案上傳。請在嘗試發佈含有附加圖片或檔案的文章之前，先設定此部落格的檔案上傳功能。</value>
+  </data>
+  <data name="BCEFileUploadNotSupportedTitle" xml:space="preserve">
+    <value>不支援檔案上傳</value>
+  </data>
+  <data name="BCEHttpErrorMessage" xml:space="preserve">
+    <value>伺服器回報下列網址發生錯誤：
+
+{0}
+
+{1}</value>
+  </data>
+  <data name="BCEHttpErrorTitle" xml:space="preserve">
+    <value>伺服器錯誤</value>
+  </data>
+  <data name="BCEInvalidServerResponseMessage" xml:space="preserve">
+    <value>從部落格伺服器收到的 {0} 方法回應無效：
+
+{1}</value>
+  </data>
+  <data name="BCEInvalidServerResponseTitle" xml:space="preserve">
+    <value>無效的伺服器回應</value>
+  </data>
+  <data name="BCEInvalidPostIdMessage" xml:space="preserve">
+    <value>部落格伺服器無法識別文章 ID。文章可能已從伺服器刪除，或文章 ID 遺失。請嘗試改為建立新文章。
+
+{0} {1}</value>
+  </data>
+  <data name="BCEInvalidPostIdTitle" xml:space="preserve">
+    <value>無效的文章 ID</value>
+  </data>
+  <data name="BCEMethodUnsupportedMessage" xml:space="preserve">
+    <value>部落格服務不支援 {0} 方法。</value>
+  </data>
+  <data name="BCEMethodUnsupportedTitle" xml:space="preserve">
+    <value>不支援的方法</value>
+  </data>
+  <data name="BCENetworkIOMessage" xml:space="preserve">
+    <value>執行 {0} 時發生未預期的資料傳輸例外狀況
+
+{1} - {2}</value>
+  </data>
+  <data name="BCENetworkIOTitle" xml:space="preserve">
+    <value>資料傳輸例外狀況</value>
+  </data>
+  <data name="BCEOperationCancelledMessage" xml:space="preserve">
+    <value>作業已取消。</value>
+  </data>
+  <data name="BCEOperationCancelledTitle" xml:space="preserve">
+    <value>作業已取消</value>
+  </data>
+  <data name="BCEPostAsDraftUnsupportedMessage" xml:space="preserve">
+    <value>此伺服器不支援以草稿形式發佈文章。</value>
+  </data>
+  <data name="BCEPostAsDraftUnsupportedTitle" xml:space="preserve">
+    <value>不支援以草稿發佈</value>
+  </data>
+  <data name="BCEPostUrlNotFoundMessage" xml:space="preserve">
+    <value>找不到部落格的文章網址：
+
+{0}
+
+{1}</value>
+  </data>
+  <data name="BCEPostUrlNotFoundTitle" xml:space="preserve">
+    <value>找不到部落格文章網址</value>
+  </data>
+  <data name="BCEProviderMessage" xml:space="preserve">
+    <value>發生伺服器錯誤 {0}
+
+{1}</value>
+  </data>
+  <data name="BCEProviderTitle" xml:space="preserve">
+    <value>部落格伺服器發生問題</value>
+  </data>
+  <data name="Beta" xml:space="preserve">
+    <value>Beta</value>
+  </data>
+  <data name="Beta1DayRemaining" xml:space="preserve">
+    <value>剩餘 1 天</value>
+  </data>
+  <data name="BetaDaysRemaining" xml:space="preserve">
+    <value>剩餘 {0} 天</value>
+  </data>
+  <data name="BetaExpiredAskLater" xml:space="preserve">
+    <value>稍後詢問(&amp;A)</value>
+  </data>
+  <data name="BetaExpiredDialogTitle" xml:space="preserve">
+    <value>到期</value>
+  </data>
+  <data name="BetaExpiredDownloadNow" xml:space="preserve">
+    <value>立即下載(&amp;D)</value>
+  </data>
+  <data name="BetaExpiredMessage" xml:space="preserve">
+    <value>此版本的 {0} 已到期。請下載並安裝較新的版本。</value>
+  </data>
+  <data name="BetaExpiredTitle" xml:space="preserve">
+    <value>已到期</value>
+  </data>
+  <data name="BetaRemainingMessage" xml:space="preserve">
+    <value>此版本的 {0} 將於 {1} 到期。請下載並安裝較新的版本。</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="Blog_Option_Not_Supported" xml:space="preserve">
+    <value>不支援</value>
+  </data>
+  <data name="Blog_Option_Supported" xml:space="preserve">
+    <value>支援</value>
+  </data>
+  <data name="Blog_Option_Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="BlogCategoryNone" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="BloggerAccountDeleted" xml:space="preserve">
+    <value>使用者帳號已被刪除。</value>
+  </data>
+  <data name="BloggerAccountDisabled" xml:space="preserve">
+    <value>使用者帳號已被停用。</value>
+  </data>
+  <data name="BloggerBadAuthentication" xml:space="preserve">
+    <value>使用者名稱或密碼無法識別。</value>
+  </data>
+  <data name="BloggerGenericError" xml:space="preserve">
+    <value>發生錯誤：{0}</value>
+  </data>
+  <data name="BloggerImageAlbumDescription" xml:space="preserve">
+    <value>此相簿用於儲存 Open Live Writer 發佈的部落格文章中的圖片。</value>
+  </data>
+  <data name="BloggerNotVerified" xml:space="preserve">
+    <value>帳號電子郵件地址尚未驗證。使用者必須直接存取其 Google 帳號以解決此問題，之後才能使用非 Google 應用程式登入。</value>
+  </data>
+  <data name="BloggerServiceUnavailable" xml:space="preserve">
+    <value>服務目前無法使用；請稍後再試。</value>
+  </data>
+  <data name="BloggerTermsNotAgreed" xml:space="preserve">
+    <value>使用者尚未同意條款。使用者必須直接存取其 Google 帳號以解決此問題，之後才能使用非 Google 應用程式登入。</value>
+  </data>
+  <data name="BloggerUnknown" xml:space="preserve">
+    <value>錯誤不明或未指定；要求包含無效的輸入或格式不正確。</value>
+  </data>
+  <data name="BlogPluginsDescription" xml:space="preserve">
+    <value>選取您要使用的外掛程式，並變更其啟動順序。</value>
+  </data>
+  <data name="BlogServiceNames" xml:space="preserve">
+    <value>TypePad 及其他</value>
+  </data>
+  <data name="BrightnessAdjust" xml:space="preserve">
+    <value>對比</value>
+  </data>
+  <data name="BrightnessBrightness" xml:space="preserve">
+    <value>亮度(&amp;B)：</value>
+  </data>
+  <data name="BrightnessContrast" xml:space="preserve">
+    <value>對比(&amp;C)：</value>
+  </data>
+  <data name="BrowseForFile" xml:space="preserve">
+    <value>瀏覽檔案</value>
+  </data>
+  <data name="BrowserMiniFormProgress" xml:space="preserve">
+    <value>正在擷取...</value>
+  </data>
+  <data name="BytesFormat" xml:space="preserve">
+    <value>{0} 位元組</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Canceling" xml:space="preserve">
+    <value>正在取消...</value>
+  </data>
+  <data name="CantSignIn" xml:space="preserve">
+    <value>因發生錯誤而無法登入</value>
+  </data>
+  <data name="Capabilities" xml:space="preserve">
+    <value>部落格服務功能(&amp;C)：</value>
+  </data>
+  <data name="CapabilityAuthor" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="CapabilityAutoUpdate" xml:space="preserve">
+    <value>自動更新</value>
+  </data>
+  <data name="CapabilityCategories" xml:space="preserve">
+    <value>類別</value>
+  </data>
+  <data name="CapabilityCategoriesInline" xml:space="preserve">
+    <value>類別（行內）</value>
+  </data>
+  <data name="CapabilityCategoryNameLimit" xml:space="preserve">
+    <value>類別名稱長度限制</value>
+  </data>
+  <data name="CapabilityCategoryScheme" xml:space="preserve">
+    <value>類別配置</value>
+  </data>
+  <data name="CapabilityCharacterSet" xml:space="preserve">
+    <value>編碼</value>
+  </data>
+  <data name="CapabilityCommentPolicy" xml:space="preserve">
+    <value>留言原則</value>
+  </data>
+  <data name="CapabilityCustomPublishDate" xml:space="preserve">
+    <value>自訂發佈日期</value>
+  </data>
+  <data name="CapabilityCustomPublishDateUpdate" xml:space="preserve">
+    <value>更新發佈日期</value>
+  </data>
+  <data name="CapabilityDefaultView" xml:space="preserve">
+    <value>預設檢視</value>
+  </data>
+  <data name="CapabilityEmbeds" xml:space="preserve">
+    <value>內嵌</value>
+  </data>
+  <data name="CapabilityEmptyTitles" xml:space="preserve">
+    <value>空白標題</value>
+  </data>
+  <data name="CapabilityExcerpt" xml:space="preserve">
+    <value>摘要</value>
+  </data>
+  <data name="CapabilityExtendedEntries" xml:space="preserve">
+    <value>延伸項目</value>
+  </data>
+  <data name="CapabilityFileUpload" xml:space="preserve">
+    <value>檔案上傳</value>
+  </data>
+  <data name="CapabilityHierarchicalCategories" xml:space="preserve">
+    <value>階層式類別</value>
+  </data>
+  <data name="CapabilityHtmlTitles" xml:space="preserve">
+    <value>HTML 標題</value>
+  </data>
+  <data name="CapabilityKeywordRetrieval" xml:space="preserve">
+    <value>關鍵字擷取</value>
+  </data>
+  <data name="CapabilityKeywords" xml:space="preserve">
+    <value>關鍵字</value>
+  </data>
+  <data name="CapabilityMultipleCategories" xml:space="preserve">
+    <value>多重類別</value>
+  </data>
+  <data name="CapabilityNewCategories" xml:space="preserve">
+    <value>新類別</value>
+  </data>
+  <data name="CapabilityNewCategoriesInline" xml:space="preserve">
+    <value>新類別（行內）</value>
+  </data>
+  <data name="CapabilityPageOrder" xml:space="preserve">
+    <value>頁面排序</value>
+  </data>
+  <data name="CapabilityPageParent" xml:space="preserve">
+    <value>頁面上層</value>
+  </data>
+  <data name="CapabilityPages" xml:space="preserve">
+    <value>頁面</value>
+  </data>
+  <data name="CapabilityPassword" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="CapabilityPostDraftToServer" xml:space="preserve">
+    <value>將草稿發佈至伺服器</value>
+  </data>
+  <data name="CapabilityPostTitleLengthLimit" xml:space="preserve">
+    <value>標題長度限制</value>
+  </data>
+  <data name="CapabilityRequiresXHTML" xml:space="preserve">
+    <value>需要 XHTML</value>
+  </data>
+  <data name="CapabilityScripts" xml:space="preserve">
+    <value>指令碼</value>
+  </data>
+  <data name="CapabilitySendTrackbacks" xml:space="preserve">
+    <value>傳送引用通知</value>
+  </data>
+  <data name="CapabilitySlug" xml:space="preserve">
+    <value>文章別名</value>
+  </data>
+  <data name="CapabilityTemplateIsRTL" xml:space="preserve">
+    <value>範本為由右至左</value>
+  </data>
+  <data name="CapabilityTrackbackPolicy" xml:space="preserve">
+    <value>引用通知原則</value>
+  </data>
+  <data name="CapabilityValueNoLimit" xml:space="preserve">
+    <value>(無限制)</value>
+  </data>
+  <data name="CapabilityValueNormal" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="CapabilityValueWebLayout" xml:space="preserve">
+    <value>網頁版面配置</value>
+  </data>
+  <data name="CapabilityValueWebPreview" xml:space="preserve">
+    <value>網頁預覽</value>
+  </data>
+  <data name="CategoryAdd" xml:space="preserve">
+    <value>新增類別</value>
+  </data>
+  <data name="CategoryCategoryName" xml:space="preserve">
+    <value>類別名稱</value>
+  </data>
+  <data name="CategoryControlCategories" xml:space="preserve">
+    <value>類別：{0}</value>
+  </data>
+  <data name="CategoryControlCategory" xml:space="preserve">
+    <value>類別：{0}</value>
+  </data>
+  <data name="CategoryControlNoCategories" xml:space="preserve">
+    <value>(無)</value>
+  </data>
+  <data name="CategoryControlNoCategories2" xml:space="preserve">
+    <value>(無類別)</value>
+  </data>
+  <data name="CategoryControlSetCategories" xml:space="preserve">
+    <value>設定類別</value>
+  </data>
+  <data name="CategoryControlSetCategory" xml:space="preserve">
+    <value>設定類別</value>
+  </data>
+  <data name="CategoryNoParent" xml:space="preserve">
+    <value>(無上層)</value>
+  </data>
+  <data name="CategoryParentAccessible" xml:space="preserve">
+    <value>類別上層</value>
+  </data>
+  <data name="CategoryRefreshList" xml:space="preserve">
+    <value>重新整理清單</value>
+  </data>
+  <data name="CategoryRefreshListTooltip" xml:space="preserve">
+    <value>重新整理類別清單。</value>
+  </data>
+  <data name="Cell" xml:space="preserve">
+    <value>儲存格</value>
+  </data>
+  <data name="CellPropertiesTitle" xml:space="preserve">
+    <value>儲存格屬性</value>
+  </data>
+  <data name="Cells" xml:space="preserve">
+    <value>儲存格</value>
+  </data>
+  <data name="ChangeLiveClipboardHandlerCaption" xml:space="preserve">
+    <value>可以處理「{0}」的元件：</value>
+  </data>
+  <data name="ChangeLiveClipboardHandlerComponent" xml:space="preserve">
+    <value>元件</value>
+  </data>
+  <data name="ChangeLiveClipboardHandlerTitle" xml:space="preserve">
+    <value>變更格式處理常式</value>
+  </data>
+  <data name="ChangeTextStyle" xml:space="preserve">
+    <value>變更文字樣式</value>
+  </data>
+  <data name="CharCount" xml:space="preserve">
+    <value>字元數（含空格）</value>
+  </data>
+  <data name="CharNoSpacesCount" xml:space="preserve">
+    <value>字元數（不含空格）</value>
+  </data>
+  <data name="ClickToViewMap" xml:space="preserve">
+    <value>按一下可在 Live.com 上檢視此地圖</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>關閉(&amp;C)</value>
+  </data>
+  <data name="CloseButtonNoMnemonic" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="CloseButtonTooltip" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="ColorBlack" xml:space="preserve">
+    <value>黑色</value>
+  </data>
+  <data name="ColorCharcoal" xml:space="preserve">
+    <value>炭灰色</value>
+  </data>
+  <data name="ColorDarkGray" xml:space="preserve">
+    <value>深灰色</value>
+  </data>
+  <data name="ColorEarthyBlue" xml:space="preserve">
+    <value>大地藍</value>
+  </data>
+  <data name="ColorEarthyBrown" xml:space="preserve">
+    <value>大地棕</value>
+  </data>
+  <data name="ColorEarthyGreen" xml:space="preserve">
+    <value>大地綠</value>
+  </data>
+  <data name="ColorEarthyOrange" xml:space="preserve">
+    <value>大地橘</value>
+  </data>
+  <data name="ColorEarthyRed" xml:space="preserve">
+    <value>大地紅</value>
+  </data>
+  <data name="ColorEarthyYellow" xml:space="preserve">
+    <value>大地黃</value>
+  </data>
+  <data name="ColorLightGray" xml:space="preserve">
+    <value>淺灰色</value>
+  </data>
+  <data name="ColorMediumGray" xml:space="preserve">
+    <value>中灰色</value>
+  </data>
+  <data name="ColorPastelBlue" xml:space="preserve">
+    <value>粉彩藍</value>
+  </data>
+  <data name="ColorPastelGreen" xml:space="preserve">
+    <value>粉彩綠</value>
+  </data>
+  <data name="ColorPastelOrange" xml:space="preserve">
+    <value>粉彩橘</value>
+  </data>
+  <data name="ColorPastelPurple" xml:space="preserve">
+    <value>粉彩紫</value>
+  </data>
+  <data name="ColorPastelRed" xml:space="preserve">
+    <value>粉彩紅</value>
+  </data>
+  <data name="ColorPastelYellow" xml:space="preserve">
+    <value>粉彩黃</value>
+  </data>
+  <data name="ColorPickerColor" xml:space="preserve">
+    <value>色彩</value>
+  </data>
+  <data name="ColorPickerDefaultColor" xml:space="preserve">
+    <value>預設色彩(&amp;D)</value>
+  </data>
+  <data name="ColorPickerMoreColors" xml:space="preserve">
+    <value>更多色彩(&amp;M)...</value>
+  </data>
+  <data name="ColorProfessionalAqua" xml:space="preserve">
+    <value>專業青色</value>
+  </data>
+  <data name="ColorProfessionalBlue" xml:space="preserve">
+    <value>專業藍</value>
+  </data>
+  <data name="ColorProfessionalGreen" xml:space="preserve">
+    <value>專業綠</value>
+  </data>
+  <data name="ColorProfessionalOrange" xml:space="preserve">
+    <value>專業橘</value>
+  </data>
+  <data name="ColorProfessionalPurple" xml:space="preserve">
+    <value>專業紫</value>
+  </data>
+  <data name="ColorProfessionalRed" xml:space="preserve">
+    <value>專業紅</value>
+  </data>
+  <data name="ColorTempCooler" xml:space="preserve">
+    <value>較冷</value>
+  </data>
+  <data name="ColorTempWarmer" xml:space="preserve">
+    <value>較暖</value>
+  </data>
+  <data name="ColorVibrantBlue" xml:space="preserve">
+    <value>鮮豔藍</value>
+  </data>
+  <data name="ColorVibrantGreen" xml:space="preserve">
+    <value>鮮豔綠</value>
+  </data>
+  <data name="ColorVibrantOrange" xml:space="preserve">
+    <value>鮮豔橘</value>
+  </data>
+  <data name="ColorVibrantPurple" xml:space="preserve">
+    <value>鮮豔紫</value>
+  </data>
+  <data name="ColorVibrantRed" xml:space="preserve">
+    <value>鮮豔紅</value>
+  </data>
+  <data name="ColorVibrantYellow" xml:space="preserve">
+    <value>鮮豔黃</value>
+  </data>
+  <data name="ColorWhite" xml:space="preserve">
+    <value>白色</value>
+  </data>
+  <data name="ColumnProperties" xml:space="preserve">
+    <value>欄屬性</value>
+  </data>
+  <data name="Comma" xml:space="preserve">
+    <value>，</value>
+  </data>
+  <data name="CommaSpace" xml:space="preserve">
+    <value>， </value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="ConfigureProduct" xml:space="preserve">
+    <value>設定 {0}</value>
+  </data>
+  <data name="ConfigWizardBasicInfo" xml:space="preserve">
+    <value>部落格首頁與登入</value>
+  </data>
+  <data name="ConfigWizardChooseWeblogType" xml:space="preserve">
+    <value>選擇部落格類型</value>
+  </data>
+  <data name="ConfigWizardComplete" xml:space="preserve">
+    <value>部落格設定完成</value>
+  </data>
+  <data name="ConfigWizardDetectSettings" xml:space="preserve">
+    <value>正在偵測部落格設定</value>
+  </data>
+  <data name="ConfigWizardLearnMore" xml:space="preserve">
+    <value>深入了解 {0}</value>
+  </data>
+  <data name="ConfigWizardSelectImageEndpoint" xml:space="preserve">
+    <value>選取圖片集合</value>
+  </data>
+  <data name="ConfigWizardSelectProvider" xml:space="preserve">
+    <value>選取部落格類型</value>
+  </data>
+  <data name="ConfigWizardSelectWeblog" xml:space="preserve">
+    <value>選取部落格</value>
+  </data>
+  <data name="ConfigWizardSharePointHomepage" xml:space="preserve">
+    <value>SharePoint 部落格首頁</value>
+  </data>
+  <data name="ConfigWizardSharePointLogin" xml:space="preserve">
+    <value>SharePoint 部落格登入</value>
+  </data>
+  <data name="ConfigWizardWelcome" xml:space="preserve">
+    <value>歡迎！</value>
+  </data>
+  <data name="ConnectionRequired" xml:space="preserve">
+    <value>需要網際網路連線</value>
+  </data>
+  <data name="CopyrightInformation" xml:space="preserve">
+    <value>著作權資訊</value>
+  </data>
+  <data name="CropAspect16x9" xml:space="preserve">
+    <value>16x9</value>
+  </data>
+  <data name="CropAspect35x5" xml:space="preserve">
+    <value>3.5x5</value>
+  </data>
+  <data name="CropAspect4x3" xml:space="preserve">
+    <value>4x3</value>
+  </data>
+  <data name="CropAspect4x6" xml:space="preserve">
+    <value>4x6</value>
+  </data>
+  <data name="CropAspect5x7" xml:space="preserve">
+    <value>5x7</value>
+  </data>
+  <data name="CropAspect85x11" xml:space="preserve">
+    <value>8.5x11</value>
+  </data>
+  <data name="CropAspect8x10" xml:space="preserve">
+    <value>8x10</value>
+  </data>
+  <data name="CropAspectCustom" xml:space="preserve">
+    <value>自訂</value>
+  </data>
+  <data name="CropAspectOriginal" xml:space="preserve">
+    <value>原始</value>
+  </data>
+  <data name="CropAspectRatioLabel" xml:space="preserve">
+    <value>比例(&amp;P)：</value>
+  </data>
+  <data name="CropAspectSquare" xml:space="preserve">
+    <value>正方形</value>
+  </data>
+  <data name="CropDialogTitle" xml:space="preserve">
+    <value>裁切</value>
+  </data>
+  <data name="CropPane" xml:space="preserve">
+    <value>圖片裁切窗格</value>
+  </data>
+  <data name="CropRemoveCrop" xml:space="preserve">
+    <value>移除裁切(&amp;R)</value>
+  </data>
+  <data name="CropRotateFrame" xml:space="preserve">
+    <value>旋轉框架(&amp;F)</value>
+  </data>
+  <data name="CropShowGridlines" xml:space="preserve">
+    <value>顯示格線(&amp;G)</value>
+  </data>
+  <data name="Culture.UseItalics" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="CustomizeMap" xml:space="preserve">
+    <value>自訂地圖</value>
+  </data>
+  <data name="CWBasicCreateAccount" xml:space="preserve">
+    <value>如果您尚未擁有 {0} 帳號，請立即建立一個。按一下下方連結開啟網頁，開始線上註冊程序。</value>
+  </data>
+  <data name="CWBasicHeader" xml:space="preserve">
+    <value>新增部落格帳號</value>
+  </data>
+  <data name="CWBasicHomepage" xml:space="preserve">
+    <value>部落格網址(&amp;A)：</value>
+  </data>
+  <data name="CWBasicHomepage2" xml:space="preserve">
+    <value>這是訪客用來閱讀您部落格的網址。</value>
+  </data>
+  <data name="CWBasicText" xml:space="preserve">
+    <value>若要使用 {0}，您必須已擁有部落格服務的帳號。如果您尚未擁有現有部落格服務的帳號，請立即建立一個。</value>
+  </data>
+  <data name="CWBasicTitle" xml:space="preserve">
+    <value>設定 {0} 以搭配 {1} 使用</value>
+  </data>
+  <data name="CWBasicTitleDefaultService" xml:space="preserve">
+    <value>您的部落格</value>
+  </data>
+  <data name="CWConfirmEditWeblogSettings" xml:space="preserve">
+    <value>編輯設定(&amp;E)...</value>
+  </data>
+  <data name="CWConfirmFTPServer" xml:space="preserve">
+    <value>FTP 伺服器</value>
+  </data>
+  <data name="CWConfirmSwitchToWeblog" xml:space="preserve">
+    <value>立即切換到此部落格(&amp;S)</value>
+  </data>
+  <data name="CWConfirmText" xml:space="preserve">
+    <value>請確認您要儲存此部落格。</value>
+  </data>
+  <data name="CWConfirmText2" xml:space="preserve">
+    <value>Writer 將定期檢查並下載您部落格的新設定資訊。</value>
+  </data>
+  <data name="CWConfirmThanks" xml:space="preserve">
+    <value>您的部落格已設定完成</value>
+  </data>
+  <data name="CWConfirmUploadSettings" xml:space="preserve">
+    <value>上傳圖片至：</value>
+  </data>
+  <data name="CWConfirmWeblogName" xml:space="preserve">
+    <value>部落格名稱</value>
+  </data>
+  <data name="CWGoogleBloggerDescription" xml:space="preserve">
+    <value>若要設定 Google Blogger，請登入。</value>
+  </data>
+  <data name="CWGoogleBloggerSignInSuccess" xml:space="preserve">
+    <value>登入成功</value>
+  </data>
+  <data name="CWGoogleBloggerTitle" xml:space="preserve">
+    <value>提供 Google Blogger 登入資訊</value>
+  </data>
+  <data name="CWLiveIDCreateAccount" xml:space="preserve">
+    <value>如果您使用 Hotmail、Messenger 或 Xbox LIVE，您已擁有 Microsoft 帳號。</value>
+  </data>
+  <data name="CWLiveIDCreateAccount2" xml:space="preserve">
+    <value>沒有 Microsoft 帳號嗎？</value>
+  </data>
+  <data name="CWProgressHeader" xml:space="preserve">
+    <value>正在設定您的部落格帳號</value>
+  </data>
+  <data name="CWSelectBlogText" xml:space="preserve">
+    <value>偵測到多個部落格。請從下方清單選取您要新增的部落格：</value>
+  </data>
+  <data name="CWSelectImageEndpointText" xml:space="preserve">
+    <value>請選取您要上傳圖片的集合：</value>
+  </data>
+  <data name="CWSelectProviderApiUrl" xml:space="preserve">
+    <value>伺服器 API 網址</value>
+  </data>
+  <data name="CWSelectProviderApiUrlLabel" xml:space="preserve">
+    <value>部落格的遠端發佈網址(&amp;W)：</value>
+  </data>
+  <data name="CWSelectProviderApiUrlLabel_ServiceDoc" xml:space="preserve">
+    <value>服務文件網址(&amp;W)：</value>
+  </data>
+  <data name="CWSelectProviderText" xml:space="preserve">
+    <value>{0} 無法自動偵測您的部落格設定。請選取您所使用的部落格類型以繼續。</value>
+  </data>
+  <data name="CWSelectProviderWeblogProvider" xml:space="preserve">
+    <value>部落格服務供應商</value>
+  </data>
+  <data name="CWSelectProviderWeblogTypeLabel" xml:space="preserve">
+    <value>您所使用的部落格類型(&amp;T)：</value>
+  </data>
+  <data name="CWSharePointHomepageUrl" xml:space="preserve">
+    <value>SharePoint 部落格網址(&amp;P)：</value>
+  </data>
+  <data name="CWSharePointText" xml:space="preserve">
+    <value>若要使用 {0}，您必須擁有 SharePoint 部落格。</value>
+  </data>
+  <data name="CWSharePointText2" xml:space="preserve">
+    <value>請輸入發佈到 SharePoint 部落格所需的登入資訊。</value>
+  </data>
+  <data name="CWSharePointTitle" xml:space="preserve">
+    <value>設定 {0} 以搭配 SharePoint 部落格使用</value>
+  </data>
+  <data name="CWSharePointTitle2" xml:space="preserve">
+    <value>提供 SharePoint 部落格登入資訊</value>
+  </data>
+  <data name="CWSharePointUseSystemLogin" xml:space="preserve">
+    <value>使用我的 Windows 使用者名稱和密碼(&amp;W)</value>
+  </data>
+  <data name="CWSpacesUsername" xml:space="preserve">
+    <value>Microsoft 帳號(&amp;M)：</value>
+  </data>
+  <data name="CWSpacesUsernameExample" xml:space="preserve">
+    <value>(example555@hotmail.com)</value>
+  </data>
+  <data name="CWStaticSiteCommandsBuildCommand" xml:space="preserve">
+    <value>建置命令：</value>
+  </data>
+  <data name="CWStaticSiteCommandsBuildCommandSubtitle" xml:space="preserve">
+    <value>用於建置您的網站並將輸出儲存在本機的命令，以便準備發佈。若已啟用本機網站建置，則為必填。</value>
+  </data>
+  <data name="CWStaticSiteCommandsPublishCommand" xml:space="preserve">
+    <value>發佈命令：</value>
+  </data>
+  <data name="CWStaticSiteCommandsPublishCommandSubtitle" xml:space="preserve">
+    <value>用於將您的網站上傳至主機服務供應商的命令。如果已啟用本機網站建置，此命令通常會上傳建置命令的輸出。</value>
+  </data>
+  <data name="CWStaticSiteCommandsSubtitle" xml:space="preserve">
+    <value>{0} 將執行您在下方指定的命令，並在發生錯誤時通知您。命令是使用系統命令解譯器執行，工作目錄為您的本機網站目錄。</value>
+  </data>
+  <data name="CWStaticSiteCommandsTitle" xml:space="preserve">
+    <value>提供網站撰寫命令</value>
+  </data>
+  <data name="CWStaticSiteConfigDetection" xml:space="preserve">
+    <value>{0} 已能夠自動判斷您網站的部分設定。請確認下一頁預先填入的詳細資料是否正確，並填寫其他遺漏的欄位。</value>
+  </data>
+  <data name="CWStaticSiteFeaturesBuilding" xml:space="preserve">
+    <value>啟用本機網站建置</value>
+  </data>
+  <data name="CWStaticSiteFeaturesDrafts" xml:space="preserve">
+    <value>啟用遠端草稿</value>
+  </data>
+  <data name="CWStaticSiteFeaturesImages" xml:space="preserve">
+    <value>啟用圖片上傳</value>
+  </data>
+  <data name="CWStaticSiteFeaturesPages" xml:space="preserve">
+    <value>啟用頁面</value>
+  </data>
+  <data name="CWStaticSiteFeaturesSubtitle" xml:space="preserve">
+    <value>使用下方核取方塊定義您的靜態網站支援哪些功能。您可以在下列頁面中設定 Open Live Writer 的這些功能。</value>
+  </data>
+  <data name="CWStaticSiteFeaturesTitle" xml:space="preserve">
+    <value>定義靜態網站功能</value>
+  </data>
+  <data name="CWStaticSiteInitialSubtitle" xml:space="preserve">
+    <value>{0} 將嘗試根據您網站專案資料夾中的檔案自動偵測您的靜態網站設定。請選取您靜態網站的專案資料夾（例如 Git 存放庫）</value>
+  </data>
+  <data name="CWStaticSiteInitialSubtitleAlreadyDetected" xml:space="preserve">
+    <value>{0} 已嘗試對您的網站執行設定偵測。如有需要，您可以在此變更網站路徑。您也可以從「設定」重新執行設定偵測。</value>
+  </data>
+  <data name="CWStaticSiteInitialTitle" xml:space="preserve">
+    <value>提供靜態網站設定</value>
+  </data>
+  <data name="CWStaticSiteLocalSiteFolderPicker" xml:space="preserve">
+    <value>請選取您靜態網站的專案資料夾（例如 Git 存放庫）</value>
+  </data>
+  <data name="CWStaticSiteLocalSitePath" xml:space="preserve">
+    <value>本機靜態網站路徑：</value>
+  </data>
+  <data name="CWStaticSitePathsDraftsPath" xml:space="preserve">
+    <value>草稿路徑：（相對路徑，若已啟用草稿則為必填）</value>
+  </data>
+  <data name="CWStaticSitePathsImagesPath" xml:space="preserve">
+    <value>圖片路徑：（相對路徑，若已啟用圖片則為必填）</value>
+  </data>
+  <data name="CWStaticSitePathsOutputPath" xml:space="preserve">
+    <value>建置輸出路徑：（相對路徑，若已啟用建置則為必填）</value>
+  </data>
+  <data name="CWStaticSitePathsPagesInRoot" xml:space="preserve">
+    <value>頁面儲存在網站根目錄</value>
+  </data>
+  <data name="CWStaticSitePathsPagesPath" xml:space="preserve">
+    <value>頁面路徑：（相對路徑，若已啟用頁面則為必填）</value>
+  </data>
+  <data name="CWStaticSitePathsPostsPath" xml:space="preserve">
+    <value>文章路徑：（相對路徑）</value>
+  </data>
+  <data name="CWStaticSitePathsSiteUrl" xml:space="preserve">
+    <value>公開網站 URL：</value>
+  </data>
+  <data name="CWStaticSitePathsTitle" xml:space="preserve">
+    <value>提供網站 URL 和路徑</value>
+  </data>
+  <data name="CWTitle" xml:space="preserve">
+    <value>新增部落格精靈</value>
+  </data>
+  <data name="CWWelcomeAlreadyHave" xml:space="preserve">
+    <value>我已設定好部落格(&amp;A)</value>
+  </data>
+  <data name="CWWelcomeCaption" xml:space="preserve">
+    <value>歡迎進入部落格的世界！</value>
+  </data>
+  <data name="CWWelcomeClickNext" xml:space="preserve">
+    <value>按一下「下一步」以繼續。</value>
+  </data>
+  <data name="CWWelcomeCreate" xml:space="preserve">
+    <value>建立新部落格(&amp;C)</value>
+  </data>
+  <data name="CWWelcomeText" xml:space="preserve">
+    <value>使用 {0} 撰寫任何您感興趣的部落格。新增相片和影片，然後發佈到熱門部落格服務，包括 WordPress、Blogger 和 TypePad。</value>
+  </data>
+  <data name="CWWelcomeWP" xml:space="preserve">
+    <value>WordPress(&amp;W)</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="DecoratorBWDescription" xml:space="preserve">
+    <value>黑白</value>
+  </data>
+  <data name="DecoratorBWLabel" xml:space="preserve">
+    <value>黑白</value>
+  </data>
+  <data name="DecoratorCoolestTemperatureLabel" xml:space="preserve">
+    <value>最冷色調</value>
+  </data>
+  <data name="DecoratorCoolTemperatureLabel" xml:space="preserve">
+    <value>冷色調</value>
+  </data>
+  <data name="DecoratorDropShadow" xml:space="preserve">
+    <value>陰影</value>
+  </data>
+  <data name="DecoratorEmbossDescription" xml:space="preserve">
+    <value>對選取的圖片套用浮雕效果。</value>
+  </data>
+  <data name="DecoratorEmbossLabel" xml:space="preserve">
+    <value>浮雕</value>
+  </data>
+  <data name="DecoratorGaussianBlurDescription" xml:space="preserve">
+    <value>對選取的圖片套用高斯模糊濾鏡。</value>
+  </data>
+  <data name="DecoratorGaussianBlurLabel" xml:space="preserve">
+    <value>高斯模糊</value>
+  </data>
+  <data name="DecoratorGroupOverlays" xml:space="preserve">
+    <value>疊加效果</value>
+  </data>
+  <data name="DecoratorGroupTransformations" xml:space="preserve">
+    <value>變形</value>
+  </data>
+  <data name="DecoratorInheritBorder" xml:space="preserve">
+    <value>繼承自部落格</value>
+  </data>
+  <data name="DecoratorInstantPhoto" xml:space="preserve">
+    <value>即可拍相片</value>
+  </data>
+  <data name="DecoratorNoBlurDescription" xml:space="preserve">
+    <value>移除選取圖片的模糊濾鏡。</value>
+  </data>
+  <data name="DecoratorNoBlurLabel" xml:space="preserve">
+    <value>無模糊</value>
+  </data>
+  <data name="DecoratorNoBorder" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="DecoratorNoEmbossDescription" xml:space="preserve">
+    <value>移除選取圖片的浮雕效果。</value>
+  </data>
+  <data name="DecoratorNoEmbossLabel" xml:space="preserve">
+    <value>無浮雕</value>
+  </data>
+  <data name="DecoratorNoRecolorDescription" xml:space="preserve">
+    <value>移除套用於選取圖片的重新上色效果。</value>
+  </data>
+  <data name="DecoratorNoRecolorLabel" xml:space="preserve">
+    <value>無重新上色</value>
+  </data>
+  <data name="DecoratorNoSharpenDescription" xml:space="preserve">
+    <value>移除選取圖片的銳利化濾鏡。</value>
+  </data>
+  <data name="DecoratorNoSharpenLabel" xml:space="preserve">
+    <value>無銳利化</value>
+  </data>
+  <data name="DecoratorPhotopaper" xml:space="preserve">
+    <value>相紙</value>
+  </data>
+  <data name="DecoratorReflection" xml:space="preserve">
+    <value>倒影</value>
+  </data>
+  <data name="DecoratorRoundedCorners" xml:space="preserve">
+    <value>圓角</value>
+  </data>
+  <data name="DecoratorSaturationDescription" xml:space="preserve">
+    <value>使選取圖片中的色彩更加鮮豔。</value>
+  </data>
+  <data name="DecoratorSaturationLabel" xml:space="preserve">
+    <value>色彩強化</value>
+  </data>
+  <data name="DecoratorSepiaDescription" xml:space="preserve">
+    <value>棕褐色調</value>
+  </data>
+  <data name="DecoratorSepiaLabel" xml:space="preserve">
+    <value>棕褐色調</value>
+  </data>
+  <data name="DecoratorSharpenDescription" xml:space="preserve">
+    <value>對選取的圖片套用銳利化濾鏡。</value>
+  </data>
+  <data name="DecoratorSharpenLabel" xml:space="preserve">
+    <value>銳利化</value>
+  </data>
+  <data name="DecoratorSolid1px" xml:space="preserve">
+    <value>實線，1 像素</value>
+  </data>
+  <data name="DecoratorSolid3px" xml:space="preserve">
+    <value>實線，3 像素</value>
+  </data>
+  <data name="DecoratorTemperatureDescription" xml:space="preserve">
+    <value>變更選取圖片中色彩的暖度。</value>
+  </data>
+  <data name="DecoratorWarmestTemperatureLabel" xml:space="preserve">
+    <value>最暖色調</value>
+  </data>
+  <data name="DecoratorWarmTemperatureLabel" xml:space="preserve">
+    <value>暖色調</value>
+  </data>
+  <data name="DecoratorWatermark" xml:space="preserve">
+    <value>浮水印...</value>
+  </data>
+  <data name="DefaultTemplateBodyFont" xml:space="preserve">
+    <value>Calibri, Trebuchet MS, Helvetica, Arial, Sans-Serif</value>
+  </data>
+  <data name="DefaultTemplateTitleFont" xml:space="preserve">
+    <value>Calibri, Trebuchet MS, Helvetica, Arial, Sans-Serif</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>移除(&amp;M)...</value>
+  </data>
+  <data name="DeleteSomething" xml:space="preserve">
+    <value>刪除 {0}</value>
+  </data>
+  <data name="DictionaryLanguageLabel" xml:space="preserve">
+    <value>字典語言(&amp;L)：</value>
+  </data>
+  <data name="DictionaryLanguageNone" xml:space="preserve">
+    <value>(無)</value>
+  </data>
+  <data name="DimensionsFormat" xml:space="preserve">
+    <value>{0}x{1}</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>不再顯示此訊息(&amp;D)</value>
+  </data>
+  <data name="DownloadingWeblogStyle" xml:space="preserve">
+    <value>正在下載部落格佈景主題</value>
+  </data>
+  <data name="DraftNameFormat" xml:space="preserve">
+    <value>草稿 {0}</value>
+  </data>
+  <data name="Drafts" xml:space="preserve">
+    <value>草稿</value>
+  </data>
+  <data name="DynamicCommandMenuInsert" xml:space="preserve">
+    <value>插入</value>
+  </data>
+  <data name="DynamicCommandMenuMore" xml:space="preserve">
+    <value>更多(&amp;R)...</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>編輯(&amp;E)...</value>
+  </data>
+  <data name="EditingName" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="EditingRTLDefault" xml:space="preserve">
     <value>預設 ({0})</value>
+  </data>
+  <data name="EditingRTLExplanation" xml:space="preserve">
+    <value>變更部落格文章的閱讀方向。</value>
+  </data>
+  <data name="EditingRTLName" xml:space="preserve">
+    <value>文字方向</value>
+  </data>
+  <data name="EditingRTLNo" xml:space="preserve">
+    <value>由左至右</value>
+  </data>
+  <data name="EditingRTLUse" xml:space="preserve">
+    <value>在編輯檢視中由右至左輸入文字(&amp;E)。</value>
+  </data>
+  <data name="EditingRTLYes" xml:space="preserve">
+    <value>由右至左</value>
+  </data>
+  <data name="EditingStyle" xml:space="preserve">
+    <value>部落格佈景主題</value>
+  </data>
+  <data name="EditingText" xml:space="preserve">
+    <value>在線上變更佈景主題後</value>
+  </data>
+  <data name="EditingUpdate" xml:space="preserve">
+    <value>更新佈景主題(&amp;U)</value>
+  </data>
+  <data name="EditingUsing" xml:space="preserve">
+    <value>使用您的部落格佈景主題，在編輯時預覽文章發佈到線上後的外觀。</value>
+  </data>
+  <data name="EditProxySettings" xml:space="preserve">
+    <value>設定 Proxy...</value>
+  </data>
+  <data name="EmoticonAirplane" xml:space="preserve">
+    <value>飛機</value>
+  </data>
+  <data name="EmoticonAlien" xml:space="preserve">
+    <value>外星人</value>
+  </data>
+  <data name="EmoticonAngel" xml:space="preserve">
+    <value>天使</value>
+  </data>
+  <data name="EmoticonAngrySmile" xml:space="preserve">
+    <value>憤怒的笑臉</value>
+  </data>
+  <data name="EmoticonAnnoyed" xml:space="preserve">
+    <value>煩躁</value>
+  </data>
+  <data name="EmoticonAuto" xml:space="preserve">
+    <value>汽車</value>
+  </data>
+  <data name="EmoticonBaringTeethSmile" xml:space="preserve">
+    <value>齜牙笑臉</value>
+  </data>
+  <data name="EmoticonBeRightBack" xml:space="preserve">
+    <value>馬上回來</value>
+  </data>
+  <data name="EmoticonBirthdayCake" xml:space="preserve">
+    <value>生日蛋糕</value>
+  </data>
+  <data name="EmoticonBlackSheep" xml:space="preserve">
+    <value>黑羊</value>
+  </data>
+  <data name="EmoticonBowl" xml:space="preserve">
+    <value>碗</value>
+  </data>
+  <data name="EmoticonBoy" xml:space="preserve">
+    <value>男孩</value>
+  </data>
+  <data name="EmoticonBrokenHeart" xml:space="preserve">
+    <value>破碎的心</value>
+  </data>
+  <data name="EmoticonBunny" xml:space="preserve">
+    <value>兔子</value>
+  </data>
+  <data name="EmoticonCallMe" xml:space="preserve">
+    <value>打電話給我</value>
+  </data>
+  <data name="EmoticonCamera" xml:space="preserve">
+    <value>相機</value>
+  </data>
+  <data name="EmoticonCatFace" xml:space="preserve">
+    <value>貓臉</value>
+  </data>
+  <data name="EmoticonClock" xml:space="preserve">
+    <value>時鐘</value>
+  </data>
+  <data name="EmoticonCoffeeCup" xml:space="preserve">
+    <value>咖啡杯</value>
+  </data>
+  <data name="EmoticonComputer" xml:space="preserve">
+    <value>電腦</value>
+  </data>
+  <data name="EmoticonConfusedSmile" xml:space="preserve">
+    <value>困惑的笑臉</value>
+  </data>
+  <data name="EmoticonCryingFace" xml:space="preserve">
+    <value>哭臉</value>
+  </data>
+  <data name="EmoticonDevil" xml:space="preserve">
+    <value>惡魔</value>
+  </data>
+  <data name="EmoticonDisappointedSmile" xml:space="preserve">
+    <value>失望的笑臉</value>
+  </data>
+  <data name="EmoticonDogFace" xml:space="preserve">
+    <value>狗臉</value>
+  </data>
+  <data name="EmoticonDontTellAnyoneSmile" xml:space="preserve">
+    <value>別告訴任何人的笑臉</value>
+  </data>
+  <data name="EmoticonEmail" xml:space="preserve">
+    <value>電子郵件</value>
+  </data>
+  <data name="EmoticonEmbarrassedSmile" xml:space="preserve">
+    <value>尷尬的笑臉</value>
+  </data>
+  <data name="EmoticonEyeRollingSmile" xml:space="preserve">
+    <value>翻白眼的笑臉</value>
+  </data>
+  <data name="EmoticonFilmstrip" xml:space="preserve">
+    <value>影片膠卷</value>
+  </data>
+  <data name="EmoticonFingersCrossed" xml:space="preserve">
+    <value>手指交叉</value>
+  </data>
+  <data name="EmoticonFlirtFemale" xml:space="preserve">
+    <value>調情女生</value>
+  </data>
+  <data name="EmoticonFlirtMale" xml:space="preserve">
+    <value>調情男生</value>
+  </data>
+  <data name="EmoticonFreezing" xml:space="preserve">
+    <value>結冰</value>
+  </data>
+  <data name="EmoticonGhost" xml:space="preserve">
+    <value>幽靈</value>
+  </data>
+  <data name="EmoticonGiftWithABow" xml:space="preserve">
+    <value>綁蝴蝶結的禮物</value>
+  </data>
+  <data name="EmoticonGirl" xml:space="preserve">
+    <value>女孩</value>
+  </data>
+  <data name="EmoticonGoat" xml:space="preserve">
+    <value>山羊</value>
+  </data>
+  <data name="EmoticonGreenWithEnvy" xml:space="preserve">
+    <value>嫉妒</value>
+  </data>
+  <data name="EmoticonHighFive" xml:space="preserve">
+    <value>擊掌</value>
+  </data>
+  <data name="EmoticonHotSmile" xml:space="preserve">
+    <value>熱情笑臉</value>
+  </data>
+  <data name="EmoticonIDontKnowSmile" xml:space="preserve">
+    <value>我不知道的笑臉</value>
+  </data>
+  <data name="EmoticonInLove" xml:space="preserve">
+    <value>戀愛中</value>
+  </data>
+  <data name="EmoticonIslandWithAPalmTree" xml:space="preserve">
+    <value>棕櫚樹島嶼</value>
+  </data>
+  <data name="EmoticonJustKidding" xml:space="preserve">
+    <value>開玩笑的</value>
+  </data>
+  <data name="EmoticonLaughingOutLoud" xml:space="preserve">
+    <value>哈哈大笑</value>
+  </data>
+  <data name="EmoticonLeftHug" xml:space="preserve">
+    <value>左擁抱</value>
+  </data>
+  <data name="EmoticonLightBulb" xml:space="preserve">
+    <value>燈泡</value>
+  </data>
+  <data name="EmoticonLightning" xml:space="preserve">
+    <value>閃電</value>
+  </data>
+  <data name="EmoticonMartiniGlass" xml:space="preserve">
+    <value>馬丁尼杯</value>
+  </data>
+  <data name="EmoticonMobilePhone" xml:space="preserve">
+    <value>手機</value>
+  </data>
+  <data name="EmoticonMoney" xml:space="preserve">
+    <value>金錢</value>
+  </data>
+  <data name="EmoticonMug" xml:space="preserve">
+    <value>啤酒杯</value>
+  </data>
+  <data name="EmoticonNerdSmile" xml:space="preserve">
+    <value>書呆子笑臉</value>
+  </data>
+  <data name="EmoticonNinja" xml:space="preserve">
+    <value>忍者</value>
+  </data>
+  <data name="EmoticonNote" xml:space="preserve">
+    <value>音符</value>
+  </data>
+  <data name="EmoticonNyahNyah" xml:space="preserve">
+    <value>嘲笑</value>
+  </data>
+  <data name="EmoticonOpenMouthedSmile" xml:space="preserve">
+    <value>張嘴笑臉</value>
+  </data>
+  <data name="EmoticonPartySmile" xml:space="preserve">
+    <value>派對笑臉</value>
+  </data>
+  <data name="EmoticonPeace" xml:space="preserve">
+    <value>和平</value>
+  </data>
+  <data name="EmoticonPizza" xml:space="preserve">
+    <value>披薩</value>
+  </data>
+  <data name="EmoticonPlate" xml:space="preserve">
+    <value>盤子</value>
+  </data>
+  <data name="EmoticonPointingUp" xml:space="preserve">
+    <value>指向上方</value>
+  </data>
+  <data name="EmoticonPrincess" xml:space="preserve">
+    <value>公主</value>
+  </data>
+  <data name="EmoticonPunch" xml:space="preserve">
+    <value>出拳</value>
+  </data>
+  <data name="EmoticonPunk" xml:space="preserve">
+    <value>龐克</value>
+  </data>
+  <data name="EmoticonRainbow" xml:space="preserve">
+    <value>彩虹</value>
+  </data>
+  <data name="EmoticonRedHeart" xml:space="preserve">
+    <value>紅心</value>
+  </data>
+  <data name="EmoticonRedLips" xml:space="preserve">
+    <value>紅唇</value>
+  </data>
+  <data name="EmoticonRedRose" xml:space="preserve">
+    <value>紅玫瑰</value>
+  </data>
+  <data name="EmoticonRightHug" xml:space="preserve">
+    <value>右擁抱</value>
+  </data>
+  <data name="EmoticonRollingOnTheFloorLaughing" xml:space="preserve">
+    <value>笑翻在地</value>
+  </data>
+  <data name="EmoticonSadSmile" xml:space="preserve">
+    <value>悲傷的笑臉</value>
+  </data>
+  <data name="EmoticonSarcasticSmile" xml:space="preserve">
+    <value>諷刺的笑臉</value>
+  </data>
+  <data name="EmoticonSchool" xml:space="preserve">
+    <value>學校</value>
+  </data>
+  <data name="EmoticonSchoolBus" xml:space="preserve">
+    <value>校車</value>
+  </data>
+  <data name="EmoticonSecretTellingSmile" xml:space="preserve">
+    <value>悄悄話笑臉</value>
+  </data>
+  <data name="EmoticonSendAKiss" xml:space="preserve">
+    <value>送飛吻</value>
+  </data>
+  <data name="EmoticonsGalleryPopular" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="EmoticonsGalleryRecent" xml:space="preserve">
+    <value>最近使用</value>
+  </data>
+  <data name="EmoticonShifty" xml:space="preserve">
+    <value>鬼鬼祟祟</value>
+  </data>
+  <data name="EmoticonSickSmile" xml:space="preserve">
+    <value>生病的笑臉</value>
+  </data>
+  <data name="EmoticonSleepingHalfMoon" xml:space="preserve">
+    <value>睡眠半月</value>
+  </data>
+  <data name="EmoticonSleepySmile" xml:space="preserve">
+    <value>睏倦的笑臉</value>
+  </data>
+  <data name="EmoticonSmile" xml:space="preserve">
+    <value>微笑</value>
+  </data>
+  <data name="EmoticonSmileWithTongueOut" xml:space="preserve">
+    <value>吐舌笑臉</value>
+  </data>
+  <data name="EmoticonSnail" xml:space="preserve">
+    <value>蝸牛</value>
+  </data>
+  <data name="EmoticonSoccerBall" xml:space="preserve">
+    <value>足球</value>
+  </data>
+  <data name="EmoticonStar" xml:space="preserve">
+    <value>星星</value>
+  </data>
+  <data name="EmoticonSteamingMad" xml:space="preserve">
+    <value>冒煙的憤怒</value>
+  </data>
+  <data name="EmoticonsTooltipOneAutoReplace" xml:space="preserve">
+    <value>{0}  {1}</value>
+  </data>
+  <data name="EmoticonsTooltipTwoAutoReplace" xml:space="preserve">
+    <value>{0}  {1} 或 {2}</value>
+  </data>
+  <data name="EmoticonStormCloud" xml:space="preserve">
+    <value>烏雲</value>
+  </data>
+  <data name="EmoticonSun" xml:space="preserve">
+    <value>太陽</value>
+  </data>
+  <data name="EmoticonSurprisedSmile" xml:space="preserve">
+    <value>驚訝的笑臉</value>
+  </data>
+  <data name="EmoticonTelephoneReceiver" xml:space="preserve">
+    <value>電話聽筒</value>
+  </data>
+  <data name="EmoticonThinkingSmile" xml:space="preserve">
+    <value>思考的笑臉</value>
+  </data>
+  <data name="EmoticonThumbsDown" xml:space="preserve">
+    <value>拇指朝下</value>
+  </data>
+  <data name="EmoticonThumbsUp" xml:space="preserve">
+    <value>拇指朝上</value>
+  </data>
+  <data name="EmoticonTurtle" xml:space="preserve">
+    <value>烏龜</value>
+  </data>
+  <data name="EmoticonUmbrella" xml:space="preserve">
+    <value>雨傘</value>
+  </data>
+  <data name="EmoticonVampireBat" xml:space="preserve">
+    <value>吸血鬼蝙蝠</value>
+  </data>
+  <data name="EmoticonWhoMe" xml:space="preserve">
+    <value>是我嗎？</value>
+  </data>
+  <data name="EmoticonWiltedRose" xml:space="preserve">
+    <value>枯萎的玫瑰</value>
+  </data>
+  <data name="EmoticonWinkingSmile" xml:space="preserve">
+    <value>眨眼笑臉</value>
+  </data>
+  <data name="EmoticonWork" xml:space="preserve">
+    <value>工作</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="ErrorOccurredDeletingDraft" xml:space="preserve">
+    <value>刪除草稿時發生錯誤</value>
+  </data>
+  <data name="ErrorOccurredDeletingDraftDetails" xml:space="preserve">
+    <value>嘗試刪除草稿時發生未預期的錯誤：{0}</value>
+  </data>
+  <data name="FileUploadFailedCaption" xml:space="preserve">
+    <value>下列圖片無法發佈，因為部落格不支援圖片發佈。</value>
+  </data>
+  <data name="FileUploadFailedException" xml:space="preserve">
+    <value>無法發佈檔案</value>
+  </data>
+  <data name="FileUploadFailedFTP" xml:space="preserve">
+    <value>Open Live Writer 可設定為將圖片發佈到 FTP 帳號。</value>
+  </data>
+  <data name="FileUploadFailedFTP2" xml:space="preserve">
+    <value>您要立即設定 FTP 帳號以便發佈圖片嗎？</value>
+  </data>
+  <data name="FileUploadFailedTitle" xml:space="preserve">
+    <value>部落格不支援圖片上傳</value>
+  </data>
+  <data name="FileUploadFTPServer" xml:space="preserve">
+    <value>FTP 伺服器</value>
+  </data>
+  <data name="FileUploadNone" xml:space="preserve">
+    <value>不上傳</value>
+  </data>
+  <data name="FileUploadUploadToWeblog" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="FindCategory" xml:space="preserve">
+    <value>尋找類別</value>
+  </data>
+  <data name="FindDirection" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="FindDirectionDown" xml:space="preserve">
+    <value>向下(&amp;D)</value>
+  </data>
+  <data name="FindDirectionUp" xml:space="preserve">
+    <value>向上(&amp;U)</value>
+  </data>
+  <data name="FindNextButton" xml:space="preserve">
+    <value>尋找下一個(&amp;F)</value>
+  </data>
+  <data name="FindTitle" xml:space="preserve">
+    <value>尋找</value>
+  </data>
+  <data name="FindWhatLabel" xml:space="preserve">
+    <value>尋找(&amp;N)：</value>
+  </data>
+  <data name="ForgotMyPassword" xml:space="preserve">
+    <value>忘記密碼</value>
+  </data>
+  <data name="FtpFolderPath" xml:space="preserve">
+    <value>發佈資料夾路徑(&amp;P)：</value>
+  </data>
+  <data name="FtpFolderUrl" xml:space="preserve">
+    <value>發佈資料夾的網址(&amp;W)：</value>
+  </data>
+  <data name="FtpHelp" xml:space="preserve">
+    <value>如何設定 FTP 網站？</value>
+  </data>
+  <data name="FtpHostname" xml:space="preserve">
+    <value>主機名稱(&amp;H)：</value>
+  </data>
+  <data name="FtpLoginDomain" xml:space="preserve">
+    <value>FTP</value>
+  </data>
+  <data name="FtpPassword" xml:space="preserve">
+    <value>密碼(&amp;P)：</value>
+  </data>
+  <data name="FtpText" xml:space="preserve">
+    <value>FTP 設定</value>
+  </data>
+  <data name="FtpUsername" xml:space="preserve">
+    <value>使用者名稱(&amp;U)：</value>
+  </data>
+  <data name="FuturePostWarningDialogTitle" xml:space="preserve">
+    <value>Open Live Writer</value>
+  </data>
+  <data name="FuturePostWarningDontShowAgain" xml:space="preserve">
+    <value>一律立即發佈，不再詢問(&amp;A)</value>
+  </data>
+  <data name="FuturePostWarningExplanation" xml:space="preserve">
+    <value>此部落格服務無法延遲發佈至您設定的日期。您要立即發佈嗎？</value>
+  </data>
+  <data name="FuturePostWarningTitle" xml:space="preserve">
+    <value>無法設定未來的發佈日期</value>
+  </data>
+  <data name="GDataCaptchaAlternate" xml:space="preserve">
+    <value>視障使用者可在此存取測試的音訊版本。</value>
+  </data>
+  <data name="GDataCaptchaPrompt" xml:space="preserve">
+    <value>請輸入下方圖片中顯示的字元。</value>
+  </data>
+  <data name="GDataCaptchaTitle" xml:space="preserve">
+    <value>解鎖 Google 帳號</value>
+  </data>
+  <data name="GenericLoginError" xml:space="preserve">
+    <value>無法登入 Live ID。</value>
+  </data>
+  <data name="GigabytesFormat" xml:space="preserve">
+    <value>{0}GB</value>
+  </data>
+  <data name="GlossaryAutomaticallyLink" xml:space="preserve">
+    <value>自動連結相符的詞語(&amp;U)</value>
+  </data>
+  <data name="GlossaryAutomaticallyLinkFirstTime" xml:space="preserve">
+    <value>每篇文章中每個詞語只連結一次(&amp;N)</value>
+  </data>
+  <data name="GlossaryAutomaticLinkOptions" xml:space="preserve">
+    <value>自動連結選項</value>
+  </data>
+  <data name="GlossaryExampleTitle" xml:space="preserve">
+    <value>Open Live Writer 網站</value>
+  </data>
+  <data name="GlossaryPrefName" xml:space="preserve">
+    <value>自動連結</value>
+  </data>
+  <data name="GlossarySelectLink" xml:space="preserve">
+    <value>選取連結</value>
+  </data>
+  <data name="GlossaryTextCol" xml:space="preserve">
+    <value>詞語</value>
+  </data>
+  <data name="GlossaryUrlCol" xml:space="preserve">
+    <value>網址</value>
+  </data>
+  <data name="Heading1" xml:space="preserve">
+    <value>標題 1</value>
+  </data>
+  <data name="Heading2" xml:space="preserve">
+    <value>標題 2</value>
+  </data>
+  <data name="Heading3" xml:space="preserve">
+    <value>標題 3</value>
+  </data>
+  <data name="Heading4" xml:space="preserve">
+    <value>標題 4</value>
+  </data>
+  <data name="Heading5" xml:space="preserve">
+    <value>標題 5</value>
+  </data>
+  <data name="Heading6" xml:space="preserve">
+    <value>標題 6</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="HeightColon" xml:space="preserve">
+    <value>高度(&amp;H)：</value>
+  </data>
+  <data name="HeightLabel" xml:space="preserve">
+    <value>高度(&amp;H)：</value>
+  </data>
+  <data name="HelpButton" xml:space="preserve">
+    <value>說明(&amp;H)</value>
+  </data>
+  <data name="HideProperties" xml:space="preserve">
+    <value>隱藏屬性</value>
+  </data>
+  <data name="HomepageUrl" xml:space="preserve">
+    <value>網站位址：</value>
+  </data>
+  <data name="ImageEffectsColorModesCategory" xml:space="preserve">
+    <value>色彩模式</value>
+  </data>
+  <data name="ImageEffectsColorTemperatureCategory" xml:space="preserve">
+    <value>色彩溫度</value>
+  </data>
+  <data name="ImageEffectsEmbossCategory" xml:space="preserve">
+    <value>浮雕</value>
+  </data>
+  <data name="ImageEffectsGaussianCategory" xml:space="preserve">
+    <value>高斯模糊</value>
+  </data>
+  <data name="ImageEffectsNoBlurCategory" xml:space="preserve">
+    <value>無模糊</value>
+  </data>
+  <data name="ImageEffectsNoEmbossCategory" xml:space="preserve">
+    <value>無浮雕</value>
+  </data>
+  <data name="ImageEffectsNoRecolorCategory" xml:space="preserve">
+    <value>無重新上色</value>
+  </data>
+  <data name="ImageEffectsNoSharpenCategory" xml:space="preserve">
+    <value>無銳利化</value>
+  </data>
+  <data name="ImageEffectsSharpenCategory" xml:space="preserve">
+    <value>銳利化</value>
+  </data>
+  <data name="ImagesBlogOpt" xml:space="preserve">
+    <value>部落格服務(&amp;B)</value>
+  </data>
+  <data name="ImagesFilterString" xml:space="preserve">
+    <value>所有圖片 (*.gif, *.jpg, *.jpeg, *.png)</value>
+  </data>
+  <data name="ImagesFtpConfig" xml:space="preserve">
+    <value>變更 FTP 設定(&amp;C)...</value>
+  </data>
+  <data name="ImagesFtpOpt" xml:space="preserve">
+    <value>FTP 站台(&amp;F)：</value>
+  </data>
+  <data name="ImagesPanel" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="ImagesText" xml:space="preserve">
+    <value>當您在部落格文章中新增圖片時，要將圖片上傳到此部落格服務還是 FTP 站台？</value>
+  </data>
+  <data name="ImagesUpload" xml:space="preserve">
+    <value>上傳</value>
+  </data>
+  <data name="ImageViewerDisplayFormatGroup" xml:space="preserve">
+    <value>使用 {0} [{1}]</value>
+  </data>
+  <data name="ImageViewerDisplayFormatSingle" xml:space="preserve">
+    <value>使用 {0}</value>
+  </data>
+  <data name="ImageViewerGroupLabel" xml:space="preserve">
+    <value>群組（選用）(&amp;G)：</value>
+  </data>
+  <data name="ImageViewerLabel" xml:space="preserve">
+    <value>啟用 {0}(&amp;E)</value>
+  </data>
+  <data name="ImgAltTextAlternateText" xml:space="preserve">
+    <value>替代文字(&amp;A)：</value>
+  </data>
+  <data name="ImgAltTextPicture" xml:space="preserve">
+    <value>圖片：</value>
+  </data>
+  <data name="ImgAltTextTitle" xml:space="preserve">
+    <value>標題(&amp;T)：</value>
+  </data>
+  <data name="ImgSBActions" xml:space="preserve">
+    <value>動作</value>
+  </data>
+  <data name="ImgSBAdvanced" xml:space="preserve">
+    <value>進階</value>
+  </data>
+  <data name="ImgSBAlignCenter" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="ImgSBAlignInline" xml:space="preserve">
+    <value>行內</value>
+  </data>
+  <data name="ImgSBAlignLeft" xml:space="preserve">
+    <value>靠左</value>
+  </data>
+  <data name="ImgSBAlignRight" xml:space="preserve">
+    <value>靠右</value>
+  </data>
+  <data name="ImgSBAppliedEffects" xml:space="preserve">
+    <value>已套用的效果：</value>
+  </data>
+  <data name="ImgSBBorders" xml:space="preserve">
+    <value>框線</value>
+  </data>
+  <data name="ImgSBBrightness" xml:space="preserve">
+    <value>對比...</value>
+  </data>
+  <data name="ImgSBCrop" xml:space="preserve">
+    <value>裁切...</value>
+  </data>
+  <data name="ImgSBCustomize" xml:space="preserve">
+    <value>自訂預設圖片大小</value>
+  </data>
+  <data name="ImgSBDefaultImageSizes" xml:space="preserve">
+    <value>預設圖片大小</value>
+  </data>
+  <data name="ImgSBEffect" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="ImgSBEffects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="ImgSBEffectsLabel" xml:space="preserve">
+    <value>效果：</value>
+  </data>
+  <data name="ImgSBHeader" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="ImgSBImageEffects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="ImgSBImageSize" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="ImgSBImageSizeLabel" xml:space="preserve">
+    <value>大小(&amp;S)：</value>
+  </data>
+  <data name="ImgSBLargeImage" xml:space="preserve">
+    <value>大：</value>
+  </data>
+  <data name="ImgSBLayout" xml:space="preserve">
+    <value>版面配置</value>
+  </data>
+  <data name="ImgSBLinkOptions" xml:space="preserve">
+    <value>原始圖片選項</value>
+  </data>
+  <data name="ImgSBLinkOptionsDisabledTooltip" xml:space="preserve">
+    <value>此命令對網路圖片及某些圖片類型已停用。</value>
+  </data>
+  <data name="ImgSBLinkTo" xml:space="preserve">
+    <value>連結到</value>
+  </data>
+  <data name="ImgSBLocalImage" xml:space="preserve">
+    <value>本機：{0}</value>
+  </data>
+  <data name="ImgSBLocalImage2" xml:space="preserve">
+    <value>本機：{0}/{1}</value>
+  </data>
+  <data name="ImgSBLockRatio" xml:space="preserve">
+    <value>鎖定比例(&amp;R)</value>
+  </data>
+  <data name="ImgSBMarginBottom" xml:space="preserve">
+    <value>下方：</value>
+  </data>
+  <data name="ImgSBMarginCustomMargins" xml:space="preserve">
+    <value>自訂</value>
+  </data>
+  <data name="ImgSBMarginLeft" xml:space="preserve">
+    <value>左方：</value>
+  </data>
+  <data name="ImgSBMarginNoMargins" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="ImgSBMarginRight" xml:space="preserve">
+    <value>右方：</value>
+  </data>
+  <data name="ImgSBMargins" xml:space="preserve">
+    <value>邊距：</value>
+  </data>
+  <data name="ImgSBMarginTop" xml:space="preserve">
+    <value>上方：</value>
+  </data>
+  <data name="ImgSBMaximumHeightLabel1" xml:space="preserve">
+    <value>最大高度(&amp;H)：</value>
+  </data>
+  <data name="ImgSBMaximumHeightLabel2" xml:space="preserve">
+    <value>最大高度(&amp;E)：</value>
+  </data>
+  <data name="ImgSBMaximumHeightLabel3" xml:space="preserve">
+    <value>最大高度(&amp;T)：</value>
+  </data>
+  <data name="ImgSBMaximumWidthLabel1" xml:space="preserve">
+    <value>最大寬度(&amp;W)：</value>
+  </data>
+  <data name="ImgSBMaximumWidthLabel2" xml:space="preserve">
+    <value>最大寬度(&amp;I)：</value>
+  </data>
+  <data name="ImgSBMaximumWidthLabel3" xml:space="preserve">
+    <value>最大寬度(&amp;D)：</value>
+  </data>
+  <data name="ImgSBMediumImage" xml:space="preserve">
+    <value>中：</value>
+  </data>
+  <data name="ImgSBOpenInNewWindow" xml:space="preserve">
+    <value>在新視窗中開啟(&amp;O)</value>
+  </data>
+  <data name="ImgSBOther" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="ImgSBRevert" xml:space="preserve">
+    <value>還原為預設設定</value>
+  </data>
+  <data name="ImgSBRotate" xml:space="preserve">
+    <value>旋轉</value>
+  </data>
+  <data name="ImgSBSave" xml:space="preserve">
+    <value>儲存設定為預設值</value>
+  </data>
+  <data name="ImgSBSizerCustom" xml:space="preserve">
+    <value>自訂</value>
+  </data>
+  <data name="ImgSBSizerLarge" xml:space="preserve">
+    <value>大</value>
+  </data>
+  <data name="ImgSBSizerMedium" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="ImgSBSizerOriginal" xml:space="preserve">
+    <value>原始</value>
+  </data>
+  <data name="ImgSBSizerSmall" xml:space="preserve">
+    <value>小</value>
+  </data>
+  <data name="ImgSBSizerUnknown" xml:space="preserve">
+    <value>(自訂)</value>
+  </data>
+  <data name="ImgSBSmallImage" xml:space="preserve">
+    <value>小：</value>
+  </data>
+  <data name="ImgSBTextWrapping" xml:space="preserve">
+    <value>文字換行：</value>
+  </data>
+  <data name="ImgSBTilt" xml:space="preserve">
+    <value>傾斜...</value>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>插入</value>
+  </data>
+  <data name="InsertButton" xml:space="preserve">
+    <value>插入(&amp;I)</value>
+  </data>
+  <data name="InsertButtonText" xml:space="preserve">
+    <value>插入</value>
+  </data>
+  <data name="InsertImageButton" xml:space="preserve">
+    <value>插入(&amp;S)</value>
+  </data>
+  <data name="InsertImageDimensionsFormat" xml:space="preserve">
+    <value>{0}x{1}</value>
+  </data>
+  <data name="InsertImageDimensionsFormatScaled" xml:space="preserve">
+    <value>{0}（已調整大小以在此視窗中預覽）</value>
+  </data>
+  <data name="InsertImageFileName" xml:space="preserve">
+    <value>檔案名稱：</value>
+  </data>
+  <data name="InsertImageImageUrl" xml:space="preserve">
+    <value>圖片網址(&amp;W)：</value>
+  </data>
+  <data name="InsertImageInsertFromFile" xml:space="preserve">
+    <value>從檔案</value>
+  </data>
+  <data name="InsertImageInsertFromWeb" xml:space="preserve">
+    <value>從網路</value>
+  </data>
+  <data name="InsertImageLinkTo" xml:space="preserve">
+    <value>連結到(&amp;L)：</value>
+  </data>
+  <data name="InsertImageOpenInNewWindow" xml:space="preserve">
+    <value>在新視窗中開啟(&amp;O)</value>
+  </data>
+  <data name="InsertImagePreviewButton" xml:space="preserve">
+    <value>預覽(&amp;P)</value>
+  </data>
+  <data name="InsertImageSize" xml:space="preserve">
+    <value>大小：</value>
+  </data>
+  <data name="InsertLink" xml:space="preserve">
+    <value>插入超連結</value>
+  </data>
+  <data name="InsertLinkDotDotDot" xml:space="preserve">
+    <value>超連結...</value>
+  </data>
+  <data name="InsertLinkTooltip" xml:space="preserve">
+    <value>在目前的文件中插入超連結</value>
+  </data>
+  <data name="InsertMap" xml:space="preserve">
+    <value>插入地圖</value>
+  </data>
+  <data name="InsertPicture" xml:space="preserve">
+    <value>插入圖片</value>
+  </data>
+  <data name="InsertPictureDotDotDot" xml:space="preserve">
+    <value>圖片...</value>
+  </data>
+  <data name="InsertPictureTooltip" xml:space="preserve">
+    <value>在目前的文件中插入圖片</value>
+  </data>
+  <data name="InsertTable" xml:space="preserve">
+    <value>插入表格</value>
+  </data>
+  <data name="InsertTableDotDotDot" xml:space="preserve">
+    <value>表格...</value>
+  </data>
+  <data name="InsertTableTooltip" xml:space="preserve">
+    <value>在目前的文件中插入表格</value>
+  </data>
+  <data name="KilobytesFormat" xml:space="preserve">
+    <value>{0}KB</value>
+  </data>
+  <data name="LCPrefCaption" xml:space="preserve">
+    <value>將支援 Live Clipboard 格式的網路內容貼上到 {0}。</value>
+  </data>
+  <data name="LCPrefChangeButton" xml:space="preserve">
+    <value>變更...</value>
+  </data>
+  <data name="LCPrefContentType" xml:space="preserve">
+    <value>內容類型：</value>
+  </data>
+  <data name="LCPrefDescription" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="LCPrefDetails" xml:space="preserve">
+    <value>詳細資料</value>
+  </data>
+  <data name="LCPrefDetailsGroupBoxFormat" xml:space="preserve">
+    <value>「{0}」格式的詳細資料</value>
+  </data>
+  <data name="LCPrefFormat" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="LCPrefHandledBy" xml:space="preserve">
+    <value>處理方式：</value>
+  </data>
+  <data name="LCPrefMoreAboutLiveClipboard" xml:space="preserve">
+    <value>深入了解 Live Clipboard...（英文）</value>
+  </data>
+  <data name="LCPrefNoFormatSelected" xml:space="preserve">
+    <value>(未選取格式)</value>
+  </data>
+  <data name="LCPrefOptionsButton" xml:space="preserve">
+    <value>選項...</value>
+  </data>
+  <data name="LCPrefPanelName" xml:space="preserve">
+    <value>Live Clipboard</value>
+  </data>
+  <data name="LCPrefSupportedFormats" xml:space="preserve">
+    <value>支援的格式(&amp;S)：</value>
+  </data>
+  <data name="LinkAddToGlossary" xml:space="preserve">
+    <value>自動連結到此文字(&amp;M)</value>
+  </data>
+  <data name="LinkAdvanced" xml:space="preserve">
+    <value>進階 {0}(&amp;A)</value>
+  </data>
+  <data name="LinkEditHyperlink" xml:space="preserve">
+    <value>編輯超連結</value>
+  </data>
+  <data name="LinkFormTitle" xml:space="preserve">
+    <value>插入超連結</value>
+  </data>
+  <data name="LinkGlossaryEdit" xml:space="preserve">
+    <value>編輯自動連結</value>
+  </data>
+  <data name="LinkGlossaryRelOptional" xml:space="preserve">
+    <value>Rel（選用）(&amp;R)：</value>
+  </data>
+  <data name="LinkGlossaryText" xml:space="preserve">
+    <value>文字(&amp;X)：</value>
+  </data>
+  <data name="LinkGlossaryTitle" xml:space="preserve">
+    <value>新增自動連結</value>
+  </data>
+  <data name="LinkGlossaryTitleOptional" xml:space="preserve">
+    <value>標題（選用）(&amp;T)：</value>
+  </data>
+  <data name="LinkGlossaryUrl" xml:space="preserve">
+    <value>網址(&amp;W)：</value>
+  </data>
+  <data name="LinkLinkTo" xml:space="preserve">
+    <value>連結到(&amp;L)</value>
+  </data>
+  <data name="LinkNewWindowLabel" xml:space="preserve">
+    <value>在新視窗中開啟連結(&amp;O)</value>
+  </data>
+  <data name="LinkOptionsTooltip" xml:space="preserve">
+    <value>瀏覽連結</value>
+  </data>
+  <data name="LinkRelLabel" xml:space="preserve">
+    <value>Rel(&amp;E)：</value>
+  </data>
+  <data name="LinkRemoveLink" xml:space="preserve">
+    <value>移除超連結(&amp;R)</value>
+  </data>
+  <data name="LinkSelectionContainsImage" xml:space="preserve">
+    <value>[選取範圍包含圖片]</value>
+  </data>
+  <data name="LinkTextLabel" xml:space="preserve">
+    <value>要顯示的文字(&amp;X)：</value>
+  </data>
+  <data name="LinkTitleLabel" xml:space="preserve">
+    <value>標題(&amp;T)：</value>
+  </data>
+  <data name="LinkTo" xml:space="preserve">
+    <value>連結到(&amp;L)</value>
+  </data>
+  <data name="LinkToNone" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="LinkToNoneDescription" xml:space="preserve">
+    <value>使圖片不成為連結。</value>
+  </data>
+  <data name="LinkToNoneLabelTitle" xml:space="preserve">
+    <value>連結到：無</value>
+  </data>
+  <data name="LinkToolTip" xml:space="preserve">
+    <value>CTRL + 按一下以開啟連結：{0}</value>
+  </data>
+  <data name="LinkToPost" xml:space="preserve">
+    <value>連結到文章</value>
+  </data>
+  <data name="LinkToSource" xml:space="preserve">
+    <value>原始圖片</value>
+  </data>
+  <data name="LinkToSourceDescription" xml:space="preserve">
+    <value>按一下選取的圖片時，瀏覽到原始圖片。</value>
+  </data>
+  <data name="LinkToSourceLabelTitle" xml:space="preserve">
+    <value>連結到：原始圖片</value>
+  </data>
+  <data name="LinkToURL" xml:space="preserve">
+    <value>網址</value>
+  </data>
+  <data name="LinkToURLDescription" xml:space="preserve">
+    <value>選擇按一下選取的圖片時要前往的位置。</value>
+  </data>
+  <data name="LinkToURLLabelTitle" xml:space="preserve">
+    <value>連結到：網址</value>
+  </data>
+  <data name="LinkToWebPageURL" xml:space="preserve">
+    <value>連結到網址：</value>
+  </data>
+  <data name="LiveIDPrivacy" xml:space="preserve">
+    <value>隱私權原則</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="ManageWeblog" xml:space="preserve">
+    <value>管理部落格</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>地圖</value>
+  </data>
+  <data name="MapAerial" xml:space="preserve">
+    <value>空拍</value>
+  </data>
+  <data name="MapAlignCenter" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="MapAlignInline" xml:space="preserve">
+    <value>行內</value>
+  </data>
+  <data name="MapAlignLeft" xml:space="preserve">
+    <value>靠左</value>
+  </data>
+  <data name="MapAlignRight" xml:space="preserve">
+    <value>靠右</value>
+  </data>
+  <data name="MapBirdseye" xml:space="preserve">
+    <value>鳥瞰</value>
+  </data>
+  <data name="MapBirdseyeButton" xml:space="preserve">
+    <value>切換鳥瞰檢視</value>
+  </data>
+  <data name="MapBirdseyeLabel" xml:space="preserve">
+    <value>&amp;鳥瞰圖</value>
+  </data>
+  <data name="MapCustomMargins" xml:space="preserve">
+    <value>自訂邊界</value>
+  </data>
+  <data name="MapDirectionEast" xml:space="preserve">
+    <value>東</value>
+  </data>
+  <data name="MapDirectionNorth" xml:space="preserve">
+    <value>北</value>
+  </data>
+  <data name="MapDirectionSouth" xml:space="preserve">
+    <value>南</value>
+  </data>
+  <data name="MapDirectionWest" xml:space="preserve">
+    <value>西</value>
+  </data>
+  <data name="MapFindAddress" xml:space="preserve">
+    <value>&amp;尋找地點：</value>
+  </data>
+  <data name="MapImageAltText" xml:space="preserve">
+    <value>地圖圖片</value>
+  </data>
+  <data name="MapNoMargins" xml:space="preserve">
+    <value>無邊界</value>
+  </data>
+  <data name="MapPushpinTip" xml:space="preserve">
+    <value>提示：在地圖上按一下右鍵以新增圖釘</value>
+  </data>
+  <data name="MapRoad" xml:space="preserve">
+    <value>道路</value>
+  </data>
+  <data name="MapSBBottom" xml:space="preserve">
+    <value>下方</value>
+  </data>
+  <data name="MapSBCaption" xml:space="preserve">
+    <value>說明文字：</value>
+  </data>
+  <data name="MapSBCustomize" xml:space="preserve">
+    <value>自訂地圖...</value>
+  </data>
+  <data name="MapSBCustomizeTooltip" xml:space="preserve">
+    <value>編輯地圖位置、樣式與圖釘</value>
+  </data>
+  <data name="MapSBLayoutHeader" xml:space="preserve">
+    <value>版面配置</value>
+  </data>
+  <data name="MapSBLeft" xml:space="preserve">
+    <value>左側</value>
+  </data>
+  <data name="MapSBMapHeader" xml:space="preserve">
+    <value>地圖</value>
+  </data>
+  <data name="MapSBMargins" xml:space="preserve">
+    <value>邊界：</value>
+  </data>
+  <data name="MapSBRight" xml:space="preserve">
+    <value>右側</value>
+  </data>
+  <data name="MapSBTop" xml:space="preserve">
+    <value>上方</value>
+  </data>
+  <data name="MapSBViewMap" xml:space="preserve">
+    <value>在 Live.com 上檢視地圖</value>
+  </data>
+  <data name="MapSBWrapping" xml:space="preserve">
+    <value>文繞圖：</value>
+  </data>
+  <data name="MapSearch" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="MapSeeInBirdseye" xml:space="preserve">
+    <value>查看此地點的鳥瞰視圖</value>
+  </data>
+  <data name="MapShowLabel" xml:space="preserve">
+    <value>顯示(&amp;W)標籤</value>
+  </data>
+  <data name="MapStyle" xml:space="preserve">
+    <value>地圖樣式</value>
+  </data>
+  <data name="MapZoomIn" xml:space="preserve">
+    <value>放大</value>
+  </data>
+  <data name="MapZoomOut" xml:space="preserve">
+    <value>縮小</value>
+  </data>
+  <data name="MapZoomSlider" xml:space="preserve">
+    <value>縮放滑桿</value>
   </data>
   <data name="MarkupTypeHTML" xml:space="preserve">
     <value>HTML</value>
@@ -187,13 +2262,2018 @@
   <data name="MarkupTypeXHTML" xml:space="preserve">
     <value>XHTML</value>
   </data>
-  <data name="AdvancedBlogOverride" xml:space="preserve">
-    <value>其他部落格設定</value>
+  <data name="MaximizeButtonTooltip" xml:space="preserve">
+    <value>最大化</value>
   </data>
-  <data name="AdvancedEmbedTags" xml:space="preserve">
-    <value>Embed 標籤(&amp;E):</value>
+  <data name="MaxLgHeight" xml:space="preserve">
+    <value>最大大型高度</value>
   </data>
-  <data name="AdvancedScripts" xml:space="preserve">
-    <value>Script 指令碼(&amp;S):</value>
+  <data name="MaxLgWidth" xml:space="preserve">
+    <value>最大大型寬度</value>
+  </data>
+  <data name="MaxMdHeight" xml:space="preserve">
+    <value>最大中型高度</value>
+  </data>
+  <data name="MaxMdWidth" xml:space="preserve">
+    <value>最大中型寬度</value>
+  </data>
+  <data name="MaxSmHeight" xml:space="preserve">
+    <value>最大小型高度</value>
+  </data>
+  <data name="MaxSmWidth" xml:space="preserve">
+    <value>最大小型寬度</value>
+  </data>
+  <data name="MegabytesFormat" xml:space="preserve">
+    <value>{0}MB</value>
+  </data>
+  <data name="MethodNotImplemented" xml:space="preserve">
+    <value>方法未實作</value>
+  </data>
+  <data name="MethodNotImplementedDetail" xml:space="preserve">
+    <value>已安裝的外掛程式實作不正確，導致發生錯誤。您或許可以聯絡以下外掛程式的發行者來解決此問題。或者，您可以解除安裝以下所提及的外掛程式，以避免日後再次發生此錯誤。
+名稱：{0}
+
+發行者：{1}
+
+未實作的方法：{2}</value>
+  </data>
+  <data name="MinimizeButtonTooltip" xml:space="preserve">
+    <value>最小化</value>
+  </data>
+  <data name="MissingPostLinkCaption" xml:space="preserve">
+    <value>{0} 沒有可用的連結</value>
+  </data>
+  <data name="MissingPostLinkExplanation" xml:space="preserve">
+    <value>所選的 {0} 沒有可用的連結。這可能是因為您的部落格服務未向 {1} 提供 {0} 的連結。您可以嘗試透過「部落格設定」對話方塊的「帳號」面板重新偵測您的部落格帳號設定，以解決此問題。</value>
+  </data>
+  <data name="MissingPostLinkTitle" xml:space="preserve">
+    <value>沒有可用的連結</value>
+  </data>
+  <data name="MoreDotDotDot" xml:space="preserve">
+    <value>更多...</value>
+  </data>
+  <data name="MoreDrafts" xml:space="preserve">
+    <value>更多草稿</value>
+  </data>
+  <data name="MoreDraftsTooltip" xml:space="preserve">
+    <value>開啟上方未列出的其他草稿</value>
+  </data>
+  <data name="MorePosts" xml:space="preserve">
+    <value>更多最近文章</value>
+  </data>
+  <data name="MorePostsTooltip" xml:space="preserve">
+    <value>開啟上方未列出的其他文章</value>
+  </data>
+  <data name="MoreWeblogs" xml:space="preserve">
+    <value>更多部落格(&amp;O)...</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>向下移動(&amp;D)</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>向上移動(&amp;U)</value>
+  </data>
+  <data name="MyFavorites" xml:space="preserve">
+    <value>我的最愛</value>
+  </data>
+  <data name="MyVideos" xml:space="preserve">
+    <value>我的影片</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="NewFolder" xml:space="preserve">
+    <value>新增資料夾</value>
+  </data>
+  <data name="NewFolderPrompt" xml:space="preserve">
+    <value>新資料夾名稱：</value>
+  </data>
+  <data name="NewFolderTitle" xml:space="preserve">
+    <value>建立新資料夾</value>
+  </data>
+  <data name="NewFolderTooltip" xml:space="preserve">
+    <value>建立新資料夾</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>否(&amp;N)</value>
+  </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>您必須連線至網際網路才能插入及編輯地圖。</value>
+  </data>
+  <data name="NoThings" xml:space="preserve">
+    <value>(無 {0})</value>
+  </data>
+  <data name="OKButtonText" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開啟</value>
+  </data>
+  <data name="OpenPostDelete" xml:space="preserve">
+    <value>刪除(&amp;D)</value>
+  </data>
+  <data name="OpenPostItems" xml:space="preserve">
+    <value>個項目</value>
+  </data>
+  <data name="OpenPostNoDraftsAvailable" xml:space="preserve">
+    <value>沒有可用的草稿。</value>
+  </data>
+  <data name="OpenPostNoPagesAvailable" xml:space="preserve">
+    <value>沒有可用的頁面。</value>
+  </data>
+  <data name="OpenPostNoPostsAvailable" xml:space="preserve">
+    <value>沒有可用的文章。</value>
+  </data>
+  <data name="OpenPostOpenFrom" xml:space="preserve">
+    <value>開啟來源(&amp;O)：</value>
+  </data>
+  <data name="OpenPostPages" xml:space="preserve">
+    <value>頁面(&amp;A)</value>
+  </data>
+  <data name="OpenPostPosts" xml:space="preserve">
+    <value>文章(&amp;P)</value>
+  </data>
+  <data name="OpenPostRefresh" xml:space="preserve">
+    <value>重新整理(&amp;R)</value>
+  </data>
+  <data name="OpenPostRefreshTooltip" xml:space="preserve">
+    <value>重新整理文章</value>
+  </data>
+  <data name="OpenPostRefreshTooltipPages" xml:space="preserve">
+    <value>重新整理頁面</value>
+  </data>
+  <data name="OpenPostShow" xml:space="preserve">
+    <value>顯示(&amp;S)：</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>選項</value>
+  </data>
+  <data name="OptionsButton" xml:space="preserve">
+    <value>選項...</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>頁面</value>
+  </data>
+  <data name="PageLower" xml:space="preserve">
+    <value>頁面</value>
+  </data>
+  <data name="PageProperties" xml:space="preserve">
+    <value>頁面屬性</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>頁面(&amp;A)</value>
+  </data>
+  <data name="PagesLower" xml:space="preserve">
+    <value>頁面</value>
+  </data>
+  <data name="PanelNameAccounts" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="Paragraph" xml:space="preserve">
+    <value>段落</value>
+  </data>
+  <data name="Paragraphs" xml:space="preserve">
+    <value>段落</value>
+  </data>
+  <data name="PassportLoginNoUserPass" xml:space="preserve">
+    <value>請輸入 Microsoft 帳號與密碼以繼續。</value>
+  </data>
+  <data name="PassportLoginNoUserPassTitle" xml:space="preserve">
+    <value>需要 Microsoft 帳號與密碼</value>
+  </data>
+  <data name="PassportLoginSignIn" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="PassportLoginTitle" xml:space="preserve">
+    <value>登入 Microsoft 帳號</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼：</value>
+  </data>
+  <data name="PasswordChar" xml:space="preserve">
+    <value>0x25CF</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>密碼(&amp;P)：</value>
+  </data>
+  <data name="PasteSpecial" xml:space="preserve">
+    <value>選擇性貼上</value>
+  </data>
+  <data name="PasteSpecialHtmlDesc" xml:space="preserve">
+    <value>保留所有格式設定，包括可能無法在您的部落格中正確顯示的格式。基於安全考量，指令碼將會被移除。</value>
+  </data>
+  <data name="PasteSpecialHtmlLabel" xml:space="preserve">
+    <value>保留格式設定(&amp;K)</value>
+  </data>
+  <data name="PasteSpecialPlaintextDesc" xml:space="preserve">
+    <value>移除所有格式設定 (換行符號除外)。保留連結與圖片。適用於僅複製內容。</value>
+  </data>
+  <data name="PasteSpecialPlaintextLabel" xml:space="preserve">
+    <value>移除格式設定(&amp;R)</value>
+  </data>
+  <data name="PasteSpecialTextFormatted" xml:space="preserve">
+    <value>HTML(&amp;H)</value>
+  </data>
+  <data name="PasteSpecialTextFormattedDesc" xml:space="preserve">
+    <value>將文字解譯為 HTML 原始碼。複製的內容將以格式化方式顯示。適用於圖片、內嵌物件等。</value>
+  </data>
+  <data name="PasteSpecialTextPlainText" xml:space="preserve">
+    <value>純文字(&amp;P)</value>
+  </data>
+  <data name="PasteSpecialTextPlainTextDesc" xml:space="preserve">
+    <value>標準純文字貼上。所有 HTML 標籤將會被跳脫處理。</value>
+  </data>
+  <data name="PasteSpecialThinnedDesc" xml:space="preserve">
+    <value>移除額外的格式設定，例如 MS Office 特有的格式、CSS 樣式及表格。保留相對標題大小、基本格式設定，並配合您的部落格佈景主題進行對齊。</value>
+  </data>
+  <data name="PasteSpecialThinnedLabel" xml:space="preserve">
+    <value>精簡 HTML(&amp;T)</value>
+  </data>
+  <data name="Percent" xml:space="preserve">
+    <value>百分比</value>
+  </data>
+  <data name="PhotoPreview" xml:space="preserve">
+    <value>內嵌相片預覽器</value>
+  </data>
+  <data name="PingPrefName" xml:space="preserve">
+    <value>Ping 伺服器</value>
+  </data>
+  <data name="PingPrefUrl" xml:space="preserve">
+    <value>Ping 下列網址（每行一個網址）(&amp;P)</value>
+  </data>
+  <data name="Pixels" xml:space="preserve">
+    <value>像素</value>
+  </data>
+  <data name="Plugin_Map_InsertableContentSource_MenuText" xml:space="preserve">
+    <value>地圖(&amp;M)</value>
+  </data>
+  <data name="Plugin_Map_InsertableContentSource_SidebarText" xml:space="preserve">
+    <value>地圖</value>
+  </data>
+  <data name="Plugin_Map_WriterPlugin_Description" xml:space="preserve">
+    <value>在您的部落格文章中嵌入 Live 搜尋地圖。</value>
+  </data>
+  <data name="Plugin_Map_WriterPlugin_Name" xml:space="preserve">
+    <value>Live 搜尋地圖</value>
+  </data>
+  <data name="Plugin_Tags_InsertableContentSource_MenuText" xml:space="preserve">
+    <value>標籤(&amp;S)</value>
+  </data>
+  <data name="Plugin_Tags_InsertableContentSource_SidebarText" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="Plugin_Tags_WriterPlugin_Description" xml:space="preserve">
+    <value>使用熱門標籤網站或自訂 HTML 為您的文章新增標籤。</value>
+  </data>
+  <data name="Plugin_Tags_WriterPlugin_Name" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="Plugin_Video_Alignment_Inline" xml:space="preserve">
+    <value>內嵌</value>
+  </data>
+  <data name="Plugin_Video_Alignment_Left" xml:space="preserve">
+    <value>左對齊</value>
+  </data>
+  <data name="Plugin_Video_Alignment_Right" xml:space="preserve">
+    <value>右對齊</value>
+  </data>
+  <data name="Plugin_Video_Alt_Text" xml:space="preserve">
+    <value>影片</value>
+  </data>
+  <data name="Plugin_Video_Cannot_Parse_Url" xml:space="preserve">
+    <value>無法解析影片網址</value>
+  </data>
+  <data name="Plugin_Video_Cannot_Parse_Url_Message" xml:space="preserve">
+    <value>未知的提供者或不完整的網址。</value>
+  </data>
+  <data name="Plugin_Video_Caption_Size" xml:space="preserve">
+    <value>.8em</value>
+  </data>
+  <data name="Plugin_Video_Copyright_Notice" xml:space="preserve">
+    <value>請尊重著作權</value>
+  </data>
+  <data name="Plugin_Video_Editor_Cancel" xml:space="preserve">
+    <value>取消發佈</value>
+  </data>
+  <data name="Plugin_Video_Editor_Caption" xml:space="preserve">
+    <value>說明文字：</value>
+  </data>
+  <data name="Plugin_Video_Editor_Layout_Header" xml:space="preserve">
+    <value>版面配置</value>
+  </data>
+  <data name="Plugin_Video_Editor_Link_Text" xml:space="preserve">
+    <value>觀看此影片</value>
+  </data>
+  <data name="Plugin_Video_Editor_Margin_Bottom" xml:space="preserve">
+    <value>下方</value>
+  </data>
+  <data name="Plugin_Video_Editor_Margin_Left" xml:space="preserve">
+    <value>左側</value>
+  </data>
+  <data name="Plugin_Video_Editor_Margin_Right" xml:space="preserve">
+    <value>右側</value>
+  </data>
+  <data name="Plugin_Video_Editor_Margin_Top" xml:space="preserve">
+    <value>上方</value>
+  </data>
+  <data name="Plugin_Video_Editor_Margins" xml:space="preserve">
+    <value>邊界：</value>
+  </data>
+  <data name="Plugin_Video_Editor_Player_Style" xml:space="preserve">
+    <value>播放器樣式：</value>
+  </data>
+  <data name="Plugin_Video_Editor_Text_Wrap" xml:space="preserve">
+    <value>文繞圖：</value>
+  </data>
+  <data name="Plugin_Video_Editor_Title" xml:space="preserve">
+    <value>{0} 影片</value>
+  </data>
+  <data name="Plugin_Video_Error_Unexpected_Title" xml:space="preserve">
+    <value>未預期的例外狀況</value>
+  </data>
+  <data name="Plugin_Video_Margins_Custom" xml:space="preserve">
+    <value>自訂邊界</value>
+  </data>
+  <data name="Plugin_Video_Margins_None" xml:space="preserve">
+    <value>無邊界</value>
+  </data>
+  <data name="Plugin_Video_Player_Automatic" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Plugin_Video_Player_Embed" xml:space="preserve">
+    <value>內嵌於頁面</value>
+  </data>
+  <data name="Plugin_Video_Player_Preview" xml:space="preserve">
+    <value>預覽加連結</value>
+  </data>
+  <data name="Plugin_Video_Provider_Select" xml:space="preserve">
+    <value>選取影片提供者</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Animals" xml:space="preserve">
+    <value>動物</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Animation" xml:space="preserve">
+    <value>動畫</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Autos" xml:space="preserve">
+    <value>汽車</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Blogs" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Comedy" xml:space="preserve">
+    <value>喜劇</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Commercials" xml:space="preserve">
+    <value>廣告</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Education" xml:space="preserve">
+    <value>教育</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Entertainment" xml:space="preserve">
+    <value>娛樂</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Film" xml:space="preserve">
+    <value>電影</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Games" xml:space="preserve">
+    <value>遊戲</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_How_To" xml:space="preserve">
+    <value>教學與風格</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Movies" xml:space="preserve">
+    <value>電影</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Music" xml:space="preserve">
+    <value>音樂</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_News" xml:space="preserve">
+    <value>新聞與政治</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Non_Profit" xml:space="preserve">
+    <value>非營利與社會運動</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_People" xml:space="preserve">
+    <value>人物</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Politics" xml:space="preserve">
+    <value>政治</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Screencast" xml:space="preserve">
+    <value>螢幕錄製</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Sports" xml:space="preserve">
+    <value>運動</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Technology" xml:space="preserve">
+    <value>科技</value>
+  </data>
+  <data name="Plugin_Video_Publish_Categories_Travel" xml:space="preserve">
+    <value>旅遊</value>
+  </data>
+  <data name="Plugin_Video_Publish_Filename_Seperator" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="Plugin_Video_Publish_Message" xml:space="preserve">
+    <value>等待影片完成發佈</value>
+  </data>
+  <data name="Plugin_Video_Publish_Safety_View" xml:space="preserve">
+    <value>查看安全提示</value>
+  </data>
+  <data name="Plugin_Video_Publish_Terms_View" xml:space="preserve">
+    <value>查看使用條款</value>
+  </data>
+  <data name="Plugin_Video_Snapshot_Error_Message" xml:space="preserve">
+    <value>嘗試產生影片快照時發生以下錯誤：{0}</value>
+  </data>
+  <data name="Plugin_Video_Snapshot_Error_Title" xml:space="preserve">
+    <value>擷取影片快照時發生錯誤</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_LoggingIn" xml:space="preserve">
+    <value>登入中...</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_None_Found" xml:space="preserve">
+    <value>找不到影片。</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Not_Logged_In" xml:space="preserve">
+    <value>尚未登入</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Passport_Login" xml:space="preserve">
+    <value>登入(&amp;S)</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Passport_Password" xml:space="preserve">
+    <value>密碼(&amp;P)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Passport_Username" xml:space="preserve">
+    <value>Microsoft 帳號 ID(&amp;M)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Categories" xml:space="preserve">
+    <value>類別(&amp;C)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Description" xml:space="preserve">
+    <value>描述(&amp;D)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Permissions" xml:space="preserve">
+    <value>權限(&amp;E)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Permissions_Hidden" xml:space="preserve">
+    <value>隱藏</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Permissions_Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Tab_Title" xml:space="preserve">
+    <value>從檔案</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Tags" xml:space="preserve">
+    <value>標籤(&amp;G)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Title" xml:space="preserve">
+    <value>標題(&amp;T)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Video_File" xml:space="preserve">
+    <value>影片檔案(&amp;F)：</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Video_File_Open" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Publish_Video_Open_File" xml:space="preserve">
+    <value>開啟影片檔案</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Result_Range" xml:space="preserve">
+    <value>影片 {0} 至 {1}</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Result_Single" xml:space="preserve">
+    <value>影片 {0}</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Retrieve_Msg" xml:space="preserve">
+    <value>正在擷取影片清單...</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Soap_Error" xml:space="preserve">
+    <value>Soapbox 服務傳回錯誤。</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Switch_User" xml:space="preserve">
+    <value>切換使用者</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Thumbnail_Downloading" xml:space="preserve">
+    <value>正在下載預覽...</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Thumbnail_None" xml:space="preserve">
+    <value>無可用預覽</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Total_Videos" xml:space="preserve">
+    <value>(共 {0} 個)</value>
+  </data>
+  <data name="Plugin_Video_Soapbox_Web_Error" xml:space="preserve">
+    <value>搜尋要求逾時。</value>
+  </data>
+  <data name="Plugin_Video_Unknown_Provider" xml:space="preserve">
+    <value>未知的提供者</value>
+  </data>
+  <data name="Plugin_Video_Video_Header" xml:space="preserve">
+    <value>影片</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Download_Error" xml:space="preserve">
+    <value>由於影片服務使用量過高，無法從服務存取所選影片。請再試一次。</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Download_Error_Title" xml:space="preserve">
+    <value>影片存取錯誤</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Enter_Prompt" xml:space="preserve">
+    <value>影片網址或內嵌碼(&amp;W)：</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Preview_Button" xml:space="preserve">
+    <value>預覽(&amp;V)</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Provider" xml:space="preserve">
+    <value>提供者：{0}</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Service_Blank" xml:space="preserve">
+    <value>提供者：</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Size" xml:space="preserve">
+    <value>大小：{0} x {1}</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Size_Blank" xml:space="preserve">
+    <value>大小：</value>
+  </data>
+  <data name="Plugin_Video_Web_Video_Tab_Name" xml:space="preserve">
+    <value>從網路</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Embed_Format" xml:space="preserve">
+    <value>缺少 Embed Format 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Embed_Pattern" xml:space="preserve">
+    <value>缺少 Embed Pattern 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Service_Id" xml:space="preserve">
+    <value>缺少 Service Id 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Service_Name" xml:space="preserve">
+    <value>缺少 Service Name 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Size" xml:space="preserve">
+    <value>缺少 Size 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Url_Format" xml:space="preserve">
+    <value>缺少 Web Address Format 參數</value>
+  </data>
+  <data name="Plugin_Video_XML_Error_Url_Pattern" xml:space="preserve">
+    <value>缺少 Web Address Pattern 參數</value>
+  </data>
+  <data name="Plugin_Video_Youtube_Publish_Name" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="Plugin_Video_YouTube_Publish_Terms_Agree" xml:space="preserve">
+    <value>是，我同意 YouTube 使用條款，且我擁有此影片的所有著作權，或已獲得上傳的授權。請勿在未獲許可的情況下上傳電視節目、音樂錄影帶、音樂演唱會或廣告，除非這些內容完全由您自己創作。</value>
+  </data>
+  <data name="Plugin_Video_YouTube_Publish_Video_File_Open_Filter_Ext" xml:space="preserve">
+    <value>All Video Files (*.avi;*.wmv;*.mpg;*.mpeg;*.mp4;*.mpeg4;*.mov;*)|*.avi;*.wmv;*.mpg;*.mpeg;*.mp4;*.mpeg4,*.mov;|All Files (*.*)|*.*</value>
+  </data>
+  <data name="Plugin_Videos_InsertableContentSource_MenuText" xml:space="preserve">
+    <value>影片(&amp;V)</value>
+  </data>
+  <data name="Plugin_Videos_InsertableContentSource_SidebarText" xml:space="preserve">
+    <value>影片</value>
+  </data>
+  <data name="Plugin_Videos_Load_Error_Message" xml:space="preserve">
+    <value>由於影片服務負載過高，無法載入影片以插入編輯器。</value>
+  </data>
+  <data name="Plugin_Videos_Load_Error_Title" xml:space="preserve">
+    <value>無法載入影片</value>
+  </data>
+  <data name="Plugin_Videos_Select_Video_Form" xml:space="preserve">
+    <value>插入影片</value>
+  </data>
+  <data name="Plugin_Videos_Video_Size" xml:space="preserve">
+    <value>影片大小：{0} x {1}</value>
+  </data>
+  <data name="Plugin_Videos_WriterPlugin_Description" xml:space="preserve">
+    <value>使用熱門影片提供者在您的文章中新增影片。</value>
+  </data>
+  <data name="Plugin_Videos_WriterPlugin_Name" xml:space="preserve">
+    <value>影片</value>
+  </data>
+  <data name="Plugin_WebImage_Title" xml:space="preserve">
+    <value>插入網路圖片</value>
+  </data>
+  <data name="Plugin_WebImage_WriterPlugin_Description" xml:space="preserve">
+    <value>從網路新增圖片至您的文章。</value>
+  </data>
+  <data name="PluginInsertSidebarText" xml:space="preserve">
+    <value>{0}...</value>
+  </data>
+  <data name="PluginInsertSidebarTooltip" xml:space="preserve">
+    <value>將 {0} 插入目前文件</value>
+  </data>
+  <data name="PluginPrefCaption" xml:space="preserve">
+    <value>開啟或關閉外掛程式，以延伸 {0} 的使用方式。</value>
+  </data>
+  <data name="PluginPrefDetails" xml:space="preserve">
+    <value>外掛程式詳細資料</value>
+  </data>
+  <data name="PluginPrefDisable" xml:space="preserve">
+    <value>關閉(&amp;F)</value>
+  </data>
+  <data name="PluginPrefEnable" xml:space="preserve">
+    <value>開啟(&amp;N)</value>
+  </data>
+  <data name="PluginPrefInstalled" xml:space="preserve">
+    <value>目前已安裝的外掛程式(&amp;P)：</value>
+  </data>
+  <data name="PluginPrefLink" xml:space="preserve">
+    <value>線上取得外掛程式...</value>
+  </data>
+  <data name="PluginPrefName" xml:space="preserve">
+    <value>外掛程式</value>
+  </data>
+  <data name="PluginPrefNameCol" xml:space="preserve">
+    <value>外掛程式</value>
+  </data>
+  <data name="PluginPrefNone" xml:space="preserve">
+    <value>(未選取外掛程式)</value>
+  </data>
+  <data name="PluginPrefStatCol" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="PluginPrefTooltip" xml:space="preserve">
+    <value>按一下這裡以深入了解此外掛程式。</value>
+  </data>
+  <data name="PluginPublishProgress" xml:space="preserve">
+    <value>正在執行外掛程式：{0}</value>
+  </data>
+  <data name="PluginSidebarDisabled" xml:space="preserve">
+    <value>所選項目的外掛程式已停用。</value>
+  </data>
+  <data name="PluginSidebarNotEditable" xml:space="preserve">
+    <value>所選項目無法編輯。</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>文章</value>
+  </data>
+  <data name="PostCountAccessible" xml:space="preserve">
+    <value>文章數量</value>
+  </data>
+  <data name="PostEditorBodyRegion" xml:space="preserve">
+    <value>文章內文</value>
+  </data>
+  <data name="PostEditorDiskSpaceExceptionMessage" xml:space="preserve">
+    <value>磁碟空間不足。</value>
+  </data>
+  <data name="PostEditorPrefAuto" xml:space="preserve">
+    <value>定期儲存自動回復資訊(&amp;U)</value>
+  </data>
+  <data name="PostEditorPrefBrowseFolder" xml:space="preserve">
+    <value>瀏覽</value>
+  </data>
+  <data name="PostEditorPrefClose" xml:space="preserve">
+    <value>發佈後關閉視窗(&amp;W)</value>
+  </data>
+  <data name="PostEditorPrefEditing" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="PostEditorPrefGeneral" xml:space="preserve">
+    <value>一般選項</value>
+  </data>
+  <data name="PostEditorPrefName" xml:space="preserve">
+    <value>偏好設定</value>
+  </data>
+  <data name="PostEditorPrefNew" xml:space="preserve">
+    <value>每篇文章開啟新視窗(&amp;E)</value>
+  </data>
+  <data name="PostEditorPrefPostLocation" xml:space="preserve">
+    <value>本機草稿與最近文章資料夾</value>
+  </data>
+  <data name="PostEditorPrefPostWindows" xml:space="preserve">
+    <value>文章視窗</value>
+  </data>
+  <data name="PostEditorPrefPublishing" xml:space="preserve">
+    <value>發佈</value>
+  </data>
+  <data name="PostEditorPrefRemind" xml:space="preserve">
+    <value>發佈前提醒我新增標籤(&amp;T)</value>
+  </data>
+  <data name="PostEditorPrefRemindCat" xml:space="preserve">
+    <value>發佈前提醒我新增類別(&amp;C)</value>
+  </data>
+  <data name="PostEditorPrefSide" xml:space="preserve">
+    <value>插入可編輯項目時顯示工作窗格(&amp;H)</value>
+  </data>
+  <data name="PostEditorPrefSingle" xml:space="preserve">
+    <value>使用單一視窗編輯所有文章(&amp;S)</value>
+  </data>
+  <data name="PostEditorPrefTitle" xml:space="preserve">
+    <value>發佈前提醒我輸入標題(&amp;R)</value>
+  </data>
+  <data name="PostEditorPrefUnsave" xml:space="preserve">
+    <value>僅在目前文章有未儲存的變更時才開啟新視窗(&amp;O)</value>
+  </data>
+  <data name="PostEditorPrefView" xml:space="preserve">
+    <value>發佈後檢視部落格(&amp;V)</value>
+  </data>
+  <data name="PostEditorStorageExceptionMessage" xml:space="preserve">
+    <value>存取本機文章時發生未預期的錯誤 ({0})
+
+{1}</value>
+  </data>
+  <data name="PostEditorStorageExceptionMessage2" xml:space="preserve">
+    <value>存取本機文章時發生未預期的磁碟存取錯誤 ({0})
+
+{1}</value>
+  </data>
+  <data name="PostEditorStorageExceptionTitle" xml:space="preserve">
+    <value>存取本機文章時發生錯誤</value>
+  </data>
+  <data name="PostEditorStorageExceptionTitle2" xml:space="preserve">
+    <value>存取本機文章時發生錯誤</value>
+  </data>
+  <data name="PostEditorTitleRegion" xml:space="preserve">
+    <value>文章標題</value>
+  </data>
+  <data name="PostLinkTooltipFormat" xml:space="preserve">
+    <value>{0}
+{1} ({2})</value>
+  </data>
+  <data name="PostLinkTooltipFormatNoBlogTitle" xml:space="preserve">
+    <value>{0}
+({1})</value>
+  </data>
+  <data name="PostLower" xml:space="preserve">
+    <value>文章</value>
+  </data>
+  <data name="PostPageFilter" xml:space="preserve">
+    <value>篩選 {0}</value>
+  </data>
+  <data name="PostProperties" xml:space="preserve">
+    <value>文章屬性</value>
+  </data>
+  <data name="PostPublishFileUploadErrorCaption1" xml:space="preserve">
+    <value>{0} 已成功發佈，但上傳支援檔案時發生錯誤：</value>
+  </data>
+  <data name="PostPublishFileUploadErrorCaption2" xml:space="preserve">
+    <value>視錯誤性質而定，您或許可以重試來成功上傳支援檔案。或者，您可以考慮從部落格刪除此 {0}。</value>
+  </data>
+  <data name="PostPublishFileUploadErrorTitle" xml:space="preserve">
+    <value>上傳支援檔案時發生錯誤</value>
+  </data>
+  <data name="Posts" xml:space="preserve">
+    <value>文章(&amp;P)</value>
+  </data>
+  <data name="PostsLower" xml:space="preserve">
+    <value>文章</value>
+  </data>
+  <data name="PPCRL_AUTHSTATE_E_EXPIRED" xml:space="preserve">
+    <value>驗證已過期。</value>
+  </data>
+  <data name="PPCRL_E_AUTH_SERVICE_UNAVAILABLE" xml:space="preserve">
+    <value>無法連線至驗證服務。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_BAD_MEMBER_NAME_OR_PASSWORD" xml:space="preserve">
+    <value>無法辨識使用者名稱或密碼。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_CANCELLED" xml:space="preserve">
+    <value>要求已取消。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_CLIENT_DEPRECATED" xml:space="preserve">
+    <value>發出此要求的用戶端已不再受登入伺服器支援。請升級至較新的版本。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_FORCE_SIGNIN" xml:space="preserve">
+    <value>驗證權杖已過期。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_INVALID_MEMBER_NAME" xml:space="preserve">
+    <value>無法辨識使用者名稱。</value>
+  </data>
+  <data name="PPCRL_REQUEST_E_PASSWORD_LOCKED_OUT" xml:space="preserve">
+    <value>使用者帳號已被封鎖。</value>
+  </data>
+  <data name="PrivacyPreferencesCodeOfConduct" xml:space="preserve">
+    <value>.NET Foundation 貢獻者行為準則</value>
+  </data>
+  <data name="PrivacyPreferencesPanelName" xml:space="preserve">
+    <value>信任中心</value>
+  </data>
+  <data name="PrivacyPreferencesPrivacyExplanation" xml:space="preserve">
+    <value>您的隱私權非常重要。如需深入了解 Open Live Writer 如何協助保護您的隱私，請參閱：</value>
+  </data>
+  <data name="PrivacyPreferencesPrivacyStatement" xml:space="preserve">
+    <value>.NET Foundation 隱私權原則</value>
+  </data>
+  <data name="ProductDisplayVersion" xml:space="preserve">
+    <value>組建 {0}</value>
+  </data>
+  <data name="ProductNameVersioned" xml:space="preserve">
+    <value>Open Live Writer</value>
+  </data>
+  <data name="ProgressAnalyzingHomepage" xml:space="preserve">
+    <value>正在分析部落格首頁網址與內容...</value>
+  </data>
+  <data name="ProgressAnalyzingInterface" xml:space="preserve">
+    <value>正在分析部落格發佈介面...</value>
+  </data>
+  <data name="ProgressAnalyzingWeblogList" xml:space="preserve">
+    <value>正在分析部落格清單...</value>
+  </data>
+  <data name="ProgressCompletedSettingsDetection" xml:space="preserve">
+    <value>已完成設定偵測</value>
+  </data>
+  <data name="ProgressCreatingEditingTemplate" xml:space="preserve">
+    <value>正在建立編輯範本...</value>
+  </data>
+  <data name="ProgressDetectingWeblogCategories" xml:space="preserve">
+    <value>正在偵測部落格類別...</value>
+  </data>
+  <data name="ProgressDetectingWeblogCharSet" xml:space="preserve">
+    <value>正在偵測部落格字元集...</value>
+  </data>
+  <data name="ProgressDetectingWeblogEditingStyle" xml:space="preserve">
+    <value>正在偵測部落格編輯佈景主題...</value>
+  </data>
+  <data name="ProgressDetectingWeblogIcon" xml:space="preserve">
+    <value>正在偵測部落格圖示...</value>
+  </data>
+  <data name="ProgressDetectingWeblogSettings" xml:space="preserve">
+    <value>正在偵測部落格設定...</value>
+  </data>
+  <data name="ProgressDeterminingType" xml:space="preserve">
+    <value>正在判斷 {0} 的類型...</value>
+  </data>
+  <data name="ProgressDialogTitle" xml:space="preserve">
+    <value>進度對話方塊</value>
+  </data>
+  <data name="ProgressDownloadFinished" xml:space="preserve">
+    <value>下載完成</value>
+  </data>
+  <data name="ProgressDownloading" xml:space="preserve">
+    <value>正在下載 {0}...</value>
+  </data>
+  <data name="ProgressDownloadingEditingTemplate" xml:space="preserve">
+    <value>正在下載編輯範本...</value>
+  </data>
+  <data name="ProgressDownloadingSupportingFiles" xml:space="preserve">
+    <value>正在下載支援檔案...</value>
+  </data>
+  <data name="ProgressDownloadingWeblogEditingStyle" xml:space="preserve">
+    <value>正在下載部落格編輯佈景主題...</value>
+  </data>
+  <data name="ProgressDownloadingWeblogEditingStyleDeep" xml:space="preserve">
+    <value>首頁上沒有文章內容，正在檢查文章...</value>
+  </data>
+  <data name="ProgressFinalizingEditingTemplateConfig" xml:space="preserve">
+    <value>正在完成編輯範本設定...</value>
+  </data>
+  <data name="ProgressPreparingListOfFiles" xml:space="preserve">
+    <value>正在準備下載檔案清單...</value>
+  </data>
+  <data name="ProgressSaving" xml:space="preserve">
+    <value>正在儲存 {0}...</value>
+  </data>
+  <data name="ProgressStartingDownloadOfReferences" xml:space="preserve">
+    <value>正在開始下載參考資料...</value>
+  </data>
+  <data name="ProgressVerifyingInterface" xml:space="preserve">
+    <value>正在驗證部落格發佈介面...</value>
+  </data>
+  <data name="PropertiesAuthor" xml:space="preserve">
+    <value>作者(&amp;A)：</value>
+  </data>
+  <data name="PropertiesAuthorsFetchingText" xml:space="preserve">
+    <value>作者清單</value>
+  </data>
+  <data name="PropertiesCategories" xml:space="preserve">
+    <value>類別(&amp;C)：</value>
+  </data>
+  <data name="PropertiesCommaSeparated" xml:space="preserve">
+    <value>(以逗號分隔)</value>
+  </data>
+  <data name="PropertiesCommentPolicyClosed" xml:space="preserve">
+    <value>已關閉</value>
+  </data>
+  <data name="PropertiesCommentPolicyNone" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="PropertiesCommentPolicyOpen" xml:space="preserve">
+    <value>開放</value>
+  </data>
+  <data name="PropertiesComments" xml:space="preserve">
+    <value>留言(&amp;M)：</value>
+  </data>
+  <data name="PropertiesDefault" xml:space="preserve">
+    <value>(預設)</value>
+  </data>
+  <data name="PropertiesExcerpt" xml:space="preserve">
+    <value>摘要(&amp;E)：</value>
+  </data>
+  <data name="PropertiesKeywords" xml:space="preserve">
+    <value>關鍵字(&amp;K)：</value>
+  </data>
+  <data name="PropertiesNoPageParent" xml:space="preserve">
+    <value>(無上層頁面)</value>
+  </data>
+  <data name="PropertiesPageOrder" xml:space="preserve">
+    <value>頁面順序(&amp;O)：</value>
+  </data>
+  <data name="PropertiesPageParent" xml:space="preserve">
+    <value>上層頁面(&amp;P)：</value>
+  </data>
+  <data name="PropertiesPanel" xml:space="preserve">
+    <value>文章屬性</value>
+  </data>
+  <data name="PropertiesPassword" xml:space="preserve">
+    <value>密碼(&amp;W)：</value>
+  </data>
+  <data name="PropertiesPings" xml:space="preserve">
+    <value>Ping(&amp;I)：</value>
+  </data>
+  <data name="PropertiesPublishDate" xml:space="preserve">
+    <value>發佈日期(&amp;U)：</value>
+  </data>
+  <data name="PropertiesShowHide" xml:space="preserve">
+    <value>關閉/開啟屬性面板</value>
+  </data>
+  <data name="PropertiesSlug" xml:space="preserve">
+    <value>代稱(&amp;S)：</value>
+  </data>
+  <data name="PropertiesTags" xml:space="preserve">
+    <value>標籤(&amp;T)：</value>
+  </data>
+  <data name="PropertiesTrackbackPolicyAllow" xml:space="preserve">
+    <value>允許</value>
+  </data>
+  <data name="PropertiesTrackbackPolicyDeny" xml:space="preserve">
+    <value>拒絕</value>
+  </data>
+  <data name="PropertiesTrackbacks" xml:space="preserve">
+    <value>引用網址(&amp;R)：</value>
+  </data>
+  <data name="ProxyPrefCustom" xml:space="preserve">
+    <value>自訂 Proxy 設定</value>
+  </data>
+  <data name="ProxyPrefEnabled" xml:space="preserve">
+    <value>手動設定(&amp;M)</value>
+  </data>
+  <data name="ProxyPrefName" xml:space="preserve">
+    <value>網路 Proxy</value>
+  </data>
+  <data name="ProxyPrefPassword" xml:space="preserve">
+    <value>密碼(&amp;W)：</value>
+  </data>
+  <data name="ProxyPrefPort" xml:space="preserve">
+    <value>連接埠(&amp;P)：</value>
+  </data>
+  <data name="ProxyPrefServer" xml:space="preserve">
+    <value>Proxy 伺服器位址(&amp;R)：</value>
+  </data>
+  <data name="ProxyPrefTitle" xml:space="preserve">
+    <value>網路 Proxy 偏好設定</value>
+  </data>
+  <data name="ProxyPrefUsername" xml:space="preserve">
+    <value>使用者名稱(&amp;N)：</value>
+  </data>
+  <data name="PublishDatePrompt" xml:space="preserve">
+    <value>設定文章日期</value>
+  </data>
+  <data name="PublishDateTooltip" xml:space="preserve">
+    <value>文章日期</value>
+  </data>
+  <data name="PublishedNameFormat" xml:space="preserve">
+    <value>已發佈的 {0}</value>
+  </data>
+  <data name="PublishFolderPickerCaption" xml:space="preserve">
+    <value>選取要發佈的資料夾：</value>
+  </data>
+  <data name="PublishFolderPickerTitle" xml:space="preserve">
+    <value>瀏覽資料夾</value>
+  </data>
+  <data name="PublishFolderPickerToolTip" xml:space="preserve">
+    <value>瀏覽資料夾</value>
+  </data>
+  <data name="PublishNow" xml:space="preserve">
+    <value>立即發佈</value>
+  </data>
+  <data name="PushpinAdd" xml:space="preserve">
+    <value>新增圖釘</value>
+  </data>
+  <data name="PushpinEdit" xml:space="preserve">
+    <value>編輯圖釘</value>
+  </data>
+  <data name="PushpinMoreInfoUrl" xml:space="preserve">
+    <value>更多資訊的網址(&amp;W)：</value>
+  </data>
+  <data name="PushpinNotes" xml:space="preserve">
+    <value>備註(&amp;N)：</value>
+  </data>
+  <data name="PushpinPhotoUrl" xml:space="preserve">
+    <value>相片網址(&amp;P)：</value>
+  </data>
+  <data name="PushpinTitle" xml:space="preserve">
+    <value>標題(&amp;T)：</value>
+  </data>
+  <data name="PushpinUntitled" xml:space="preserve">
+    <value>輸入此圖釘的名稱</value>
+  </data>
+  <data name="PushpinValidationError" xml:space="preserve">
+    <value>目前找不到您輸入的圖釘位置。
+
+您仍要將此網址設為您的自訂圖釘嗎？</value>
+  </data>
+  <data name="RecentDrafts" xml:space="preserve">
+    <value>最近的草稿</value>
+  </data>
+  <data name="RecentlyPosted" xml:space="preserve">
+    <value>最近發佈的文章</value>
+  </data>
+  <data name="RecentPostNotSyncCaption" xml:space="preserve">
+    <value>無法從伺服器擷取 {0}</value>
+  </data>
+  <data name="RecentPostNotSyncText" xml:space="preserve">
+    <value>{0} 無法從部落格伺服器擷取最新的 {1}（發生錯誤或擷取已取消）。</value>
+  </data>
+  <data name="RecentPostNotSyncText2" xml:space="preserve">
+    <value>您仍可使用儲存在此電腦上的本機複本來編輯 {0}。但如果您已在線上變更 {0}，您正在編輯的複本可能已過時。</value>
+  </data>
+  <data name="RecentPostNotSyncTitle" xml:space="preserve">
+    <value>無法從伺服器擷取 {0}</value>
+  </data>
+  <data name="RecentPosts" xml:space="preserve">
+    <value>最近的文章</value>
+  </data>
+  <data name="RememberPassword" xml:space="preserve">
+    <value>記住我的密碼(&amp;R)</value>
+  </data>
+  <data name="Retrieving" xml:space="preserve">
+    <value>正在擷取 {0}</value>
+  </data>
+  <data name="RetrievingFromWeblog" xml:space="preserve">
+    <value>正在從部落格擷取 {0}...</value>
+  </data>
+  <data name="RetrySignin" xml:space="preserve">
+    <value>解決問題後，請再試一次登入。</value>
+  </data>
+  <data name="RowPropertiesFixedHeight" xml:space="preserve">
+    <value>固定高度(&amp;F)：</value>
+  </data>
+  <data name="RowPropertiesSizeToContent" xml:space="preserve">
+    <value>自動調整為內容大小(&amp;A)</value>
+  </data>
+  <data name="RowPropertiesTitle" xml:space="preserve">
+    <value>列屬性</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>儲存(&amp;S)</value>
+  </data>
+  <data name="SeeSolutionOnline" xml:space="preserve">
+    <value>在線上查看解決方案</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>已選取</value>
+  </data>
+  <data name="SelectWeblogProvider" xml:space="preserve">
+    <value>(選取部落格提供者)</value>
+  </data>
+  <data name="SemanticHtmlPreviewText" xml:space="preserve">
+    <value>AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</value>
+  </data>
+  <data name="SendingPing" xml:space="preserve">
+    <value>正在傳送 Ping</value>
+  </data>
+  <data name="SendingPings" xml:space="preserve">
+    <value>正在傳送 Ping</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Live 搜尋地圖</value>
+  </data>
+  <data name="ShortcutAlt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="ShortcutCtrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="ShortcutPlus" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="ShortcutShift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="ShowAllPosts" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="ShowLogFile" xml:space="preserve">
+    <value>顯示記錄檔</value>
+  </data>
+  <data name="ShowProperties" xml:space="preserve">
+    <value>顯示屬性</value>
+  </data>
+  <data name="ShowRealTimeWordCount" xml:space="preserve">
+    <value>在狀態列中顯示即時字數(&amp;B)</value>
+  </data>
+  <data name="ShowXPosts" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="SidebarPanel" xml:space="preserve">
+    <value>工作窗格</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="SpellAdd" xml:space="preserve">
+    <value>新增(&amp;D)</value>
+  </data>
+  <data name="SpellCaps" xml:space="preserve">
+    <value>大小寫：</value>
+  </data>
+  <data name="SpellChange" xml:space="preserve">
+    <value>變更為(&amp;H)：</value>
+  </data>
+  <data name="SpellChangeAll" xml:space="preserve">
+    <value>全部變更(&amp;L)</value>
+  </data>
+  <data name="SpellChangeWord" xml:space="preserve">
+    <value>變更(&amp;C)</value>
+  </data>
+  <data name="SpellIgnore" xml:space="preserve">
+    <value>略過(&amp;G)</value>
+  </data>
+  <data name="SpellIgnoreAll" xml:space="preserve">
+    <value>全部略過(&amp;I)</value>
+  </data>
+  <data name="SpellingPrefAuto" xml:space="preserve">
+    <value>自動更正常見的大小寫與拼字錯誤(&amp;C)</value>
+  </data>
+  <data name="SpellingPrefGroup" xml:space="preserve">
+    <value>拼字表單選項</value>
+  </data>
+  <data name="SpellingPrefName" xml:space="preserve">
+    <value>拼字</value>
+  </data>
+  <data name="SpellingPrefOptions" xml:space="preserve">
+    <value>一般選項</value>
+  </data>
+  <data name="SpellingPrefPub" xml:space="preserve">
+    <value>發佈前檢查拼字(&amp;P)</value>
+  </data>
+  <data name="SpellingPrefReal" xml:space="preserve">
+    <value>使用即時拼字檢查（波浪底線）(&amp;R)</value>
+  </data>
+  <data name="SpellNoSuggest" xml:space="preserve">
+    <value>(沒有建議)</value>
+  </data>
+  <data name="SpellNotInDict" xml:space="preserve">
+    <value>不在字典中(&amp;N)：</value>
+  </data>
+  <data name="SpellOptions" xml:space="preserve">
+    <value>建議(&amp;U)：</value>
+  </data>
+  <data name="SpellSuggest" xml:space="preserve">
+    <value>建議(&amp;S)</value>
+  </data>
+  <data name="SpellText" xml:space="preserve">
+    <value>檢查拼字</value>
+  </data>
+  <data name="SpinnerPixelFormatString" xml:space="preserve">
+    <value>px</value>
+  </data>
+  <data name="SpinnerPixelRepresentativeString" xml:space="preserve">
+    <value>999 px</value>
+  </data>
+  <data name="SplashScreenCopyrightNotice" xml:space="preserve">
+    <value>Copyright © .NET Foundation. All rights reserved.</value>
+  </data>
+  <data name="SplitterMore" xml:space="preserve">
+    <value>更多...</value>
+  </data>
+  <data name="SSGBuildErrorText" xml:space="preserve">
+    <value>{0} 無法建置您的網站。請確認您的網站可以手動建置，檢查您的建置命令，然後再試一次。
+
+建置命令結束碼：{1}
+命令 STDOUT：
+{2}
+命令 STDERR：
+{3}</value>
+  </data>
+  <data name="SSGBuildErrorTitle" xml:space="preserve">
+    <value>靜態網站建置失敗</value>
+  </data>
+  <data name="SSGConfigAuthoringDraftsPath" xml:space="preserve">
+    <value>草稿路徑：（相對路徑）</value>
+  </data>
+  <data name="SSGConfigAuthoringEnableDrafts" xml:space="preserve">
+    <value>啟用草稿(&amp;D)</value>
+  </data>
+  <data name="SSGConfigAuthoringEnableImages" xml:space="preserve">
+    <value>啟用圖片(&amp;I)</value>
+  </data>
+  <data name="SSGConfigAuthoringEnablePages" xml:space="preserve">
+    <value>啟用頁面(&amp;A)</value>
+  </data>
+  <data name="SSGConfigAuthoringImagesGroup" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="SSGConfigAuthoringImagesPath" xml:space="preserve">
+    <value>圖片路徑：（相對路徑）</value>
+  </data>
+  <data name="SSGConfigAuthoringPagesGroup" xml:space="preserve">
+    <value>頁面</value>
+  </data>
+  <data name="SSGConfigAuthoringPagesInRoot" xml:space="preserve">
+    <value>頁面儲存於專案根目錄</value>
+  </data>
+  <data name="SSGConfigAuthoringPagesPath" xml:space="preserve">
+    <value>頁面路徑：（相對路徑）</value>
+  </data>
+  <data name="SSGConfigAuthoringPostsDraftsGroup" xml:space="preserve">
+    <value>文章與草稿</value>
+  </data>
+  <data name="SSGConfigAuthoringPostsPath" xml:space="preserve">
+    <value>文章路徑：（相對路徑）(&amp;P)</value>
+  </data>
+  <data name="SSGConfigAuthoringTitle" xml:space="preserve">
+    <value>撰寫</value>
+  </data>
+  <data name="SSGConfigBuildPublishBuildCommand" xml:space="preserve">
+    <value>建置命令：</value>
+  </data>
+  <data name="SSGConfigBuildPublishBuildingGroup" xml:space="preserve">
+    <value>建置</value>
+  </data>
+  <data name="SSGConfigBuildPublishCmdTimeout" xml:space="preserve">
+    <value>命令逾時（毫秒）(&amp;C)：</value>
+  </data>
+  <data name="SSGConfigBuildPublishEnableBuilding" xml:space="preserve">
+    <value>啟用建置(&amp;B)</value>
+  </data>
+  <data name="SSGConfigBuildPublishEnableCmdTimeout" xml:space="preserve">
+    <value>啟用命令逾時(&amp;E)</value>
+  </data>
+  <data name="SSGConfigBuildPublishGeneralGroup" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="SSGConfigBuildPublishOutputPath" xml:space="preserve">
+    <value>網站輸出路徑：（相對路徑）</value>
+  </data>
+  <data name="SSGConfigBuildPublishPublishCommand" xml:space="preserve">
+    <value>發佈命令(&amp;P)：</value>
+  </data>
+  <data name="SSGConfigBuildPublishPublishingGroup" xml:space="preserve">
+    <value>發佈</value>
+  </data>
+  <data name="SSGConfigBuildPublishShowCmdWindows" xml:space="preserve">
+    <value>顯示命令視窗(&amp;S)</value>
+  </data>
+  <data name="SSGConfigBuildPublishTitle" xml:space="preserve">
+    <value>建置與發佈</value>
+  </data>
+  <data name="SSGConfigFrontMatterKeyCol" xml:space="preserve">
+    <value>前置資料索引鍵</value>
+  </data>
+  <data name="SSGConfigFrontMatterPropertyCol" xml:space="preserve">
+    <value>屬性</value>
+  </data>
+  <data name="SSGConfigFrontMatterReset" xml:space="preserve">
+    <value>重設為預設值(&amp;R)</value>
+  </data>
+  <data name="SSGConfigFrontMatterSubtitle" xml:space="preserve">
+    <value>您可以在下方調整文章前置資料索引鍵，以符合您的靜態網站產生器。</value>
+  </data>
+  <data name="SSGConfigFrontMatterTitle" xml:space="preserve">
+    <value>前置資料</value>
+  </data>
+  <data name="SSGConfigGeneralDetectButton" xml:space="preserve">
+    <value>執行自動偵測(&amp;D)</value>
+  </data>
+  <data name="SSGConfigGeneralDetectLabel" xml:space="preserve">
+    <value>Open Live Writer 也可以重新嘗試偵測靜態網站的相關設定選項。這可能無法產生完整的設定，因此請使用後續頁面上的欄位確認所有設定均已正確設定。</value>
+  </data>
+  <data name="SSGConfigGeneralLocalSitePath" xml:space="preserve">
+    <value>本機網站路徑(&amp;L)：</value>
+  </data>
+  <data name="SSGConfigGeneralOptionsGroup" xml:space="preserve">
+    <value>選項</value>
+  </data>
+  <data name="SSGConfigGeneralSetupGroup" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SSGConfigGeneralSiteTitle" xml:space="preserve">
+    <value>網站標題(&amp;T)：</value>
+  </data>
+  <data name="SSGConfigGeneralSiteUrl" xml:space="preserve">
+    <value>網站 URL(&amp;U)：</value>
+  </data>
+  <data name="SSGConfigGeneralTitle" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="SSGConfigGeneralWizardButton" xml:space="preserve">
+    <value>執行帳號精靈(&amp;W)</value>
+  </data>
+  <data name="SSGConfigGeneralWizardLabel" xml:space="preserve">
+    <value>如果您希望透過互動方式進行核心靜態網站設定，可以選擇再次執行帳號精靈。</value>
+  </data>
+  <data name="SSGConfigTitle" xml:space="preserve">
+    <value>'{0}' 的靜態網站設定</value>
+  </data>
+  <data name="SSGErrorBuildCommandEmptyText" xml:space="preserve">
+    <value>啟用本機網站建置時，需要提供建置命令。</value>
+  </data>
+  <data name="SSGErrorBuildCommandEmptyTitle" xml:space="preserve">
+    <value>建置命令為空白</value>
+  </data>
+  <data name="SSGErrorCommandTimeoutText" xml:space="preserve">
+    <value>部落格命令已逾時。請檢查您的命令，或延長命令逾時時間。</value>
+  </data>
+  <data name="SSGErrorCommandTimeoutTitle" xml:space="preserve">
+    <value>命令執行逾時</value>
+  </data>
+  <data name="SSGErrorItemLoadTextFM" xml:space="preserve">
+    <value>無法讀取項目前置資料。</value>
+  </data>
+  <data name="SSGErrorItemLoadTextId" xml:space="preserve">
+    <value>項目沒有 ID。</value>
+  </data>
+  <data name="SSGErrorItemLoadTitle" xml:space="preserve">
+    <value>項目載入錯誤</value>
+  </data>
+  <data name="SSGErrorPageDoesNotExistText" xml:space="preserve">
+    <value>找不到具有指定 ID 的頁面。</value>
+  </data>
+  <data name="SSGErrorPageDoesNotExistTitle" xml:space="preserve">
+    <value>頁面不存在</value>
+  </data>
+  <data name="SSGErrorPathDraftsEmpty" xml:space="preserve">
+    <value>草稿路徑為空白。</value>
+  </data>
+  <data name="SSGErrorPathDraftsNotFound" xml:space="preserve">
+    <value>草稿路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPathFolderNotFound" xml:space="preserve">
+    <value>找不到資料夾</value>
+  </data>
+  <data name="SSGErrorPathImagesEmpty" xml:space="preserve">
+    <value>圖片路徑為空白。</value>
+  </data>
+  <data name="SSGErrorPathImagesNotFound" xml:space="preserve">
+    <value>圖片路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPathLocalSitePathNotFound" xml:space="preserve">
+    <value>本機網站路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPathOutputEmpty" xml:space="preserve">
+    <value>輸出路徑為空白。</value>
+  </data>
+  <data name="SSGErrorPathOutputNotFound" xml:space="preserve">
+    <value>輸出路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPathPagesEmpty" xml:space="preserve">
+    <value>頁面路徑為空白。</value>
+  </data>
+  <data name="SSGErrorPathPagesNotFound" xml:space="preserve">
+    <value>頁面路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPathPostsEmpty" xml:space="preserve">
+    <value>文章路徑為空白。</value>
+  </data>
+  <data name="SSGErrorPathPostsNotFound" xml:space="preserve">
+    <value>文章路徑 '{0}' 不存在。</value>
+  </data>
+  <data name="SSGErrorPostDoesNotExistText" xml:space="preserve">
+    <value>找不到具有指定 ID 的文章。</value>
+  </data>
+  <data name="SSGErrorPostDoesNotExistTitle" xml:space="preserve">
+    <value>文章不存在</value>
+  </data>
+  <data name="SSGErrorPublishCommandEmptyText" xml:space="preserve">
+    <value>需要提供發佈命令。</value>
+  </data>
+  <data name="SSGErrorPublishCommandEmptyTitle" xml:space="preserve">
+    <value>發佈命令為空白</value>
+  </data>
+  <data name="SSGFrontMatterDate" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="SSGFrontMatterId" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="SSGFrontMatterLayout" xml:space="preserve">
+    <value>版面配置</value>
+  </data>
+  <data name="SSGFrontMatterParentId" xml:space="preserve">
+    <value>上層 ID</value>
+  </data>
+  <data name="SSGFrontMatterPermalink" xml:space="preserve">
+    <value>固定連結</value>
+  </data>
+  <data name="SSGFrontMatterTags" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="SSGFrontMatterTitle" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="SSGPublishErrorText" xml:space="preserve">
+    <value>{0} 無法發佈您的網站。請檢查您的網站發佈命令。
+
+發佈命令結束碼：{1}
+命令 STDOUT：
+{2}
+命令 STDERR：
+{3}</value>
+  </data>
+  <data name="SSGPublishErrorTitle" xml:space="preserve">
+    <value>靜態網站發佈失敗</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>統計資料</value>
+  </data>
+  <data name="StatisticsSelection" xml:space="preserve">
+    <value>選取範圍統計資料</value>
+  </data>
+  <data name="StatusAutoSaving" xml:space="preserve">
+    <value>自動儲存中...</value>
+  </data>
+  <data name="StatusDraftSaved" xml:space="preserve">
+    <value>草稿 - 已於 {0} 儲存</value>
+  </data>
+  <data name="StatusDraftUnsaved" xml:space="preserve">
+    <value>草稿 - 未儲存</value>
+  </data>
+  <data name="StatusPublished" xml:space="preserve">
+    <value>已發佈：{0}</value>
+  </data>
+  <data name="StatusWeblogNameFormatter" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="SwitchWeblogs" xml:space="preserve">
+    <value>切換至部落格</value>
+  </data>
+  <data name="TableAlignHorizontal" xml:space="preserve">
+    <value>水平對齊(&amp;H)：</value>
+  </data>
+  <data name="TableAlignHorizontalCenter" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="TableAlignHorizontalLeft" xml:space="preserve">
+    <value>靠左</value>
+  </data>
+  <data name="TableAlignHorizontalRight" xml:space="preserve">
+    <value>靠右</value>
+  </data>
+  <data name="TableAlignVertical" xml:space="preserve">
+    <value>垂直對齊(&amp;V)：</value>
+  </data>
+  <data name="TableAlignVerticalBottom" xml:space="preserve">
+    <value>靠下</value>
+  </data>
+  <data name="TableAlignVerticalMiddle" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="TableAlignVerticalTop" xml:space="preserve">
+    <value>靠上</value>
+  </data>
+  <data name="TableBorder" xml:space="preserve">
+    <value>框線</value>
+  </data>
+  <data name="TableCellPadding" xml:space="preserve">
+    <value>儲存格填補</value>
+  </data>
+  <data name="TableCellPaddingLabel" xml:space="preserve">
+    <value>填補儲存格內容(&amp;P)：</value>
+  </data>
+  <data name="TableCellSpacing" xml:space="preserve">
+    <value>儲存格間距</value>
+  </data>
+  <data name="TableCellSpacingLabel" xml:space="preserve">
+    <value>儲存格間距(&amp;S)：</value>
+  </data>
+  <data name="TableColumns" xml:space="preserve">
+    <value>欄</value>
+  </data>
+  <data name="TableColumnsLabel" xml:space="preserve">
+    <value>欄數(&amp;C)：</value>
+  </data>
+  <data name="TableRows" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="TableRowsLabel" xml:space="preserve">
+    <value>列數(&amp;R)：</value>
+  </data>
+  <data name="TableShowBorderLabel" xml:space="preserve">
+    <value>顯示表格框線(&amp;B)：</value>
+  </data>
+  <data name="TableTableProperties" xml:space="preserve">
+    <value>表格屬性</value>
+  </data>
+  <data name="TagControlSetTags" xml:space="preserve">
+    <value>設定標籤（以逗號分隔）</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="TagsCaptionFormat" xml:space="preserve">
+    <value>{0} 標籤：{tag-group}</value>
+  </data>
+  <data name="TagsCreateNew" xml:space="preserve">
+    <value>建立新標籤提供者</value>
+  </data>
+  <data name="TagsCustomizeProviders" xml:space="preserve">
+    <value>(自訂提供者...)</value>
+  </data>
+  <data name="TagsEditPattern" xml:space="preserve">
+    <value>編輯 {0}</value>
+  </data>
+  <data name="TagsHtmlCaptionHelpString" xml:space="preserve">
+    <value>將與標籤 HTML 一起顯示的 HTML 說明文字。在您希望放置 HTML 標籤範本所產生之 HTML 的位置使用 {0}。</value>
+  </data>
+  <data name="TagsHtmlCaptionLabel" xml:space="preserve">
+    <value>標籤清單的 HTML 說明文字(&amp;C)：</value>
+  </data>
+  <data name="TagsHtmlDelimiterHelpString" xml:space="preserve">
+    <value>應顯示在標籤 HTML 之間的分隔符號。分隔符號將顯示在每個標籤所產生的 HTML 之間。</value>
+  </data>
+  <data name="TagsHtmlDelimiterLabel" xml:space="preserve">
+    <value>每個標籤的 HTML 分隔符號(&amp;S)：</value>
+  </data>
+  <data name="TagsHtmlPreviewHelpString" xml:space="preserve">
+    <value>針對一組標籤將產生之原始 HTML 的預覽。</value>
+  </data>
+  <data name="TagsHtmlPreviewLabel" xml:space="preserve">
+    <value>HTML 預覽：</value>
+  </data>
+  <data name="TagsHtmlTemplateHelpString" xml:space="preserve">
+    <value>HTML 範本將用來為每個提供的標籤產生 HTML。在 HTML 範本中，在應放置標籤的位置使用 {0}，在應放置 URL 編碼標籤的位置使用 {1}。</value>
+  </data>
+  <data name="TagsHtmlTemplateLabel" xml:space="preserve">
+    <value>每個標籤的 HTML 範本(&amp;H)：</value>
+  </data>
+  <data name="TagsInsertTags" xml:space="preserve">
+    <value>插入標籤</value>
+  </data>
+  <data name="TagsProviderDefaultCaption" xml:space="preserve">
+    <value>{0} 標籤：{1}</value>
+  </data>
+  <data name="TagsProviderNameHelpString" xml:space="preserve">
+    <value>標籤提供者的名稱。插入標籤時，此名稱將顯示在標籤提供者清單中。</value>
+  </data>
+  <data name="TagsProviderNameLabel" xml:space="preserve">
+    <value>提供者名稱(&amp;P)：</value>
+  </data>
+  <data name="TagsRestoreDefaults" xml:space="preserve">
+    <value>還原預設值(&amp;R)</value>
+  </data>
+  <data name="TagsTagExample1" xml:space="preserve">
+    <value>標籤 1</value>
+  </data>
+  <data name="TagsTagExample2" xml:space="preserve">
+    <value>標籤 2</value>
+  </data>
+  <data name="TagsTagOptions" xml:space="preserve">
+    <value>標籤選項</value>
+  </data>
+  <data name="TagsTagProviderLabel" xml:space="preserve">
+    <value>標籤提供者(&amp;P)：</value>
+  </data>
+  <data name="TagsTagProvidersLabel" xml:space="preserve">
+    <value>標籤提供者(&amp;T)：</value>
+  </data>
+  <data name="TagsTagsLabel" xml:space="preserve">
+    <value>標籤（以逗號分隔）(&amp;T)：</value>
+  </data>
+  <data name="TagsXmlParsingError" xml:space="preserve">
+    <value>缺少 {0} 參數</value>
+  </data>
+  <data name="TemporaryPostBody" xml:space="preserve">
+    <value>這是一篇未被刪除的暫時文章。請手動刪除。（{0} - {1}）</value>
+  </data>
+  <data name="TemporaryPostTitle" xml:space="preserve">
+    <value>用於佈景主題偵測的暫時文章（{0} - {1}）</value>
+  </data>
+  <data name="TextStyle" xml:space="preserve">
+    <value>文字樣式</value>
+  </data>
+  <data name="TheErrorOccuredBecause" xml:space="preserve">
+    <value>發生此錯誤的原因如下：</value>
+  </data>
+  <data name="TiltEditorLabel" xml:space="preserve">
+    <value>傾斜(&amp;T)：</value>
+  </data>
+  <data name="TiltEditorTitle" xml:space="preserve">
+    <value>傾斜</value>
+  </data>
+  <data name="TitleDefaultText" xml:space="preserve">
+    <value>輸入 {0} 標題</value>
+  </data>
+  <data name="TitleRemindDontShowAgain" xml:space="preserve">
+    <value>不再提醒我缺少標題(&amp;D)</value>
+  </data>
+  <data name="TitleRemindError" xml:space="preserve">
+    <value>未指定 {0} 標題</value>
+  </data>
+  <data name="TitleRemindExplanation" xml:space="preserve">
+    <value>您尚未為此 {0} 指定標題。您仍要繼續發佈嗎？</value>
+  </data>
+  <data name="TitleRemindTitle" xml:space="preserve">
+    <value>標題提醒</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>今天</value>
+  </data>
+  <data name="ToolbarBoldLetter" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="ToolbarFontStyleFontFamily" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ToolbarItalicLetter" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="ToolbarStrikethroughLetter" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="ToolbarUnderlineLetter" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="TruncatedString" xml:space="preserve">
+    <value>{0}...</value>
+  </data>
+  <data name="UnexpectedErrorClickHere" xml:space="preserve">
+    <value>按一下這裡以查看錯誤詳細資料</value>
+  </data>
+  <data name="UnexpectedErrorContinue" xml:space="preserve">
+    <value>繼續(&amp;C)</value>
+  </data>
+  <data name="UnexpectedErrorDescription" xml:space="preserve">
+    <value>我們已建立一份您可以檢視的錯誤摘要。</value>
+  </data>
+  <data name="UnexpectedErrorExit" xml:space="preserve">
+    <value>結束</value>
+  </data>
+  <data name="UnexpectedErrorPluginDescription" xml:space="preserve">
+    <value>{0} 外掛程式中發生錯誤：
+
+{1}</value>
+  </data>
+  <data name="UnexpectedErrorPluginTitle" xml:space="preserve">
+    <value>發生外掛程式錯誤</value>
+  </data>
+  <data name="UnexpectedErrorSendError" xml:space="preserve">
+    <value>傳送錯誤報告(&amp;S)</value>
+  </data>
+  <data name="UnexpectedErrorTitle" xml:space="preserve">
+    <value>未預期的錯誤</value>
+  </data>
+  <data name="UnhandledExceptionErrorMessage" xml:space="preserve">
+    <value>應用程式內發生未預期的錯誤。</value>
+  </data>
+  <data name="UnhandledExceptionErrorTitle" xml:space="preserve">
+    <value>發生未預期的錯誤</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>未命名</value>
+  </data>
+  <data name="UntitledPage" xml:space="preserve">
+    <value>(未命名的頁面)</value>
+  </data>
+  <data name="UntitledPost" xml:space="preserve">
+    <value>(未命名的文章)</value>
+  </data>
+  <data name="UpdateAccountConfiguration" xml:space="preserve">
+    <value>更新帳號資訊(&amp;U)...</value>
+  </data>
+  <data name="UpdateAccountConfigurationTitle" xml:space="preserve">
+    <value>更新帳號設定</value>
+  </data>
+  <data name="UpdatesAvailableAskLaterButton" xml:space="preserve">
+    <value>稍後再詢問我(&amp;S)</value>
+  </data>
+  <data name="UpdatesAvailableChecking" xml:space="preserve">
+    <value>正在檢查更新</value>
+  </data>
+  <data name="UpdatesAvailableDownloadButton" xml:space="preserve">
+    <value>立即下載(&amp;D)</value>
+  </data>
+  <data name="UpdatesAvailableLink" xml:space="preserve">
+    <value>更多資訊</value>
+  </data>
+  <data name="UpdatesAvailableMessage" xml:space="preserve">
+    <value>必要的更新將在您下次啟動 Open Live Writer 時套用。</value>
+  </data>
+  <data name="UpdatesAvailableMessageFull" xml:space="preserve">
+    <value>{0} 的新版本現已推出。按一下「立即下載」按鈕以下載並安裝更新。</value>
+  </data>
+  <data name="UpdatesAvailableMessagePrerelease" xml:space="preserve">
+    <value>{0} 的新預發行版本現已推出。按一下「立即下載」按鈕以下載並安裝更新。</value>
+  </data>
+  <data name="UpdatesAvailableNofifyBeta" xml:space="preserve">
+    <value>同時檢查預發行（Beta）版本(&amp;V)</value>
+  </data>
+  <data name="UpdatesAvailableNotify" xml:space="preserve">
+    <value>自動檢查更新(&amp;A)</value>
+  </data>
+  <data name="UpdatesAvailableNoUpdateText" xml:space="preserve">
+    <value>沒有可用的更新。您目前執行的是最新版 {0}。</value>
+  </data>
+  <data name="UpdatesAvailableNoUpdateTitle" xml:space="preserve">
+    <value>沒有可用的更新</value>
+  </data>
+  <data name="UpdatesAvailableTitle" xml:space="preserve">
+    <value>有新版本可供使用</value>
+  </data>
+  <data name="UpdatesAvailableTitlePrerelease" xml:space="preserve">
+    <value>有新的預發行版本可供使用</value>
+  </data>
+  <data name="UpdatesBandClose" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="UpdatesInstalling" xml:space="preserve">
+    <value>正在下載並安裝 {0} 個更新。請稍候...</value>
+  </data>
+  <data name="UpdatesPreparing" xml:space="preserve">
+    <value>正在準備更新 Open Live Writer...</value>
+  </data>
+  <data name="UpdatesProgressTitle" xml:space="preserve">
+    <value>安裝更新 - Open Live Writer</value>
+  </data>
+  <data name="UpdatesStartingWriter" xml:space="preserve">
+    <value>正在啟動已更新的 Open Live Writer...</value>
+  </data>
+  <data name="UpdateWeblogDraft" xml:space="preserve">
+    <value>草稿</value>
+  </data>
+  <data name="UpdateWeblogPublish1" xml:space="preserve">
+    <value>正在發佈您的 {0}</value>
+  </data>
+  <data name="UpdateWeblogPublish2" xml:space="preserve">
+    <value>正在將 {0} 發佈至 {1}</value>
+  </data>
+  <data name="UpdateWeblogViewPost" xml:space="preserve">
+    <value>發佈後在瀏覽器中開啟我的部落格</value>
+  </data>
+  <data name="UrlLabel" xml:space="preserve">
+    <value>網址(&amp;W)：</value>
+  </data>
+  <data name="UrlRetrieveProgressCaption" xml:space="preserve">
+    <value>正在擷取資料</value>
+  </data>
+  <data name="UrlRetrieveProgressMessage" xml:space="preserve">
+    <value>正在擷取發佈所需的其他資料...</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>使用者名稱：</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>使用者名稱(&amp;U)：</value>
+  </data>
+  <data name="VideoCaptionDefaultText" xml:space="preserve">
+    <value>在此輸入影片說明文字</value>
+  </data>
+  <data name="VideoCaptionMaxCharactersAccepted" xml:space="preserve">
+    <value>245</value>
+  </data>
+  <data name="VideoError" xml:space="preserve">
+    <value>發佈影片時發生錯誤</value>
+  </data>
+  <data name="VideoErrorTryAgain" xml:space="preserve">
+    <value>請移除影片後再試一次發佈。</value>
+  </data>
+  <data name="VideoFromVideoService" xml:space="preserve">
+    <value>從影片服務</value>
+  </data>
+  <data name="VideoGetVideosError" xml:space="preserve">
+    <value>取得影片清單時發生錯誤。</value>
+  </data>
+  <data name="VideoLoading" xml:space="preserve">
+    <value>載入中...</value>
+  </data>
+  <data name="VideoLocalProcessing" xml:space="preserve">
+    <value>正在上傳影片...</value>
+  </data>
+  <data name="VideoNetworkError" xml:space="preserve">
+    <value>網路連線發生錯誤。</value>
+  </data>
+  <data name="VideoRemoteProcessing" xml:space="preserve">
+    <value>{0} 正在處理您上傳的影片。
+這可能需要一些時間。</value>
+  </data>
+  <data name="VideoUrlConvertError" xml:space="preserve">
+    <value>此影片不包含影片 ID。請輸入影片的內嵌碼。</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>檢視全部</value>
+  </data>
+  <data name="ViewButton" xml:space="preserve">
+    <value>檢視(&amp;V)</value>
+  </data>
+  <data name="ViewMap" xml:space="preserve">
+    <value>檢視地圖</value>
+  </data>
+  <data name="ViewWeblog" xml:space="preserve">
+    <value>檢視部落格</value>
+  </data>
+  <data name="ViewWeblogCapabilities" xml:space="preserve">
+    <value>查看部落格功能</value>
+  </data>
+  <data name="WatermarkAlignBottomLeft" xml:space="preserve">
+    <value>左下</value>
+  </data>
+  <data name="WatermarkAlignBottomRight" xml:space="preserve">
+    <value>右下</value>
+  </data>
+  <data name="WatermarkAlignCentered" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="WatermarkAlignTopLeft" xml:space="preserve">
+    <value>左上</value>
+  </data>
+  <data name="WatermarkAlignTopRight" xml:space="preserve">
+    <value>右上</value>
+  </data>
+  <data name="WatermarkAlignUnknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="WatermarkDefaultFont" xml:space="preserve">
+    <value>Arial</value>
+  </data>
+  <data name="WatermarkDefaultText" xml:space="preserve">
+    <value>© {0:yyyy}</value>
+  </data>
+  <data name="WatermarkDialogTitle" xml:space="preserve">
+    <value>浮水印</value>
+  </data>
+  <data name="WatermarkFontFamilyLabel" xml:space="preserve">
+    <value>字型系列(&amp;F)：</value>
+  </data>
+  <data name="WatermarkPositionLabel" xml:space="preserve">
+    <value>位置(&amp;P)：</value>
+  </data>
+  <data name="WatermarkSizeLabel" xml:space="preserve">
+    <value>大小(&amp;S)：</value>
+  </data>
+  <data name="WatermarkTextLabel" xml:space="preserve">
+    <value>浮水印文字(&amp;W)：</value>
+  </data>
+  <data name="WatsonMainIntroBoldFormat" xml:space="preserve">
+    <value>{0} 發生問題：{1}。</value>
+  </data>
+  <data name="WatsonMainIntroRegFormat" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+  <data name="WatsonMainPleaBold" xml:space="preserve">
+    <value>請告知 Microsoft 此問題。</value>
+  </data>
+  <data name="WatsonMainPleaReg" xml:space="preserve">
+    <value>我們已建立一份您可以傳送的錯誤報告，以協助我們修正錯誤。我們將以機密且匿名的方式處理此報告。</value>
+  </data>
+  <data name="WatsonNoReportButton" xml:space="preserve">
+    <value>不要傳送報告</value>
+  </data>
+  <data name="WatsonReportButton" xml:space="preserve">
+    <value>傳送報告</value>
+  </data>
+  <data name="WebLayoutWarning1" xml:space="preserve">
+    <value>使用目前部落格的佈景主題編輯內容時可能會遇到問題（例如，文章版面配置不正確或選取及調整內容大小時出現問題）。</value>
+  </data>
+  <data name="WebLayoutWarning2" xml:space="preserve">
+    <value>如果確實遇到問題，請切換回不使用佈景主題的編輯模式。</value>
+  </data>
+  <data name="WebLayoutWarningTitle" xml:space="preserve">
+    <value>網頁版面配置檢視</value>
+  </data>
+  <data name="Weblog" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="WeblogCapabilitiesCapability" xml:space="preserve">
+    <value>功能</value>
+  </data>
+  <data name="WeblogCapabilitiesCaption" xml:space="preserve">
+    <value>{0} 已偵測到您部落格的以下功能：</value>
+  </data>
+  <data name="WeblogCapabilitiesTitle" xml:space="preserve">
+    <value>部落格功能</value>
+  </data>
+  <data name="WeblogCapabilitiesValue" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="WeblogName" xml:space="preserve">
+    <value>部落格名稱(&amp;B)：</value>
+  </data>
+  <data name="WeblogNameColon" xml:space="preserve">
+    <value>部落格暱稱(&amp;N)：</value>
+  </data>
+  <data name="WeblogProvider" xml:space="preserve">
+    <value>部落格服務：</value>
+  </data>
+  <data name="WeblogSettings" xml:space="preserve">
+    <value>部落格選項 - {0}</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>寬度</value>
+  </data>
+  <data name="WidthColon" xml:space="preserve">
+    <value>寬度(&amp;W)：</value>
+  </data>
+  <data name="WidthLabel" xml:space="preserve">
+    <value>寬度(&amp;W)：</value>
+  </data>
+  <data name="WindowTitleFormat" xml:space="preserve">
+    <value>{0} - {1}</value>
+  </data>
+  <data name="WithEllipses" xml:space="preserve">
+    <value>{0}...</value>
+  </data>
+  <data name="WizardBack" xml:space="preserve">
+    <value>&lt; 上一步(&amp;B)</value>
+  </data>
+  <data name="WizardBlogTypeConfigureTo" xml:space="preserve">
+    <value>設定 {0} 以發佈至：</value>
+  </data>
+  <data name="WizardBlogTypeGoogleBlogger" xml:space="preserve">
+    <value>Google Blogger(&amp;G)</value>
+  </data>
+  <data name="WizardBlogTypeOther" xml:space="preserve">
+    <value>其他服務(&amp;O)</value>
+  </data>
+  <data name="WizardBlogTypeSharePoint" xml:space="preserve">
+    <value>SharePoint(&amp;S)</value>
+  </data>
+  <data name="WizardBlogTypeStaticSite" xml:space="preserve">
+    <value>靜態網站產生器(&amp;E)</value>
+  </data>
+  <data name="WizardBlogTypeWelcome" xml:space="preserve">
+    <value>許多熱門的部落格服務都支援 {0}。</value>
+  </data>
+  <data name="WizardBlogTypeWhatBlogType" xml:space="preserve">
+    <value>您使用哪種部落格服務？</value>
+  </data>
+  <data name="WizardFinish" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="WizardNext" xml:space="preserve">
+    <value>下一步(&amp;N) &gt;</value>
+  </data>
+  <data name="WordCount" xml:space="preserve">
+    <value>字數</value>
+  </data>
+  <data name="WordCountTitle" xml:space="preserve">
+    <value>字數統計</value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value>字數：{0}</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>是(&amp;Y)</value>
+  </data>
+  <data name="YouTubeblocked" xml:space="preserve">
+    <value>影片已被內容擁有者封鎖。</value>
+  </data>
+  <data name="YouTubecantProcess" xml:space="preserve">
+    <value>YouTube 無法轉換影片檔案。</value>
+  </data>
+  <data name="YouTubecopyright" xml:space="preserve">
+    <value>影片侵犯著作權。</value>
+  </data>
+  <data name="YouTubeduplicate" xml:space="preserve">
+    <value>影片與另一個已上傳的影片重複。</value>
+  </data>
+  <data name="YouTubeempty" xml:space="preserve">
+    <value>上傳的檔案為空白。</value>
+  </data>
+  <data name="YouTubeinappropriate" xml:space="preserve">
+    <value>影片包含不當內容。</value>
+  </data>
+  <data name="YouTubeinvalidFormat" xml:space="preserve">
+    <value>上傳的影片格式無效。</value>
+  </data>
+  <data name="YouTubeInvalidResult" xml:space="preserve">
+    <value>收到來自 YouTube 的未預期回應。</value>
+  </data>
+  <data name="YouTubeNoAccount" xml:space="preserve">
+    <value>此 Google 帳號沒有關聯的 YouTube 帳號。</value>
+  </data>
+  <data name="YouTubesuspended" xml:space="preserve">
+    <value>與此影片相關聯的帳號已被停用。</value>
+  </data>
+  <data name="YouTubetermsOfUse" xml:space="preserve">
+    <value>影片違反使用條款。</value>
+  </data>
+  <data name="YouTubetooLong" xml:space="preserve">
+    <value>影片超過最長 10 分鐘的時間限制。</value>
+  </data>
+  <data name="YouTubetooSmall" xml:space="preserve">
+    <value>上傳的檔案太小。</value>
+  </data>
+  <data name="YouTubeunsupportedCodec" xml:space="preserve">
+    <value>影片使用不支援的轉碼器。</value>
+  </data>
+  <data name="YouTubeVideoError" xml:space="preserve">
+    <value>上傳影片時發生未預期的錯誤。</value>
   </data>
 </root>

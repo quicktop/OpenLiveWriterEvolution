@@ -48,11 +48,6 @@ namespace OpenLiveWriter.PostEditor
             // Already added TextEditingGroup
             componentContext.CommandManager.Add(new GroupCommand(CommandId.PreviewGroup, componentContext.CommandManager.Get(CommandId.ClosePreview)));
 
-            componentContext.CommandManager.Add(CommandId.DebugTab, null);
-            componentContext.CommandManager.Add(new Command(CommandId.GeneralDebugGroup));
-            componentContext.CommandManager.Add(new Command(CommandId.DialogDebugGroup));
-            componentContext.CommandManager.Add(new Command(CommandId.TextDebugGroup));
-            componentContext.CommandManager.Add(new Command(CommandId.ValidateDebugGroup));
 
             componentContext.CommandManager.Add(new Command(CommandId.FormatMapGroup));
             componentContext.CommandManager.Add(new Command(CommandId.FormatMapPropertiesGroup));

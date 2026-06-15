@@ -25,6 +25,7 @@ namespace OpenLiveWriter
     public class
         ApplicationMain
     {
+        private const string DefaultUICultureName = "zh-TW";
         private static CultureInfo currentUICulture;
 
         /// <summary>
@@ -66,6 +67,8 @@ namespace OpenLiveWriter
             if (opts == null)
                 return;
             opts.ApplyOptions();
+            if (String.IsNullOrEmpty(opts.CultureOverride))
+                LoadCulture(DefaultUICultureName);
 
             // Make the appId unique by base directory and locale.
             // This might allow for easier testing of English vs. loc builds.
@@ -180,7 +183,16 @@ namespace OpenLiveWriter
                         // resources fall back to the neutral English resources.
                         LoadCulture(CultureInfo.CurrentUICulture.Name);
 
-                        // Apply any culture overrides.
+                        // If a culture.cfg file exists next to the exe, use it as the default culture.
+                        string cultureConfigPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "culture.cfg");
+                        if (File.Exists(cultureConfigPath))
+                        {
+                            string cfgCulture = File.ReadAllText(cultureConfigPath).Trim();
+                            if (!string.IsNullOrEmpty(cfgCulture))
+                                LoadCulture(cfgCulture);
+                        }
+
+                        // Apply any culture overrides (command-line /culture:xx takes highest priority).
                         WriterCommandLineOptions opts = WriterCommandLineOptions.Create(args);
                         if (!String.IsNullOrEmpty(opts.CultureOverride))
                         {

@@ -1,4 +1,4 @@
-name: CI Build
+name: release
 
 on:
   push:
@@ -18,10 +18,89 @@ jobs:
   build:
     name: Build Open Live Writer
     runs-on: windows-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Auto-increment Version
+        shell: powershell
+        run: |
+          # 1. Parse current version
+          $version = Get-Content version.txt -Raw
+          $version = $version.Trim()
+          $parts = $version.Split('.')
+          if ($parts.Length -lt 4) {
+              $parts = @($parts[0], $parts[1], $parts[2], "0")
+          }
+          $major = [int]$parts[0]
+          $minor = [int]$parts[1]
+          $patch = [int]$parts[2]
+          $build = [int]$parts[3]
+
+          # 2. Get git diff changes count
+          $beforeSha = "${{ github.event.before }}"
+          $totalChanges = 0
+
+          if ("${{ github.event_name }}" -eq "pull_request") {
+              # Get diff between PR source branch and target base branch
+              git fetch origin ${{ github.base_ref }} --depth=100
+              $diff = git diff --numstat origin/${{ github.base_ref }}...HEAD
+          } elseif (-not $beforeSha -or $beforeSha -eq "0000000000000000000000000000000000000000" -or -not (git cat-file -t $beforeSha 2>$null)) {
+              $diff = git diff --numstat HEAD~1 HEAD
+          } else {
+              $diff = git diff --numstat $beforeSha ${{ github.sha }}
+          }
+
+          foreach ($line in $diff) {
+              if ($line -match '^(\d+)\s+(\d+)\s+(.+)$') {
+                  $ins = [int]$Matches[1]
+                  $del = [int]$Matches[2]
+                  $file = $Matches[3]
+                  # Exclude version.txt and other version/meta files from diff size calculation
+                  if ($file -notlike "*version.txt*" -and $file -notlike "*GlobalAssemblyVersionInfo.cs*" -and $file -notlike "*.yml" -and $file -notlike "*.md") {
+                      $totalChanges += $ins + $del
+                  }
+              }
+          }
+
+          # 3. Determine increment based on change size
+          Write-Output "Total lines of changes (excluding docs/configs/version files): $totalChanges"
+          if ($totalChanges -ge 300) {
+              $minor++
+              $patch = 0
+              $build = 0
+              Write-Output "Large change detected (>=300 lines). Bumping Minor."
+          } elseif ($totalChanges -ge 50) {
+              $patch++
+              $build = 0
+              Write-Output "Medium change detected (>=50 lines). Bumping Patch."
+          } else {
+              $build++
+              Write-Output "Small change detected (<50 lines). Bumping Build."
+          }
+
+          $newVersion = "$major.$minor.$patch.$build"
+          Write-Output "New version: $newVersion"
+          Set-Content version.txt $newVersion
+          echo "NEW_VERSION=$newVersion" >> $env:GITHUB_ENV
+
+      - name: Commit and Push Version Bump
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        shell: powershell
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add version.txt
+          $status = git status --porcelain
+          if ($status) {
+              git commit -m "Auto-increment version to ${{ env.NEW_VERSION }} [skip ci]"
+              git push
+          }
 
       - name: Setup .NET Framework 4.6.1 Developer Pack
         run: |

@@ -398,9 +398,18 @@ namespace OpenLiveWriter.CoreServices
 
         public void DoCapture()
         {
-            // show the form w/o activating then make it invisible
-            User32.SetWindowPos(Handle, HWND.BOTTOM, -1, -1, 1, 1, SWP.NOACTIVATE);
-            Visible = false;
+            // Position the form off-screen so the user doesn't see it,
+            // but keep it visible and non-minimized so MSHTML rendering engine is active.
+            this.ShowInTaskbar = false;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(-20000, -20000);
+            this.Size = new Size(1500, 1000);
+
+            // show the form w/o activating
+            User32.SetWindowPos(Handle, HWND.BOTTOM, -20000, -20000, 1500, 1000, SWP.NOACTIVATE | SWP.SHOWWINDOW);
 
             // determine the url used for navigation
             string navigateUrl;
@@ -465,6 +474,9 @@ namespace OpenLiveWriter.CoreServices
                     IHTMLElement2 element2 = element as IHTMLElement2;
                     _browserControl.Height = element2.scrollHeight;
                 }
+
+                // Adjust parent form size to match browser control to avoid clipping
+                this.Size = new Size(_browserControl.Width, _browserControl.Height);
 
                 // release UI thread to load the video thumbnail on screen
                 // (the Tick may need to fire more than once to allow enough

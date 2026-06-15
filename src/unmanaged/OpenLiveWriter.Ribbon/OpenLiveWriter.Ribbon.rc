@@ -50,7 +50,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 
 
-RIBBON_RIBBON    UIFILE    ".\\Ribbon.bin"
+#include ".\\Ribbon.rc"
 
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
