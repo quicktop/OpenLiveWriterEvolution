@@ -152,7 +152,7 @@ if (Test-Path $distZhTW) {
     catch { "Warning: could not fully clean dist dir (files may be in use). Copying over existing files." }
 }
 if (-not (Test-Path $distZhTW)) { New-Item $distZhTW -ItemType Directory | Out-Null }
-Copy-Item "$binDir\*" $distZhTW -Recurse -Force
+Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distZhTW -Recurse -Force
 [System.IO.File]::WriteAllText("$distZhTW\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)
 "Packaged: $distZhTW"
 
@@ -177,7 +177,7 @@ if (Test-Path $distEn) {
     catch { "Warning: could not fully clean dist dir (files may be in use). Copying over existing files." }
 }
 if (-not (Test-Path $distEn)) { New-Item $distEn -ItemType Directory | Out-Null }
-Copy-Item "$binDir\*" $distEn -Recurse -Force
+Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distEn -Recurse -Force
 "Packaged: $distEn"
 
 $zipEn = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-en-$version.zip"

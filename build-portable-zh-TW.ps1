@@ -75,7 +75,7 @@ if (Test-Path $distDir) {
 }
 if (-not (Test-Path $distDir)) { New-Item $distDir -ItemType Directory | Out-Null }
 
-Copy-Item "$binDir\*" $distDir -Recurse -Force
+Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distDir -Recurse -Force
 
 # Traditional Chinese default — portable reads this file on startup
 [System.IO.File]::WriteAllText("$distDir\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)

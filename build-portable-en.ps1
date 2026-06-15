@@ -75,7 +75,7 @@ if (Test-Path $distDir) {
 }
 if (-not (Test-Path $distDir)) { New-Item $distDir -ItemType Directory | Out-Null }
 
-Copy-Item "$binDir\*" $distDir -Recurse -Force
+Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distDir -Recurse -Force
 
 # English build: no culture.cfg — app defaults to system locale (English)
 "No culture.cfg — defaults to system locale (English)"
