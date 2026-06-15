@@ -178,6 +178,8 @@ if (Test-Path $distEn) {
 }
 if (-not (Test-Path $distEn)) { New-Item $distEn -ItemType Directory | Out-Null }
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distEn -Recurse -Force
+# Explicitly force English so users on zh-TW systems don't get Chinese UI
+[System.IO.File]::WriteAllText("$distEn\culture.cfg", "en-US", [System.Text.Encoding]::ASCII)
 "Packaged: $distEn"
 
 $zipEn = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-en-$version.zip"

@@ -77,8 +77,9 @@ if (-not (Test-Path $distDir)) { New-Item $distDir -ItemType Directory | Out-Nul
 
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distDir -Recurse -Force
 
-# English build: no culture.cfg — app defaults to system locale (English)
-"No culture.cfg — defaults to system locale (English)"
+# Explicitly force English so the app doesn't pick up the user's system locale (e.g. zh-TW)
+[System.IO.File]::WriteAllText("$distDir\culture.cfg", "en-US", [System.Text.Encoding]::ASCII)
+"Created culture.cfg (en-US)"
 
 # ---------------------------------------------------------------------------
 # Compress to zip
