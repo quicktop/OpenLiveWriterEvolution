@@ -39,9 +39,34 @@ Open Live Writer Evolution improves theme detection by:
 
 - Updated `LocEdit.csproj` target framework from `v4.7.2` to `v4.8` to match the global `writer.build.settings`, resolving a `CS0246` build error in the localization editor tool.
 
+### 5. Full Traditional Chinese (zh-TW) UI Localization
+
+Open Live Writer Evolution is the first Open Live Writer build to ship a complete Traditional Chinese (正體中文) interface, covering both the Windows Ribbon toolbar and all application strings.
+
+**Ribbon toolbar localization:**
+
+All tabs, groups, and command buttons are translated into Traditional Chinese, including:
+
+- Main tabs: Home (常用), Insert (插入), View (檢視)
+- Contextual tabs: Video Tools (影片工具 — aspect ratio, widescreen/standard, view online), Table Tools (表格工具 — insert/move/delete rows and columns, cell options, custom table), Map Tools (地圖工具 — custom map, alignment), Tag Tools (標籤工具 — custom tags, provider management)
+
+**Technical implementation:**
+
+The Windows Ribbon Framework stores label strings in two places: ASCII labels compiled into the binary (`Ribbon.bin`), and Unicode overrides in a `STRINGTABLE` resource block inside the DLL. This project places the Traditional Chinese strings under a `LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL` block in the RC file. Windows automatically applies the Chinese labels when the UI thread culture is zh-TW; English users fall back to the ASCII labels embedded in `Ribbon.bin`. A single DLL therefore serves both language variants without any runtime branching.
+
+**Locale override (culture.cfg):**
+
+Place a `culture.cfg` text file next to the executable containing a culture code (`zh-TW` or `en-US`) to force a specific UI language regardless of the operating system locale. The pre-built portable packages include this file so the interface language is correct out of the box.
+
 ---
 
 ## Changelog
+
+### 2026-06-15
+- **Full zh-TW Ribbon localization:** All Ribbon tabs, groups, and buttons translated to Traditional Chinese via `LANG_CHINESE_TRADITIONAL` STRINGTABLE in the Ribbon DLL. Single DLL serves both zh-TW and en-US with Windows resource language fallback.
+- **Locale override (culture.cfg):** Added `culture.cfg` startup hook to force UI culture independently of the OS locale.
+- **Portable builds split:** Separate zh-TW and English portable zips with version number in filename; `UserData\` cache excluded from packages.
+- **HTML style thumbnail fix:** Fixed blank BMP thumbnails in the style gallery (`HtmlScreenCaptureCore`) by keeping the capture window visible but positioned off-screen rather than hidden.
 
 ### 2026-06-14
 - **IE11 upgrade:** Force MSHTML to IE11 mode via `FEATURE_BROWSER_EMULATION` registry key; change `X-UA-Compatible` to `IE=11`. Flexbox and CSS Grid now render correctly in the Edit and Preview tabs.
@@ -60,7 +85,14 @@ Open Live Writer Evolution improves theme detection by:
 
 ### Portable (No Install Required)
 
-Download `OpenLiveWriterEvolution-Portable.zip` from the [Releases](https://github.com/quicktop/OpenLiveWriterEvolution/releases) page, extract to any folder, and run `OpenLiveWriter.exe`. User data (settings, drafts, blog templates) is stored in a `UserData\` subfolder next to the executable.
+Download the appropriate zip from the [Releases](https://github.com/quicktop/OpenLiveWriterEvolution/releases) page:
+
+| Package | Filename | Language |
+|---------|----------|----------|
+| Traditional Chinese | `OpenLiveWriterEvolution-Portable-zh-TW-*.zip` | Full zh-TW Ribbon and UI |
+| English | `OpenLiveWriterEvolution-Portable-en-*.zip` | English UI, for non-Chinese OS |
+
+Extract to any folder and run `OpenLiveWriter.exe`. Blog account settings are stored in the Windows registry (`HKCU\SOFTWARE\OpenLiveWriter`) and are shared across all builds on the same machine — no re-setup needed when switching versions.
 
 ### Build from Source
 

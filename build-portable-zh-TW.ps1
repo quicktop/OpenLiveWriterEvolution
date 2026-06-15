@@ -42,6 +42,21 @@ if (-not (Test-Path $msBuildExe -PathType Leaf)) {
 if (-not (Test-Path $msBuildExe -PathType Leaf)) { "MSBuild not found."; exit 101 }
 "MSBuild: $msBuildExe"
 
+$ribbonDir = "$PSSCRIPTROOT\src\unmanaged\OpenLiveWriter.Ribbon"
+$ribbonGeneratedFiles = @(
+    (Join-Path $ribbonDir "Ribbon.bin"),
+    (Join-Path $ribbonDir "Ribbon.rc"),
+    (Join-Path $ribbonDir "RibbonID.h")
+)
+
+function Clear-RibbonGeneratedFiles {
+    foreach ($file in $ribbonGeneratedFiles) {
+        if (Test-Path -LiteralPath $file) {
+            Remove-Item -LiteralPath $file -Force
+        }
+    }
+}
+
 # ---------------------------------------------------------------------------
 # Ensure NuGet + packages
 # ---------------------------------------------------------------------------
@@ -60,6 +75,7 @@ if (-not (Test-Path "$PSSCRIPTROOT\src\managed\packages" -PathType Container)) {
 if (-not (Test-Path env:OLW_CONFIG)) { $env:OLW_CONFIG = 'Release' }
 "Configuration: $env:OLW_CONFIG"
 Get-Date
+Clear-RibbonGeneratedFiles
 Invoke-Expression "& `"$msBuildExe`" `"$solutionFile`" /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
 if ($LASTEXITCODE -ne 0) { "Build failed ($LASTEXITCODE)"; exit $LASTEXITCODE }
 
@@ -76,6 +92,11 @@ if (Test-Path $distDir) {
 if (-not (Test-Path $distDir)) { New-Item $distDir -ItemType Directory | Out-Null }
 
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distDir -Recurse -Force
+
+$userDataDir = Join-Path $distDir 'UserData'
+New-Item (Join-Path $userDataDir 'AppData\Roaming') -ItemType Directory -Force | Out-Null
+New-Item (Join-Path $userDataDir 'AppData\Local') -ItemType Directory -Force | Out-Null
+[System.IO.File]::WriteAllText((Join-Path $userDataDir 'portable.marker'), 'portable', [System.Text.Encoding]::ASCII)
 
 # Traditional Chinese default — portable reads this file on startup
 [System.IO.File]::WriteAllText("$distDir\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)

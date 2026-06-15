@@ -83,6 +83,8 @@ namespace OpenLiveWriter.CoreServices
                 // initialize application data directories
                 _applicationDataDirectory = Path.Combine(dataPath, "AppData\\Roaming");
                 _localApplicationDataDirectory = Path.Combine(dataPath, "AppData\\Local");
+                Directory.CreateDirectory(_applicationDataDirectory);
+                Directory.CreateDirectory(_localApplicationDataDirectory);
 
                 // initialize settings
                 _userSettingsRoot = new SettingsPersisterHelper(XmlFileSettingsPersister.Open(Path.Combine(dataPath, "UserSettings.xml")));

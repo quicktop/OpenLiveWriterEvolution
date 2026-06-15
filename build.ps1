@@ -62,6 +62,56 @@ IF (-Not (Test-Path -LiteralPath "$msBuildExe" -PathType Leaf))
 
 "MSBuild.exe found at: '$msBuildExe'"
 
+$ribbonProject = "$PSSCRIPTROOT\src\unmanaged\OpenLiveWriter.Ribbon\OpenLiveWriter.Ribbon.vcxproj"
+$ribbonDir = Split-Path $ribbonProject
+$repoSafeDirectory = $PSSCRIPTROOT -replace "\\", "/"
+$ribbonGeneratedFiles = @(
+    (Join-Path $ribbonDir "Ribbon.bin"),
+    (Join-Path $ribbonDir "Ribbon.rc"),
+    (Join-Path $ribbonDir "RibbonID.h")
+)
+
+function Clear-RibbonGeneratedFiles {
+    foreach ($file in $ribbonGeneratedFiles) {
+        if (Test-Path -LiteralPath $file) {
+            Remove-Item -LiteralPath $file -Force
+        }
+    }
+}
+
+function Build-EnglishRibbon {
+    $englishRibbonMarkup = Join-Path $ribbonDir "Ribbon.en-US.generated.xml"
+    $englishRibbonSource = Join-Path $ribbonDir "Ribbon.en-US.xml"
+    try {
+        if (Test-Path -LiteralPath $englishRibbonSource) {
+            $ribbonMarkupFile = $englishRibbonSource
+        }
+        else {
+            "Preparing English ribbon markup"
+            $ribbonMarkup = & git -c "safe.directory=$repoSafeDirectory" -C "$PSSCRIPTROOT" show "00ec9e80:src/unmanaged/OpenLiveWriter.Ribbon/Ribbon.xml"
+            if ($LASTEXITCODE -ne 0) {
+                throw "Unable to read English Ribbon.xml from git history."
+            }
+
+            [System.IO.File]::WriteAllLines($englishRibbonMarkup, $ribbonMarkup, [System.Text.Encoding]::UTF8)
+            $ribbonMarkupFile = $englishRibbonMarkup
+        }
+
+        Clear-RibbonGeneratedFiles
+        "Building English ribbon resource"
+        & $msBuildExe $ribbonProject /nologo /verbosity:minimal /target:Rebuild /p:Configuration=$env:OLW_CONFIG /p:Platform=Win32 "/p:RibbonMarkupFile=$ribbonMarkupFile" $ARGS
+        if ($LASTEXITCODE -ne 0) {
+            throw "English ribbon build failed with exit code $LASTEXITCODE"
+        }
+    }
+    finally {
+        Clear-RibbonGeneratedFiles
+        if (Test-Path -LiteralPath $englishRibbonMarkup) {
+            Remove-Item -LiteralPath $englishRibbonMarkup -Force
+        }
+    }
+}
+
 @"
 
 =======================================================
@@ -126,6 +176,7 @@ if (-Not (Test-Path env:OLW_CONFIG))
 Get-Date
 $buildCommand = "`"$msBuildExe`" `"$solutionFile`" /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
 "Running build command '$buildCommand'"
+Clear-RibbonGeneratedFiles
 Invoke-Expression "& $buildCommand"
 
 if ($LASTEXITCODE -ne 0) {
@@ -153,6 +204,10 @@ if (Test-Path $distZhTW) {
 }
 if (-not (Test-Path $distZhTW)) { New-Item $distZhTW -ItemType Directory | Out-Null }
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distZhTW -Recurse -Force
+$userDataZhTW = Join-Path $distZhTW 'UserData'
+New-Item (Join-Path $userDataZhTW 'AppData\Roaming') -ItemType Directory -Force | Out-Null
+New-Item (Join-Path $userDataZhTW 'AppData\Local') -ItemType Directory -Force | Out-Null
+[System.IO.File]::WriteAllText((Join-Path $userDataZhTW 'portable.marker'), 'portable', [System.Text.Encoding]::ASCII)
 [System.IO.File]::WriteAllText("$distZhTW\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)
 "Packaged: $distZhTW"
 
@@ -171,6 +226,8 @@ Compress-Archive -Path $distZhTW -DestinationPath $zipZhTW
 =======================================================
 "@
 
+Build-EnglishRibbon
+
 $distEn = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-en-$version"
 if (Test-Path $distEn) {
     try { Remove-Item $distEn -Recurse -Force -ErrorAction Stop }
@@ -178,6 +235,10 @@ if (Test-Path $distEn) {
 }
 if (-not (Test-Path $distEn)) { New-Item $distEn -ItemType Directory | Out-Null }
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distEn -Recurse -Force
+$userDataEn = Join-Path $distEn 'UserData'
+New-Item (Join-Path $userDataEn 'AppData\Roaming') -ItemType Directory -Force | Out-Null
+New-Item (Join-Path $userDataEn 'AppData\Local') -ItemType Directory -Force | Out-Null
+[System.IO.File]::WriteAllText((Join-Path $userDataEn 'portable.marker'), 'portable', [System.Text.Encoding]::ASCII)
 # Explicitly force English so users on zh-TW systems don't get Chinese UI
 [System.IO.File]::WriteAllText("$distEn\culture.cfg", "en-US", [System.Text.Encoding]::ASCII)
 "Packaged: $distEn"

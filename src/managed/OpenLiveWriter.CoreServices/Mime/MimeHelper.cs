@@ -41,6 +41,9 @@ namespace OpenLiveWriter.CoreServices
         /// <param name="contentType">the content type (i.e. 'image/gif')</param>
         public static void SetContentType(string fileExtension, string contentType)
         {
+            if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                return;
+
             // try to read the registry, throw mimehelper exception if it fails
             try
             {
@@ -103,6 +106,10 @@ namespace OpenLiveWriter.CoreServices
         /// <returns>the content type (i.e. 'image/gif')</returns>
         public static string GetContentType(string fileExtension, string defaultValue)
         {
+            string knownContentType = GetKnownContentType(fileExtension);
+            if (knownContentType != null)
+                return knownContentType;
+
             // Sometimes registries get corrupted and don't contain these
             // values, which causes Blogger image uploads to be rejected.
             switch (fileExtension.ToUpperInvariant())
@@ -120,6 +127,9 @@ namespace OpenLiveWriter.CoreServices
             // ENHANCEMENT: Some extension (.js, .ashx, .css) may slip through and
             // be base64 encoded even though they're text.  We could force those to be
             // QP encoded using a static hash of extensions...
+
+            if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                return defaultValue;
 
             // Open the registry key for the extension and return the
             // content type, if possible
@@ -150,6 +160,13 @@ namespace OpenLiveWriter.CoreServices
         /// <returns>The extension including the '.', null if no extension could be found</returns>
         public static string GetExtensionFromContentType(string contentType)
         {
+            string knownExtension = GetKnownExtensionFromContentType(contentType);
+            if (knownExtension != null)
+                return knownExtension;
+
+            if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                return null;
+
             string extension = null;
             using (RegistryKey mimeKey = Registry.ClassesRoot.OpenSubKey("MIME\\Database\\Content Type"))
             {
@@ -163,6 +180,83 @@ namespace OpenLiveWriter.CoreServices
         }
         private const string MIME_DATABASE_CONTENTTYPE = "MIME\\Database\\Content Type";
         private const string EXTENSION = "Extension";
+
+        private static string GetKnownContentType(string fileExtension)
+        {
+            if (String.IsNullOrEmpty(fileExtension))
+                return null;
+
+            switch (fileExtension.ToUpperInvariant())
+            {
+                case ".CSS":
+                    return "text/css";
+                case ".GIF":
+                    return IMAGE_GIF;
+                case ".HTM":
+                case ".HTML":
+                    return TEXT_HTML;
+                case ".ICO":
+                    return IMAGE_ICON;
+                case ".JPE":
+                case ".JPEG":
+                case ".JPG":
+                    return IMAGE_JPG;
+                case ".JS":
+                    return "application/javascript";
+                case ".PNG":
+                    return IMAGE_PNG;
+                case ".SVG":
+                    return "image/svg+xml";
+                case ".TIF":
+                case ".TIFF":
+                    return IMAGE_TIF;
+                case ".TXT":
+                    return TEXT_PLAIN;
+                case ".WEBP":
+                    return "image/webp";
+                case ".XML":
+                    return TEXT_XML;
+                default:
+                    return null;
+            }
+        }
+
+        private static string GetKnownExtensionFromContentType(string contentType)
+        {
+            if (String.IsNullOrEmpty(contentType))
+                return null;
+
+            switch (contentType.Split(';')[0].Trim().ToLowerInvariant())
+            {
+                case "application/javascript":
+                case "application/x-javascript":
+                case "text/javascript":
+                    return ".js";
+                case "image/gif":
+                    return ".gif";
+                case "image/jpeg":
+                    return ".jpg";
+                case "image/png":
+                case "image/x-png":
+                    return ".png";
+                case "image/svg+xml":
+                    return ".svg";
+                case "image/tiff":
+                    return ".tif";
+                case "image/webp":
+                    return ".webp";
+                case "text/css":
+                    return ".css";
+                case "text/html":
+                    return ".html";
+                case "text/plain":
+                    return ".txt";
+                case "text/xml":
+                    return ".xml";
+                default:
+                    return null;
+            }
+        }
 
         //
         // The below are an enumeration of the available encoding types

@@ -36,10 +36,10 @@ namespace OpenLiveWriter
         [STAThread]
         public static void Main(string[] args)
         {
-            // Force MSHTML to use IE11 rendering engine so that modern CSS (flexbox, grid,
-            // CSS variables, calc, etc.) works correctly in the editor and preview tabs.
-            // This must be done before any MSHTML component is initialized.
-            SetMshtmlBrowserEmulation();
+            // Force MSHTML to use IE11 rendering engine for installed builds. Portable builds
+            // must not write registry keys, so they rely on the process feature flags below.
+            if (!IsPortableLayout())
+                SetMshtmlBrowserEmulation();
 
             // WinLive 281407: Remove the current working directory from the dll search path
             // This prevents a rogue dll (wlidcli.dll) from being loaded while doing
@@ -116,6 +116,19 @@ namespace OpenLiveWriter
             catch (Exception ex)
             {
                 Trace.WriteLine("SetMshtmlBrowserEmulation failed: " + ex.Message);
+            }
+        }
+
+        private static bool IsPortableLayout()
+        {
+            try
+            {
+                string exeDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                return Directory.Exists(Path.Combine(exeDirectory, "UserData"));
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -498,6 +511,9 @@ namespace OpenLiveWriter
         {
             try
             {
+                if (ApplicationEnvironment.IsPortableMode)
+                    return;
+
                 int applicationSettingsVer = 1;
                 SettingsPersisterHelper userSettings = ApplicationEnvironment.UserSettingsRoot;
                 int currentSettingsVer = userSettings.GetInt32(SETTINGS_VERSION, 0);

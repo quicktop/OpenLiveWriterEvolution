@@ -476,6 +476,9 @@ namespace OpenLiveWriter.FileDestinations
         {
             get
             {
+                if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                    return false;
+
                 string pasv = "no";
                 try
                 {

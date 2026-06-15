@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using Microsoft.Win32;
 
 namespace OpenLiveWriter.CoreServices
@@ -39,6 +40,13 @@ namespace OpenLiveWriter.CoreServices
 
         static Instrumentor()
         {
+            if (IsPortableLayout())
+            {
+                instrumentationReportKey = null;
+                SearchLoggerWorks = false;
+                return;
+            }
+
             try
             {
                 using (RegistryKey slVersionKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\MSN Apps\\SL", false))
@@ -73,6 +81,18 @@ namespace OpenLiveWriter.CoreServices
             catch (Exception ex)
             {
                 Trace.Fail("Exception while writing instrumentation values to registry: " + ex.ToString());
+            }
+        }
+
+        private static bool IsPortableLayout()
+        {
+            try
+            {
+                return Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserData"));
+            }
+            catch
+            {
+                return false;
             }
         }
 

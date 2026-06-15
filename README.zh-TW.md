@@ -41,9 +41,34 @@ Open Live Writer Evolution 透過以下方式改進佈景主題偵測：
 
 - 將 `LocEdit.csproj` 的目標框架（Target Framework）從 `v4.7.2` 更新為 `v4.8`，以符合全域的 `writer.build.settings`，解決了多國語系編輯器工具中的 `CS0246` 建置錯誤。
 
+### 5. 完整繁體中文化（Ribbon 工具列與操作介面）
+
+Open Live Writer Evolution 是首個提供完整繁體中文（zh-TW）操作介面的 Open Live Writer 版本，涵蓋 Windows Ribbon 工具列及所有應用程式字串。
+
+**Ribbon 工具列中文化：**
+
+所有索引標籤、群組及命令按鈕均已翻譯為繁體中文，涵蓋：
+
+- 主索引標籤：常用、插入、檢視
+- 情境式索引標籤：影片工具（長寬比、寬螢幕/標準、在線上檢視）、表格工具（插入/移動/刪除列欄、儲存格、自訂表格）、地圖工具（自訂地圖、對齊方式）、標籤工具（自訂標籤、標籤提供者管理）
+
+**技術實作：**
+
+Windows Ribbon Framework 以兩種方式儲存標籤文字：`Ribbon.bin` 二進位檔中內嵌的 ASCII 字串，以及 RC 資源檔 `STRINGTABLE` 區塊中的 Unicode 覆寫字串。本專案將繁體中文字串置於 `LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL` 語言區塊，使 Windows 在 UI 執行緒為 zh-TW 時自動載入中文標籤，英文使用者則回退使用 `Ribbon.bin` 中內嵌的 ASCII 英文標籤。如此一個 DLL 即可同時服務繁體中文版與英文版。
+
+**語系切換機制（culture.cfg）：**
+
+在執行檔旁放置 `culture.cfg` 文字檔，內容填入語言代碼（如 `zh-TW` 或 `en-US``），即可強制指定介面語言，不受作業系統地區設定影響。預先打包的免安裝版本已包含此檔案，確保語系正確。
+
 ---
 
 ## 更新日誌
+
+### 2026-06-15
+- **完整繁體中文化：** Ribbon 工具列所有索引標籤、群組及命令按鈕翻譯為繁體中文，透過 RC 資源檔的 `LANG_CHINESE_TRADITIONAL` STRINGTABLE 區塊實作。單一 DLL 同時支援繁中版與英文版，依 UI 執行緒語系自動切換。
+- **語系切換（culture.cfg）：** 在執行檔旁放置 `culture.cfg` 可強制指定介面語系，不受作業系統地區設定影響。
+- **免安裝版分拆：** 提供獨立打包的繁體中文（zh-TW）及英文（en-US）免安裝版，檔名含版本號，排除 `UserData\` 快取資料夾。
+- **HTML 樣式預覽圖修正：** 修正 `HtmlScreenCaptureCore` 中 MSHTML 無法渲染縮圖的問題（將隱藏視窗改為移至螢幕外但保持可見）。
 
 ### 2026-06-14
 - **IE11 升級：** 透過 `FEATURE_BROWSER_EMULATION` 登錄檔鍵強制將 MSHTML 設為 IE11 模式；將 `X-UA-Compatible` 修改為 `IE=11`。Flexbox 和 CSS Grid 現在能在「編輯」與「預覽」分頁中正確渲染。
@@ -68,7 +93,14 @@ Open Live Writer Evolution 透過以下方式改進佈景主題偵測：
 
 ### 免安裝綠色版（Portable）
 
-從 [Releases](https://github.com/quicktop/OpenLiveWriterEvolution/releases) 頁面下載 `OpenLiveWriterEvolution-Portable.zip`，解壓縮到任何資料夾，然後執行 `OpenLiveWriter.exe`。使用者資料（設定、草稿、部落格範本）均儲存在執行檔旁的 `UserData\` 子資料夾中。
+從 [Releases](https://github.com/quicktop/OpenLiveWriterEvolution/releases) 頁面下載對應語言版本的 zip：
+
+| 版本 | 檔名 | 說明 |
+|------|------|------|
+| 繁體中文 | `OpenLiveWriterEvolution-Portable-zh-TW-*.zip` | Ribbon 及全介面顯示繁體中文 |
+| 英文 | `OpenLiveWriterEvolution-Portable-en-*.zip` | 介面顯示英文，適用於非中文作業系統 |
+
+解壓縮到任意資料夾後執行 `OpenLiveWriter.exe` 即可。部落格帳號設定儲存於 Windows 登錄檔（`HKCU\SOFTWARE\OpenLiveWriter`），不隨壓縮檔移動，因此更換版本後帳號資料仍自動保留。
 
 ### 從原始碼建置
 

@@ -45,6 +45,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <RibbonMarkupFile Condition="'$(RibbonMarkupFile)'==''">Ribbon.xml</RibbonMarkupFile>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
@@ -67,10 +70,10 @@
       <NoEntryPoint>true</NoEntryPoint>
     </Link>
     <CustomBuildStep>
-      <Command>UICC.exe Ribbon.xml Ribbon.bin /header:RibbonID.h /res:Ribbon.rc /name:Ribbon</Command>
+      <Command>UICC.exe "$(RibbonMarkupFile)" Ribbon.bin /header:RibbonID.h /res:Ribbon.rc /name:Ribbon</Command>
       <Message>Compile Ribbon markup</Message>
       <Outputs>Ribbon.bin;RibbonID.h;Ribbon.rc;</Outputs>
-      <Inputs>Ribbon.xml</Inputs>
+      <Inputs>$(RibbonMarkupFile)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,13 +94,14 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <CustomBuildStep>
-      <Command>UICC.exe Ribbon.xml Ribbon.bin /header:RibbonID.h /res:Ribbon.rc /name:Ribbon</Command>
+      <Command>UICC.exe "$(RibbonMarkupFile)" Ribbon.bin /header:RibbonID.h /res:Ribbon.rc /name:Ribbon</Command>
       <Message>Compile Ribbon markup</Message>
       <Outputs>Ribbon.bin;RibbonID.h;Ribbon.rc;</Outputs>
-      <Inputs>Ribbon.xml</Inputs>
+      <Inputs>$(RibbonMarkupFile)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Ribbon.en-US.xml" />
     <ResourceCompile Include="OpenLiveWriter.Ribbon.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

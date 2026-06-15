@@ -42,6 +42,56 @@ if (-not (Test-Path $msBuildExe -PathType Leaf)) {
 if (-not (Test-Path $msBuildExe -PathType Leaf)) { "MSBuild not found."; exit 101 }
 "MSBuild: $msBuildExe"
 
+$ribbonProject = "$PSSCRIPTROOT\src\unmanaged\OpenLiveWriter.Ribbon\OpenLiveWriter.Ribbon.vcxproj"
+$ribbonDir = Split-Path $ribbonProject
+$repoSafeDirectory = $PSSCRIPTROOT -replace "\\", "/"
+$ribbonGeneratedFiles = @(
+    (Join-Path $ribbonDir "Ribbon.bin"),
+    (Join-Path $ribbonDir "Ribbon.rc"),
+    (Join-Path $ribbonDir "RibbonID.h")
+)
+
+function Clear-RibbonGeneratedFiles {
+    foreach ($file in $ribbonGeneratedFiles) {
+        if (Test-Path -LiteralPath $file) {
+            Remove-Item -LiteralPath $file -Force
+        }
+    }
+}
+
+function Build-EnglishRibbon {
+    $englishRibbonMarkup = Join-Path $ribbonDir "Ribbon.en-US.generated.xml"
+    $englishRibbonSource = Join-Path $ribbonDir "Ribbon.en-US.xml"
+    try {
+        if (Test-Path -LiteralPath $englishRibbonSource) {
+            $ribbonMarkupFile = $englishRibbonSource
+        }
+        else {
+            "Preparing English ribbon markup"
+            $ribbonMarkup = & git -c "safe.directory=$repoSafeDirectory" -C "$PSSCRIPTROOT" show "00ec9e80:src/unmanaged/OpenLiveWriter.Ribbon/Ribbon.xml"
+            if ($LASTEXITCODE -ne 0) {
+                throw "Unable to read English Ribbon.xml from git history."
+            }
+
+            [System.IO.File]::WriteAllLines($englishRibbonMarkup, $ribbonMarkup, [System.Text.Encoding]::UTF8)
+            $ribbonMarkupFile = $englishRibbonMarkup
+        }
+
+        Clear-RibbonGeneratedFiles
+        "Building English ribbon resource"
+        & $msBuildExe $ribbonProject /nologo /verbosity:minimal /target:Rebuild /p:Configuration=$env:OLW_CONFIG /p:Platform=Win32 "/p:RibbonMarkupFile=$ribbonMarkupFile" $ARGS
+        if ($LASTEXITCODE -ne 0) {
+            throw "English ribbon build failed with exit code $LASTEXITCODE"
+        }
+    }
+    finally {
+        Clear-RibbonGeneratedFiles
+        if (Test-Path -LiteralPath $englishRibbonMarkup) {
+            Remove-Item -LiteralPath $englishRibbonMarkup -Force
+        }
+    }
+}
+
 # ---------------------------------------------------------------------------
 # Ensure NuGet + packages
 # ---------------------------------------------------------------------------
@@ -60,8 +110,10 @@ if (-not (Test-Path "$PSSCRIPTROOT\src\managed\packages" -PathType Container)) {
 if (-not (Test-Path env:OLW_CONFIG)) { $env:OLW_CONFIG = 'Release' }
 "Configuration: $env:OLW_CONFIG"
 Get-Date
+Clear-RibbonGeneratedFiles
 Invoke-Expression "& `"$msBuildExe`" `"$solutionFile`" /nologo /maxcpucount /verbosity:minimal /p:Configuration=$env:OLW_CONFIG $ARGS"
 if ($LASTEXITCODE -ne 0) { "Build failed ($LASTEXITCODE)"; exit $LASTEXITCODE }
+Build-EnglishRibbon
 
 # ---------------------------------------------------------------------------
 # Package English portable
@@ -76,6 +128,11 @@ if (Test-Path $distDir) {
 if (-not (Test-Path $distDir)) { New-Item $distDir -ItemType Directory | Out-Null }
 
 Get-ChildItem $binDir | Where-Object { $_.Name -ne 'UserData' } | Copy-Item -Destination $distDir -Recurse -Force
+
+$userDataDir = Join-Path $distDir 'UserData'
+New-Item (Join-Path $userDataDir 'AppData\Roaming') -ItemType Directory -Force | Out-Null
+New-Item (Join-Path $userDataDir 'AppData\Local') -ItemType Directory -Force | Out-Null
+[System.IO.File]::WriteAllText((Join-Path $userDataDir 'portable.marker'), 'portable', [System.Text.Encoding]::ASCII)
 
 # Explicitly force English so the app doesn't pick up the user's system locale (e.g. zh-TW)
 [System.IO.File]::WriteAllText("$distDir\culture.cfg", "en-US", [System.Text.Encoding]::ASCII)

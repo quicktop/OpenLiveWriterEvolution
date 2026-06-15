@@ -39,6 +39,9 @@ namespace OpenLiveWriter.CoreServices
             majorVersion = 0;
             minorVersion = 0;
 
+            if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                return;
+
             // try to find the installed version
             RegistryKey key = Registry.LocalMachine.OpenSubKey(INTERNET_EXPLORER_KEY);
             if (key != null)

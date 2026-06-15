@@ -232,11 +232,14 @@ namespace OpenLiveWriter.CoreServices
 
             if (extension != string.Empty)
             {
-                // If that didn't work, let's try looking up based upon extension
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(extension))
+                if (!ApplicationEnvironment.IsInitialized || !ApplicationEnvironment.IsPortableMode)
                 {
-                    if (key != null)
-                        contentType = (string)key.GetValue("Content Type");
+                    // If that didn't work, let's try looking up based upon extension
+                    using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(extension))
+                    {
+                        if (key != null)
+                            contentType = (string)key.GetValue("Content Type");
+                    }
                 }
             }
 

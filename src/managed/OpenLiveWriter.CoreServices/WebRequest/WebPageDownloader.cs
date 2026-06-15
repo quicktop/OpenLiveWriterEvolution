@@ -255,6 +255,9 @@ namespace OpenLiveWriter.CoreServices
         {
             get
             {
+                if (ApplicationEnvironment.IsInitialized && ApplicationEnvironment.IsPortableMode)
+                    return false;
+
                 int warnOnZoneCrossing = 0;
                 try
                 {
