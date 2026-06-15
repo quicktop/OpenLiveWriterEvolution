@@ -133,29 +133,54 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
+$version = (Get-Content "$PSSCRIPTROOT\version.txt" -Raw).Trim()
+$binDir  = "$PSSCRIPTROOT\src\managed\bin\$env:OLW_CONFIG\i386\Writer"
+
+# ---------------------------------------------------------------------------
+# zh-TW portable
+# ---------------------------------------------------------------------------
 @"
 
 =======================================================
- Copying output to dist\OpenLiveWriterEvolution-Portable
+ Packaging zh-TW Portable  v$version
 =======================================================
 "@
 
-$binDir = "$PSSCRIPTROOT\src\managed\bin\$env:OLW_CONFIG\i386\Writer"
-$distDir = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable"
-
-if (Test-Path $distDir) {
-    try {
-        Remove-Item $distDir -Recurse -Force -ErrorAction Stop
-    } catch {
-        "Warning: could not fully clean dist dir (files may be in use). Copying over existing files."
-    }
+$distZhTW = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-zh-TW-$version"
+if (Test-Path $distZhTW) {
+    try { Remove-Item $distZhTW -Recurse -Force -ErrorAction Stop }
+    catch { "Warning: could not fully clean dist dir (files may be in use). Copying over existing files." }
 }
-if (-not (Test-Path $distDir)) {
-    New-Item $distDir -ItemType Directory | Out-Null
-}
-Copy-Item "$binDir\*" $distDir -Recurse -Force
-"Copied to '$distDir'"
+if (-not (Test-Path $distZhTW)) { New-Item $distZhTW -ItemType Directory | Out-Null }
+Copy-Item "$binDir\*" $distZhTW -Recurse -Force
+[System.IO.File]::WriteAllText("$distZhTW\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)
+"Packaged: $distZhTW"
 
-# Create culture.cfg so the portable defaults to Traditional Chinese without any launcher
-[System.IO.File]::WriteAllText("$distDir\culture.cfg", "zh-TW", [System.Text.Encoding]::ASCII)
-"Created culture.cfg (zh-TW) in portable"
+$zipZhTW = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-zh-TW-$version.zip"
+if (Test-Path $zipZhTW) { Remove-Item $zipZhTW -Force }
+Compress-Archive -Path $distZhTW -DestinationPath $zipZhTW
+"Zipped:   $zipZhTW"
+
+# ---------------------------------------------------------------------------
+# English portable
+# ---------------------------------------------------------------------------
+@"
+
+=======================================================
+ Packaging English Portable  v$version
+=======================================================
+"@
+
+$distEn = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-en-$version"
+if (Test-Path $distEn) {
+    try { Remove-Item $distEn -Recurse -Force -ErrorAction Stop }
+    catch { "Warning: could not fully clean dist dir (files may be in use). Copying over existing files." }
+}
+if (-not (Test-Path $distEn)) { New-Item $distEn -ItemType Directory | Out-Null }
+Copy-Item "$binDir\*" $distEn -Recurse -Force
+"Packaged: $distEn"
+
+$zipEn = "$PSSCRIPTROOT\dist\OpenLiveWriterEvolution-Portable-en-$version.zip"
+if (Test-Path $zipEn) { Remove-Item $zipEn -Force }
+Compress-Archive -Path $distEn -DestinationPath $zipEn
+"Zipped:   $zipEn"
