@@ -1177,7 +1177,8 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             {
                 string editedHtml = BodyBehavior.GetEditedHtml(preferWellFormed, true);
                 editedHtml = HTMLTrimmer.Trim(editedHtml, true);
-                return preserver.RestorePreserved(editedHtml);
+                editedHtml = preserver.RestorePreserved(editedHtml);
+                return StylePreserver.RestoreStyleAttributes(editedHtml);
             }
             else
             {
@@ -1319,6 +1320,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
 
             preserver.Reset();
             blogPostBody = preserver.ScanAndPreserve(blogPostBody);
+            blogPostBody = StylePreserver.PreserveStyleAttributes(blogPostBody);
 
             // update html content with standard header and footer
             // Hack: put some padding at the bottom of the div so that the bottom line of text does not get
