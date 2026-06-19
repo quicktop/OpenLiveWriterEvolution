@@ -122,38 +122,12 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
                 }
                 templateHtml = Regex.Replace(templateHtml, @"\bmedia=([""'])not all\1", "media=$1all$1", RegexOptions.IgnoreCase);
 
-                /* Parse meta tags in order to set MSHTML emulation for IE9
-                   As of Internet Explorer 10, support for element behaviors have been removed.
-                   Core OLW functionality, such as table management, currently rely on these mechanisms.
-                   An alternative to Element Behaviors must be found before we can push the IE version forward to allow for newer web standards. */
-
-                // Search for an existing X-UA-Compatible tag in the template
-                Regex metatag = new Regex(@"<(?i:meta)(?:\s)+(?i:http-equiv)(?:\s)*=""(?:X-UA-Compatible)""(?:\s)+(?i:content)(?:\s)*=""(\S*)""(?:\s)*/>");
-                Match match = metatag.Match(templateHtml);
-                
-                if (match.Success && match.Groups.Count > 1)
-                {
-                    // There already exists a 'X-UA-Compatible' meta tag in the template, modify it
-                    // Grab info on the existing 'content' value
-                    var contentVal = match.Groups[1];
-                    // Remove the content value from the template
-                    var templateContentRemoved = templateHtml.Remove(contentVal.Index, contentVal.Length);
-                    // Add the IE9 emulation string into the HTML template
-                    templateHtml = templateContentRemoved.Insert(contentVal.Index, UA_COMPATIBLE_STRING);
-                } else
-                {
-                    // Prepend meta tag for IE9 emulation
-                    Match headMatch = Regex.Match(templateHtml, @"<head\b[^>]*>", RegexOptions.IgnoreCase);
-                    if (headMatch.Success)
-                    {
-                        templateHtml = templateHtml.Insert(headMatch.Index + headMatch.Length,
-                                        $"<meta http-equiv=\"X-UA-Compatible\" content=\"{UA_COMPATIBLE_STRING}\" />");
-                    }
-                }
+                templateHtml = EnsureMshtmlCompatibilityMeta(templateHtml);
             }
             else
             {
                 templateHtml = BlogEditingTemplate.GetDefaultTemplateHtml(forceRTL, templateType != BlogEditingTemplateType.Normal);
+                templateHtml = EnsureMshtmlCompatibilityMeta(templateHtml);
             }
 
             // IE11 supports flexbox and grid natively; no CSS emulation needed.
@@ -161,6 +135,53 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
             // (RewriteStyleBlocks is a no-op now — media attribute replacement was already applied above.)
 
             return templateHtml;
+        }
+
+        public static string EnsureMshtmlCompatibilityMeta(string templateHtml)
+        {
+            if (String.IsNullOrEmpty(templateHtml))
+                return templateHtml;
+
+            Regex metaTag = new Regex(
+                @"<(?i:meta)\b(?=[^>]*\b(?i:http-equiv)\s*=\s*(['""])(?i:X-UA-Compatible)\1)[^>]*>",
+                RegexOptions.IgnoreCase);
+            Match match = metaTag.Match(templateHtml);
+
+            if (match.Success)
+            {
+                string replacement = EnsureContentAttribute(match.Value);
+                return templateHtml.Remove(match.Index, match.Length).Insert(match.Index, replacement);
+            }
+
+            Match headMatch = Regex.Match(templateHtml, @"<head\b[^>]*>", RegexOptions.IgnoreCase);
+            if (headMatch.Success)
+            {
+                return templateHtml.Insert(
+                    headMatch.Index + headMatch.Length,
+                    String.Format(CultureInfo.InvariantCulture,
+                        "<meta http-equiv=\"X-UA-Compatible\" content=\"{0}\" />",
+                        UA_COMPATIBLE_STRING));
+            }
+
+            return templateHtml;
+        }
+
+        private static string EnsureContentAttribute(string metaHtml)
+        {
+            Regex contentAttribute = new Regex(@"\b(?i:content)\s*=\s*(['""])(.*?)\1", RegexOptions.IgnoreCase);
+
+            if (contentAttribute.IsMatch(metaHtml))
+                return contentAttribute.Replace(metaHtml, "content=\"" + UA_COMPATIBLE_STRING + "\"", 1);
+
+            int closeIndex = metaHtml.LastIndexOf('>');
+            if (closeIndex < 0)
+                return metaHtml;
+
+            string insertText = " content=\"" + UA_COMPATIBLE_STRING + "\"";
+            if (closeIndex > 0 && metaHtml[closeIndex - 1] == '/')
+                return metaHtml.Insert(closeIndex - 1, insertText);
+
+            return metaHtml.Insert(closeIndex, insertText);
         }
 
         private string MakeAbsolute(string templateHtmlFile)

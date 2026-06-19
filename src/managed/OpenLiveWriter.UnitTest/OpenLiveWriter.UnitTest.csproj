@@ -127,6 +127,7 @@
     <Compile Include="PostEditor\ImageInsertHandlerTests.cs" />
     <Compile Include="SpellChecker\SpellingLanguageFallbackTest.cs" />
     <Compile Include="PostEditor\CleanupHtmlIterationLimitTest.cs" />
+    <Compile Include="PostEditor\PostHtmlEditingSettingsTest.cs" />
     <Compile Include="BlogClient\GoogleBloggerExceptionHandlingTests.cs" />
     <Compile Include="BlogClient\MetaweblogEditPostTests.cs" />
     <Compile Include="PostEditor\ValidatePanelFallbackTest.cs" />
