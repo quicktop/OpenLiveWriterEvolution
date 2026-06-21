@@ -534,7 +534,7 @@ namespace OpenLiveWriter.PostEditor
                             Hashtable existingFiles = new Hashtable();
                             foreach (string name in _fileDestination.ListFiles(uploadFolder))
                                 existingFiles[name] = name;
-                            for (int i = 3; i < Int32.MaxValue && existingFiles.ContainsKey(fileName); i++)
+                            for (int i = 1; i < Int32.MaxValue && existingFiles.ContainsKey(fileName); i++)
                             {
                                 fileName = FileHelper.GetValidAnsiFileName(fileBaseName + "_" + i + fileExtension);
                             }

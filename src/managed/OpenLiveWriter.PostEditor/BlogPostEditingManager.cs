@@ -1535,8 +1535,9 @@ namespace OpenLiveWriter.PostEditor
                     // convert title to usable directory name
                     string baseDirName = SupportingFileStorage.CleanPathForServer(BlogPost.Title);
 
-                    // append seconds since midnight as an additional randomizer to make conflicts less likely
-                    _serverSupportingFileDirectory = String.Format(CultureInfo.InvariantCulture, "{0}_{1}", baseDirName, (DateTime.Now.TimeOfDay.Ticks / TimeSpan.TicksPerSecond).ToString("X", CultureInfo.InvariantCulture));
+                    // append a short GUID as a randomizer so that different posts never share the same FTP folder,
+                    // even when created within the same second or when the post has no title.
+                    _serverSupportingFileDirectory = String.Format(CultureInfo.InvariantCulture, "{0}_{1}", baseDirName, GuidHelper.GetVeryShortGuid());
                 }
                 return _serverSupportingFileDirectory;
             }
