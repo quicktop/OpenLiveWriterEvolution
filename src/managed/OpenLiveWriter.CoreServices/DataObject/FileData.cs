@@ -2,8 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for details.
 
 using System.Collections;
-using System.Diagnostics;
-using System.Text;
 using System.Windows.Forms;
 
 namespace OpenLiveWriter.CoreServices
@@ -56,9 +54,6 @@ namespace OpenLiveWriter.CoreServices
             // save a reference to the data object
             m_dataObject = iDataObject;
             m_fileItemFormat = format;
-
-            // debug-only sanity check on formats
-            VerifyFormatsMutuallyExclusive(iDataObject);
         }
 
         /// <summary>
@@ -111,27 +106,6 @@ namespace OpenLiveWriter.CoreServices
         // list of files
         private FileItem[] m_files = null;
 
-        // Helper to verify that our IFileItemFormat instances are mutually
-        // exclusive (more than one format shouldn't be supported by the
-        // data inside a single IDataObject)
-        [Conditional("DEBUG")]
-        private static void VerifyFormatsMutuallyExclusive(IDataObject iDataObject)
-        {
-            // verify there is no case where multiple file items types can
-            // be created from the same IDataObject (just a sanity/assumption check)
-            int matches = 0;
-            StringBuilder sb = new StringBuilder();
-            foreach (IFileItemFormat format in fileItemFormats)
-                if (format.CanCreateFrom(iDataObject))
-                {
-                    matches++;
-                    sb.AppendLine(format.ToString());
-                }
-            Debug.Assert(matches == 1,
-                "More than 1 file item format can be created from a data object " +
-                "(potential ambiguity / order dependency\r\n" + sb.ToString());
-
-        }
     }
 
 }
