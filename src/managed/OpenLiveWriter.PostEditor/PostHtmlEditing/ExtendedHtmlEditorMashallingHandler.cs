@@ -908,22 +908,26 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
         {
             string savedImagePath = null;
 
+            // Use a unique suffix to prevent FTP filename collisions when multiple
+            // images are pasted into the same post across editing sessions.
+            string uniqueSuffix = GuidHelper.GetVeryShortGuid();
+
             if (imageData.Bitmap != null)
             {
                 //save the Bitmap data as a PNG
-                savedImagePath = TempFileManager.Instance.CreateTempFile("image.png");
+                savedImagePath = TempFileManager.Instance.CreateTempFile("image_" + uniqueSuffix + ".png");
                 SaveBitmapToFile(imageData.Bitmap, savedImagePath);
             }
             else if (imageData.Dib != null)
             {
                 //save the DIB data as a PNG
-                savedImagePath = TempFileManager.Instance.CreateTempFile("image.png");
+                savedImagePath = TempFileManager.Instance.CreateTempFile("image_" + uniqueSuffix + ".png");
                 SaveDibToFile(imageData.Dib, savedImagePath);
             }
             else if (imageData.GIF != null)
             {
-                //save the GIF data as a GID file
-                savedImagePath = TempFileManager.Instance.CreateTempFile("image.gif");
+                //save the GIF data as a GIF file
+                savedImagePath = TempFileManager.Instance.CreateTempFile("image_" + uniqueSuffix + ".gif");
                 SaveGifToFile(imageData.GIF, savedImagePath);
             }
 
