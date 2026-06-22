@@ -182,8 +182,16 @@ namespace OpenLiveWriter.PostEditor
 
         public static string WeblogPostsFolder
         {
-            get { return SettingsKey.GetString(WEBLOG_POSTS_FOLDER, null); }
-            set { SettingsKey.SetString(WEBLOG_POSTS_FOLDER, value); }
+            get
+            {
+                string stored = SettingsKey.GetString(WEBLOG_POSTS_FOLDER, null);
+                return ApplicationEnvironment.ExpandRelativePath(ApplicationEnvironment.InstallationDirectory, stored);
+            }
+            set
+            {
+                string toStore = ApplicationEnvironment.MakeRelativePath(ApplicationEnvironment.InstallationDirectory, value);
+                SettingsKey.SetString(WEBLOG_POSTS_FOLDER, toStore);
+            }
         }
         private const string WEBLOG_POSTS_FOLDER = "PostsDirectory";
 

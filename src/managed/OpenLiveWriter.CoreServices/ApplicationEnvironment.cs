@@ -1,7 +1,6 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for details.
 
-#define PORTABLE
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -9,7 +8,6 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using Microsoft.Win32;
 using OpenLiveWriter.CoreServices.Diagnostics;
 using OpenLiveWriter.CoreServices.Settings;
 using OpenLiveWriter.Localization;
@@ -72,63 +70,32 @@ namespace OpenLiveWriter.CoreServices
             InitializeIsHighContrastBlackWhite();
 
             _settingsRootKeyName = settingsRootKeyName;
-            string dataPath;
 
-            // see if we're running in portable mode
-#if PORTABLE
-            dataPath = Path.Combine(_installationDirectory, "UserData");
-            if (Directory.Exists(dataPath))
-            {
-                _portable = true;
-                // initialize application data directories
-                _applicationDataDirectory = Path.Combine(dataPath, "AppData\\Roaming");
-                _localApplicationDataDirectory = Path.Combine(dataPath, "AppData\\Local");
-                Directory.CreateDirectory(_applicationDataDirectory);
-                Directory.CreateDirectory(_localApplicationDataDirectory);
+            // Always use portable mode: store all settings in UserData next to the exe.
+            _portable = true;
+            string dataPath = Path.Combine(_installationDirectory, "UserData");
+            Directory.CreateDirectory(dataPath);
 
-                // initialize settings
-                _userSettingsRoot = new SettingsPersisterHelper(XmlFileSettingsPersister.Open(Path.Combine(dataPath, "UserSettings.xml")));
-                _machineSettingsRoot = new SettingsPersisterHelper(XmlFileSettingsPersister.Open(Path.Combine(dataPath, "MachineSettings.xml")));
-                _preferencesSettingsRoot = _userSettingsRoot.GetSubSettings(ApplicationConstants.PREFERENCES_SUB_KEY);
-            }
-            else
-#endif
-            {
-                _portable = false;
-                // initialize application data directories.
-                _applicationDataDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), AppDataFolderName);
-                _localApplicationDataDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), AppDataFolderName);
+            _applicationDataDirectory = Path.Combine(dataPath, "AppData\\Roaming");
+            _localApplicationDataDirectory = Path.Combine(dataPath, "AppData\\Local");
+            Directory.CreateDirectory(_applicationDataDirectory);
+            Directory.CreateDirectory(_localApplicationDataDirectory);
 
-                // initialize settings
-                _userSettingsRoot = new SettingsPersisterHelper(new RegistrySettingsPersister(Registry.CurrentUser, SettingsRootKeyName));
-                _machineSettingsRoot = new SettingsPersisterHelper(new RegistrySettingsPersister(Registry.LocalMachine, SettingsRootKeyName));
-                _preferencesSettingsRoot = _userSettingsRoot.GetSubSettings(ApplicationConstants.PREFERENCES_SUB_KEY);
-
-                dataPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            }
+            _userSettingsRoot = new SettingsPersisterHelper(XmlFileSettingsPersister.Open(Path.Combine(dataPath, "UserSettings.xml")));
+            _machineSettingsRoot = new SettingsPersisterHelper(XmlFileSettingsPersister.Open(Path.Combine(dataPath, "MachineSettings.xml")));
+            _preferencesSettingsRoot = _userSettingsRoot.GetSubSettings(ApplicationConstants.PREFERENCES_SUB_KEY);
 
             string postsDirectoryPostEditor = PreferencesSettingsRoot.GetSubSettings("PostEditor").GetString("PostsDirectory", null);
 
             if (string.IsNullOrEmpty(postsDirectoryPostEditor))
             {
-                _myWeblogPostsFolder = _userSettingsRoot.GetString("PostsDirectory", null);
-                if (string.IsNullOrEmpty(_myWeblogPostsFolder))
-                {
-                    if ((_productName == DefaultProductName) && (string.IsNullOrEmpty(dataPath)))
-                    {
-                        throw new DirectoryException(MessageId.PersonalDirectoryFail);
-                    }
-                    else
-                    {
-                        _myWeblogPostsFolder = Path.Combine(dataPath, "My Weblog Posts");
-                    }
-                }
-
-                PreferencesSettingsRoot.GetSubSettings("PostEditor").SetString("PostsDirectory", _myWeblogPostsFolder);
+                _myWeblogPostsFolder = Path.Combine(dataPath, "My Weblog Posts");
+                // Store as relative path so the portable installation can be moved freely.
+                PreferencesSettingsRoot.GetSubSettings("PostEditor").SetString("PostsDirectory", MakeRelativePath(_installationDirectory, _myWeblogPostsFolder));
             }
             else
             {
-                _myWeblogPostsFolder = postsDirectoryPostEditor;
+                _myWeblogPostsFolder = ExpandRelativePath(_installationDirectory, postsDirectoryPostEditor);
             }
 
             // initialize diagnostics
@@ -489,6 +456,39 @@ namespace OpenLiveWriter.CoreServices
             }
         }
         private static bool? _portable;
+
+        /// <summary>
+        /// Converts an absolute path to a relative path (relative to baseDir).
+        /// Returns the original path unchanged if it is not under baseDir.
+        /// </summary>
+        public static string MakeRelativePath(string baseDir, string fullPath)
+        {
+            if (string.IsNullOrEmpty(fullPath))
+                return fullPath;
+
+            if (!baseDir.EndsWith(Path.DirectorySeparatorChar.ToString(), StringComparison.OrdinalIgnoreCase))
+                baseDir += Path.DirectorySeparatorChar;
+
+            if (fullPath.StartsWith(baseDir, StringComparison.OrdinalIgnoreCase))
+                return "." + Path.DirectorySeparatorChar + fullPath.Substring(baseDir.Length);
+
+            return fullPath;
+        }
+
+        /// <summary>
+        /// Expands a relative path (relative to baseDir) to an absolute path.
+        /// Returns the original path if it is already absolute.
+        /// </summary>
+        public static string ExpandRelativePath(string baseDir, string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return path;
+
+            if (!Path.IsPathRooted(path))
+                return Path.GetFullPath(Path.Combine(baseDir, path));
+
+            return path;
+        }
 
         public static string FormatUserAgentString(string productName, bool browserBased)
         {
