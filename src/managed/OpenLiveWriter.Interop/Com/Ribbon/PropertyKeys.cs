@@ -2,7 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for details.
 
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenLiveWriter.Interop.Com.Ribbon
@@ -322,33 +321,32 @@ namespace OpenLiveWriter.Interop.Com.Ribbon
 
     public static class PropertyKeyExtensions
     {
-        private static int MAX_KEYS = 13;
-        private static Dictionary<PropertyKey, CommandInvalidationFlags> commandInvalidationFlags = null;
+        // Static field initializer is guaranteed thread-safe by the CLR, avoiding the
+        // race condition that occurred when multiple editor windows (each on its own
+        // STA thread) both passed the null check and concurrently called Add() on the
+        // same Dictionary instance.
+        private static readonly Dictionary<PropertyKey, CommandInvalidationFlags> commandInvalidationFlags =
+            new Dictionary<PropertyKey, CommandInvalidationFlags>(13)
+            {
+                // State
+                { PropertyKeys.DecimalPlaces,         CommandInvalidationFlags.State },
+                { PropertyKeys.Enabled,               CommandInvalidationFlags.State },
+                { PropertyKeys.FormatString,          CommandInvalidationFlags.State },
+                { PropertyKeys.Increment,             CommandInvalidationFlags.State },
+                { PropertyKeys.Pinned,                CommandInvalidationFlags.State },
+                { PropertyKeys.RecentItems,           CommandInvalidationFlags.State },
+                { PropertyKeys.RepresentativeString,  CommandInvalidationFlags.State },
+                // Value
+                { PropertyKeys.SelectedItem,          CommandInvalidationFlags.Value },
+                { PropertyKeys.BooleanValue,          CommandInvalidationFlags.Value },
+                { PropertyKeys.MaxValue,              CommandInvalidationFlags.Value },
+                { PropertyKeys.MinValue,              CommandInvalidationFlags.Value },
+                { PropertyKeys.DecimalValue,          CommandInvalidationFlags.Value },
+                { PropertyKeys.StringValue,           CommandInvalidationFlags.Value },
+            };
+
         public static CommandInvalidationFlags GetCommandInvalidationFlags(PropertyKey key)
         {
-            if (commandInvalidationFlags == null)
-            {
-                commandInvalidationFlags = new Dictionary<PropertyKey, CommandInvalidationFlags>(MAX_KEYS);
-
-                // State
-                commandInvalidationFlags.Add(PropertyKeys.DecimalPlaces, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.Enabled, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.FormatString, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.Increment, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.Pinned, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.RecentItems, CommandInvalidationFlags.State);
-                commandInvalidationFlags.Add(PropertyKeys.RepresentativeString, CommandInvalidationFlags.State);
-
-                // Value
-                commandInvalidationFlags.Add(PropertyKeys.SelectedItem, CommandInvalidationFlags.Value);
-                commandInvalidationFlags.Add(PropertyKeys.BooleanValue, CommandInvalidationFlags.Value);
-                commandInvalidationFlags.Add(PropertyKeys.MaxValue, CommandInvalidationFlags.Value);
-                commandInvalidationFlags.Add(PropertyKeys.MinValue, CommandInvalidationFlags.Value);
-                commandInvalidationFlags.Add(PropertyKeys.DecimalValue, CommandInvalidationFlags.Value);
-                commandInvalidationFlags.Add(PropertyKeys.StringValue, CommandInvalidationFlags.Value);
-                Debug.Assert(commandInvalidationFlags.Count == MAX_KEYS);
-            }
-
             CommandInvalidationFlags flags;
             if (commandInvalidationFlags.TryGetValue(key, out flags))
                 return flags;
