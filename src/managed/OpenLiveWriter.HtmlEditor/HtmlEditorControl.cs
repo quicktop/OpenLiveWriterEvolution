@@ -1274,7 +1274,11 @@ namespace OpenLiveWriter.HtmlEditor
             if (e.WasCancelled)
                 return;
 
-            // global processing for Mouse Up (none for the time being )
+            // Force a selection-state refresh on every mouse-up so contextual tabs
+            // (e.g. "Picture Tools") are hidden immediately when an image is deselected.
+            // MSHTML's selectionchange event is not always fired when transitioning
+            // from a Control selection (image selected) to a Text selection.
+            FireSelectionChanged();
         }
 
 #if SELECTION_DEBUG

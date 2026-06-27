@@ -1746,8 +1746,8 @@ namespace OpenLiveWriter.PostEditor
                 if (componentContext != null)
                 {
                     componentContext.SelectionChanged -= new EventHandler(ContentEditor_SelectionChanged);
-                    componentContext.BeforeInitialInsertion += new EventHandler(ContentEditor_BeforeInitialInsertion);
-                    componentContext.AfterInitialInsertion += new EventHandler(ContentEditor_AfterInitialInsertion);
+                    componentContext.BeforeInitialInsertion -= new EventHandler(ContentEditor_BeforeInitialInsertion);
+                    componentContext.AfterInitialInsertion -= new EventHandler(ContentEditor_AfterInitialInsertion);
                 }
 
                 if (switchingWysiwygToSource &&
