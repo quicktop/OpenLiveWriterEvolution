@@ -36,7 +36,7 @@ namespace OpenLiveWriter.PostEditor
         PostInfo[] GetRecentPosts(RecentPostRequest request);
         PostInfo[] GetPages(RecentPostRequest request);
 
-        IBlogPostEditingContext GetPost(string postId);
+        IBlogPostEditingContext GetPost(PostInfo postInfo);
         bool DeletePost(string postId, bool isPage);
     }
 
@@ -333,44 +333,32 @@ namespace OpenLiveWriter.PostEditor
             return GetPosts(request, true);
         }
 
-        public IBlogPostEditingContext GetPost(string postId)
+        public IBlogPostEditingContext GetPost(PostInfo postInfo)
         {
-            foreach (BlogPost blogPost in _blogPosts)
+            // postInfo.IsPage carries the authoritative flag set when the list was
+            // fetched, so we no longer need to scan _blogPosts just to discover it.
+            // This also fixes a crash when _blogPosts has been refreshed (e.g. the
+            // user toggled between Posts and Pages tabs) between listing and opening.
+            using (Blog blog = new Blog(_blogId))
             {
-                using (Blog blog = new Blog(_blogId))
+                // Fix bug 457160 - New post created with a new category
+                // becomes without a category when opened in WLW
+                try
                 {
-                    if (blogPost.Id == postId)
-                    {
-                        // Fix bug 457160 - New post created with a new category
-                        // becomes without a category when opened in WLW
-                        //
-                        // See also RecentPostSynchronizer.DoWork()
-                        //
-                        // Necessary even in the case of inline categories,
-                        // since the inline categories may contain categories
-                        // that Writer is not yet aware of
-                        try
-                        {
-                            blog.RefreshCategories();
-                        }
-                        catch (Exception e)
-                        {
-                            Trace.Fail("Exception while attempting to refresh categories: " + e.ToString());
-                        }
-
-                        // Get the full blog post--necessary because Atom ETag and remote post data is
-                        // only available from the full call
-                        BlogPost blogPostWithCategories = blog.GetPost(postId, blogPost.IsPage);
-                        return new BlogPostEditingContext(
-                            _blogId,
-                            blogPostWithCategories);
-                    }
-
+                    blog.RefreshCategories();
                 }
-            }
+                catch (Exception e)
+                {
+                    Trace.Fail("Exception while attempting to refresh categories: " + e.ToString());
+                }
 
-            // if we get this far then it was a bad postId
-            throw new ArgumentException("PostId was not part of the headers fetched");
+                // Get the full blog post--necessary because Atom ETag and remote post data is
+                // only available from the full call
+                BlogPost blogPostWithCategories = blog.GetPost(postInfo.Id, postInfo.IsPage);
+                return new BlogPostEditingContext(
+                    _blogId,
+                    blogPostWithCategories);
+            }
         }
 
         public bool DeletePost(string postId, bool isPage)
@@ -518,9 +506,9 @@ namespace OpenLiveWriter.PostEditor
             return PostEditorFile.GetRecentPosts(_directory, request);
         }
 
-        public IBlogPostEditingContext GetPost(string postId)
+        public IBlogPostEditingContext GetPost(PostInfo postInfo)
         {
-            PostEditorFile postEditorFile = PostEditorFile.GetExisting(new FileInfo(postId));
+            PostEditorFile postEditorFile = PostEditorFile.GetExisting(new FileInfo(postInfo.Id));
             return postEditorFile.Load();
         }
 

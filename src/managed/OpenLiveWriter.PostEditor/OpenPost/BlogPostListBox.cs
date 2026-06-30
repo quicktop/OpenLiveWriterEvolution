@@ -262,7 +262,7 @@ namespace OpenLiveWriter.PostEditor.OpenPost
         public IBlogPostEditingContext RetrieveSelectedPost()
         {
             if (_postSource != null)
-                return _postSource.GetPost(SelectedPost.Id);
+                return _postSource.GetPost(SelectedPost);
             else
                 return null;
         }
