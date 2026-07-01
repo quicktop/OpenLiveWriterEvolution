@@ -2215,6 +2215,9 @@ namespace OpenLiveWriter.PostEditor
         public event EventHandler GotFocus;
         private void htmlEditor_GotFocus(object source, EventArgs evt)
         {
+            // Re-evaluate contextual tabs (e.g. Picture Tools) now that the
+            // editor has focus and MSHTML's selection state is trustworthy.
+            UpdateContextAvailability();
             if (GotFocus != null)
                 GotFocus(source, evt);
         }
@@ -2222,6 +2225,21 @@ namespace OpenLiveWriter.PostEditor
         public event EventHandler LostFocus;
         private void htmlEditor_LostFocus(object source, EventArgs evt)
         {
+            // When focus leaves the MSHTML document (e.g. user clicks the title
+            // field, a sidebar panel, or any non-document UI element), hide all
+            // contextual ribbon tabs immediately.  MSHTML may still report a
+            // Control (image) selection even without focus, so we cannot rely on
+            // UpdateContextAvailability() — we force NotAvailable directly.
+            commandImageContextTabGroup.ContextAvailability = ContextAvailability.NotAvailable;
+            commandFormatImageTab.ContextAvailability = ContextAvailability.NotAvailable;
+            commandMapContextTabGroup.ContextAvailability = ContextAvailability.NotAvailable;
+            commandFormatMapTab.ContextAvailability = ContextAvailability.NotAvailable;
+            commandTagContextTabGroup.ContextAvailability = ContextAvailability.NotAvailable;
+            commandFormatTagTab.ContextAvailability = ContextAvailability.NotAvailable;
+            commandVideoContextTabGroup.ContextAvailability = ContextAvailability.NotAvailable;
+            commandFormatVideoTab.ContextAvailability = ContextAvailability.NotAvailable;
+            commandTableContextTabGroup.ContextAvailability = ContextAvailability.NotAvailable;
+            commandFormatTableTab.ContextAvailability = ContextAvailability.NotAvailable;
             if (LostFocus != null)
                 LostFocus(source, evt);
         }
