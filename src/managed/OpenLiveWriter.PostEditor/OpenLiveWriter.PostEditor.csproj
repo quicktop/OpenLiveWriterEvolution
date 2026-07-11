@@ -256,7 +256,6 @@
     <Compile Include="Commands\MutuallyExclusiveDropdown.cs" />
     <Compile Include="Commands\ProxyCommand.cs" />
     <Compile Include="Commands\RecentItemsCommand.cs" />
-    <Compile Include="Commands\DraftPostItemsGalleryCommand.cs" />
     <Compile Include="Commands\SelectGalleryCommand.cs" />
     <Compile Include="Commands\SemanticHtmlGalleryCommand.cs" />
     <Compile Include="Configuration\Accounts\WeblogAccountListView.cs">

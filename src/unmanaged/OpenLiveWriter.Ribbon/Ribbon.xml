@@ -323,9 +323,9 @@
     <Command Name="cmdMapZoomCityLevel" Symbol="MapZoomCityLevel" Id="23462" Comment=""/>
     <Command Name="cmdMapZoomRegionLevel" Symbol="MapZoomRegionLevel" Id="23463" Comment=""/>
     <Command Name="cmdMapZoomStreetLevel" Symbol="MapZoomStreetLevel" Id="23464" Comment=""/>    
-    <Command Name="cmdOpenDrafts" Symbol="OpenDrafts" Id="23465" Comment=""/>
+    <Command Name="cmdOpenDrafts" LabelTitle="&amp;開啟本機草稿" Keytip="O" TooltipTitle="Open local draft" TooltipDescription="Open a local draft" Symbol="OpenDrafts" Id="23465" Comment="FileMenu-OpenDrafts"/>
     <Command Name="cmdOpenLink" Symbol="OpenLink" Id="23466" Comment=""/>
-    <Command Name="cmdOpenRecentPosts" Symbol="OpenRecentPosts" Id="23467" Comment=""/>
+    <Command Name="cmdOpenRecentPosts" LabelTitle="開啟最近的文章(&amp;R)" Keytip="R" TooltipTitle="Open recent posts" TooltipDescription="Open a recently published post" Symbol="OpenRecentPosts" Id="23467" Comment="FileMenu-OpenRecentPosts"/>
     <Command Name="cmdOpenSpellingForm" Symbol="OpenSpellingForm" Id="23468" Comment=""/>    
     <Command Name="cmdPostProperties" Symbol="PostProperties" Id="23469" Comment=""/>
     <Command Name="cmdRecentPost" Symbol="RecentPost" Id="23470" Comment=""/>
@@ -404,8 +404,8 @@
                 </MenuGroup>
               </SplitButton.MenuGroups>
               </SplitButton>
-              <SplitButtonGallery CommandName="cmdOpenDraftSplit" ApplicationModes="0,1"/>
-              <SplitButtonGallery CommandName="cmdOpenPostSplit" ApplicationModes="0,1"/>
+              <Button CommandName="cmdOpenDrafts" ApplicationModes="0,1"/>
+              <Button CommandName="cmdOpenRecentPosts" ApplicationModes="0,1"/>
               <SplitButton CommandName="cmdSplitSave" ApplicationModes="0,1">
               <SplitButton.ButtonItem>
                 <Button CommandName="cmdSavePost"/>

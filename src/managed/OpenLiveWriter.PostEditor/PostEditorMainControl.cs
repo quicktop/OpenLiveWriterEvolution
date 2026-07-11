@@ -206,13 +206,6 @@ namespace OpenLiveWriter.PostEditor
             commandPostAsDraft = _htmlEditor.CommandManager.Add(CommandId.PostAsDraft, commandPostAsDraft_Execute);
             commandPostAsDraftAndEditOnline = _htmlEditor.CommandManager.Add(CommandId.PostAsDraftAndEditOnline, commandPostAsDraftAndEditOnline_Execute);
 
-            DraftPostItemsGalleryCommand draftGallery = new DraftPostItemsGalleryCommand(this as IBlogPostEditingSite,
-                                                                                         CommandManager, false);
-            draftGallery.Execute += commandOpenDrafts_Execute;
-            DraftPostItemsGalleryCommand postGallery = new DraftPostItemsGalleryCommand(this as IBlogPostEditingSite,
-                                                                                         CommandManager, true);
-            postGallery.Execute += commandOpenRecentPosts_Execute;
-
             // publish command bar context menu
             _savePostContextMenuDefinition = new CommandContextMenuDefinition(this.components);
             _savePostContextMenuDefinition.CommandBar = true;
@@ -479,8 +472,6 @@ namespace OpenLiveWriter.PostEditor
                 _framework.SetModes(mode);
 
                 CommandManager.Invalidate(CommandId.MRUList);
-                CommandManager.Invalidate(CommandId.OpenDraftSplit);
-                CommandManager.Invalidate(CommandId.OpenPostSplit);
 
                 ApplicationDiagnostics.TestModeChanged += OnTestModeChanged;
                 TestMode = ApplicationDiagnostics.TestMode;
@@ -1410,8 +1401,6 @@ namespace OpenLiveWriter.PostEditor
                     WriterJumpList.Invalidate(Handle);
 
                     CommandManager.Invalidate(CommandId.MRUList);
-                    CommandManager.Invalidate(CommandId.OpenDraftSplit);
-                    CommandManager.Invalidate(CommandId.OpenPostSplit);
 
                     // now notify all of the listeners asynchronously
                     foreach (DictionaryEntry listener in _postListChangedListeners)

@@ -4884,16 +4884,16 @@
   <data name="InsertHorizontalLine_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CommandBitmaps\InsertHorizontalLine.LargeImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpenDraftSplit_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="OpenDrafts_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CommandBitmaps\OpenDraftSplit.LargeImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpenDraftSplit_SmallImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="OpenDrafts_SmallImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CommandBitmaps\OpenDraftSplit.SmallImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpenPostSplit_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="OpenRecentPosts_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CommandBitmaps\OpenPostSplit.LargeImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpenPostSplit_SmallImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="OpenRecentPosts_SmallImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CommandBitmaps\OpenPostSplit.SmallImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OpenPost_LargeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
