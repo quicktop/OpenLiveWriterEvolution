@@ -10,10 +10,10 @@ using OpenLiveWriter.Localization;
 
 namespace OpenLiveWriter.PostEditor.Commands
 {
-    public class DraftPostItemsGalleryCommand : GalleryCommand<Command>
+    public class DraftPostItemsGalleryCommand : DynamicCommandGallery
     {
         private IBlogPostEditingSite postEditingSite;
-        private PostInfo[] postInfo = new PostInfo[0];
+        private PostInfo[] postInfo;
         private bool _isPost;
         // Note: The maximum number of recent items specified here should match the RecentItem's MaxCount attribute in ribbon.xml.
         private const int MaxItems = PostListCache.MaxItems;
@@ -22,7 +22,7 @@ namespace OpenLiveWriter.PostEditor.Commands
         private int draftCmdStart = (int)CommandId.OpenDraftMRU0;
 
         public DraftPostItemsGalleryCommand(IBlogPostEditingSite postEditingSite, CommandManager commandManager, bool isPost)
-            : base((isPost ? CommandId.OpenPostSplit : CommandId.OpenDraftSplit), false)
+            : base((isPost ? CommandId.OpenPostSplit : CommandId.OpenDraftSplit))
         {
             this.postEditingSite = postEditingSite;
             _isPost = isPost;
@@ -30,39 +30,37 @@ namespace OpenLiveWriter.PostEditor.Commands
             {
                 draftCmdStart = (int)CommandId.OpenPostMRU0;
             }
-
-            // These rows are one-shot actions (open a draft/post), not a persistent selection,
-            // so don't have the framework try to track/highlight a "selected" gallery item.
-            AllowSelection = false;
-            ExecuteWithArgs += new ExecuteEventHandler(DraftPostItemsGalleryCommand_ExecuteWithArgs);
-
             lock (_commandsLock)
             {
-                // The framework does not re-query UI_PKEY_Label/UI_PKEY_LargeImage for
-                // "command type" (Action) gallery items referencing these commands - it only
-                // uses them to route Execute by CommandId, using whatever Label/Image was
-                // declared for them once in Ribbon.xml. All per-row display data below is
-                // instead carried directly on each GalleryItem (see LoadItems()), which is
-                // the pattern BlogProviderButtonManager already relies on successfully.
+                // initialize commands
                 for (int i = 0; i < _commands.Length; i++)
                 {
                     _commands[i] = new Command((CommandId)(i + draftCmdStart));
+                    _commands[i].Execute += new EventHandler(DraftPostItemsGalleryCommand_Execute);
                     _commands[i].CommandBarButtonStyle = CommandBarButtonStyle.Provider;
                     _commands[i].On = false;
                 }
 
+                // Add them via the Command[] overload, not Add(CommandCollection): only the
+                // former subscribes to Command.StateChanged, which is what drives
+                // FlushPendingInvalidations().  Without it the ribbon never re-queries
+                // UI_PKEY_Label for these commands and every MRU entry keeps the static
+                // placeholder label from Ribbon.xml instead of the post/draft title.
                 commandManager.Add(_commands);
                 commandManager.Add(this);
             }
         }
 
-        private void DraftPostItemsGalleryCommand_ExecuteWithArgs(object sender, EventArgs e)
+        private void DraftPostItemsGalleryCommand_Execute(object sender, EventArgs e)
         {
-            int index = SelectedIndex;
-            if (index >= 0 && index < postInfo.Length)
+            // This is for the gallery commands
+            Command command = (Command)sender;
+            int commandId = (int)command.CommandId;
+            if (commandId >= draftCmdStart && commandId < (draftCmdStart + MaxItems))
             {
+                int postIndex = commandId - draftCmdStart;
                 WindowCascadeHelper.SetNextOpenedLocation(postEditingSite.FrameWindow.Location);
-                postEditingSite.OpenLocalPost(postInfo[index]);
+                postEditingSite.OpenLocalPost(postInfo[postIndex]);
             }
         }
 
@@ -84,18 +82,12 @@ namespace OpenLiveWriter.PostEditor.Commands
                     _commands[i].LabelDescription = v.BlogName;
                     _commands[i].TooltipTitle = v.Title;
                     _commands[i].TooltipDescription = v.BlogName;
-
-                    Bitmap image;
                     using (BlogSettings bs = BlogSettings.ForBlogId(v.BlogId))
                     {
-                        image = bs.ClientType.Contains("WordPress") ? Images.WordPressPost_LargeImage
-                                                                     : Images.OtherBlogPost_LargeImage;
+                        _commands[i].LargeImage = (bs.ClientType.Contains("WordPress") ? Images.WordPressPost_LargeImage
+                                                       : Images.OtherBlogPost_LargeImage);
                     }
-                    _commands[i].LargeImage = image;
-
-                    // GalleryItem disposes the bitmap it's given, and Images.* getters return a
-                    // shared cached instance, so hand it a private clone rather than the original.
-                    items.Add(new GalleryItem(v.Title, new Bitmap(image), _commands[i]));
+                    items.Add(new GalleryItem(v.Title, null, _commands[i]));
                 }
             }
 
