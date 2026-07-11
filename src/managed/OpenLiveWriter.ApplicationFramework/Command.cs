@@ -1400,6 +1400,8 @@ namespace OpenLiveWriter.ApplicationFramework
 
             set
             {
+                RibbonDebugLog.LogMru((uint)CommandId, PropertyKeys.Label,
+                    "LabelTitle set old='" + _labelTitle + "' new='" + value + "' changed=" + (_labelTitle != value));
                 if (_labelTitle != value)
                 {
                     _labelTitle = TextHelper.UnescapeNewlines(value);
@@ -1959,6 +1961,7 @@ namespace OpenLiveWriter.ApplicationFramework
                                                       PropertyKeyExtensions.GetCommandInvalidationFlags(key),
                                                       key.ToPointer());
                         pendingInvalidations[key] = result == 0 ? InvalidationState.WaitingForUpdateProperty : InvalidationState.Error;
+                        RibbonDebugLog.LogMru((uint)CommandId, key, "InvalidateUICommand hr=" + result);
                     }
                 }
             }

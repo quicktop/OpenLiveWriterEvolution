@@ -919,10 +919,13 @@ namespace OpenLiveWriter.ApplicationFramework
                 Command command = Get((CommandId)commandId);
                 if (command == null)
                 {
+                    RibbonDebugLog.LogMru(commandId, key, "command==null -> NullCommandUpdateProperty");
                     return genericCommandHandler.NullCommandUpdateProperty(commandId, ref key, currentValue, out newValue);
                 }
 
-                return command.UpdateProperty(ref key, currentValue, out newValue);
+                int hr = command.UpdateProperty(ref key, currentValue, out newValue);
+                RibbonDebugLog.LogMru(commandId, key, "UpdateProperty hr=" + hr + " value=" + RibbonDebugLog.Describe(newValue));
+                return hr;
             }
             catch (Exception ex)
             {
@@ -987,5 +990,51 @@ namespace OpenLiveWriter.ApplicationFramework
     public interface ICommandManagerHost
     {
         CommandManager CommandManager { get; }
+    }
+
+    /// <summary>
+    /// TEMPORARY diagnostic logging for investigating why the "Open local draft" /
+    /// "Open recent posts" gallery rows never pick up their real title.  Logs only
+    /// calls touching the OpenDraftMRU0-9 / OpenPostMRU0-9 command range (23307-23327)
+    /// to a fixed, easy-to-find file. Remove once the bug is understood and fixed.
+    /// </summary>
+    internal static class RibbonDebugLog
+    {
+        private const uint RANGE_START = 23307;
+        private const uint RANGE_END = 23327;
+        private static readonly string LogPath = System.IO.Path.Combine(
+            System.IO.Path.GetTempPath(), "OpenLiveWriterEvolution_ribbon_debug.log");
+
+        public static void LogMru(uint commandId, PropertyKey key, string message)
+        {
+            if (commandId < RANGE_START || commandId > RANGE_END)
+                return;
+
+            try
+            {
+                string line = string.Format(
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    "{0:HH:mm:ss.fff} cmd={1} key={2} {3}\r\n",
+                    DateTime.Now, commandId, PropertyKeys.GetName(key), message);
+                System.IO.File.AppendAllText(LogPath, line);
+            }
+            catch
+            {
+                // Diagnostic logging must never affect the app.
+            }
+        }
+
+        public static string Describe(PropVariant value)
+        {
+            try
+            {
+                object v = value.Value;
+                return v == null ? "(null)" : v.ToString();
+            }
+            catch
+            {
+                return "(unreadable)";
+            }
+        }
     }
 }
