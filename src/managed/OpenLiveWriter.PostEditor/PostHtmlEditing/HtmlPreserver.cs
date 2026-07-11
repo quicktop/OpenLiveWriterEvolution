@@ -63,6 +63,7 @@ namespace OpenLiveWriter.PostEditor.PostHtmlEditing
                 if (!(bt.NameEquals("object")
                     || bt.NameEquals("embed")
                     || bt.NameEquals("noembed")
+                    || bt.NameEquals("iframe")
                     || bt.NameEquals("script")))
                 {
                     sb.Append(html, e.Offset, e.Length);

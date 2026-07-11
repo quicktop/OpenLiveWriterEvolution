@@ -19,6 +19,12 @@ namespace OpenLiveWriter.UnitTest.PostEditor
 
         private const string SCRIPT = "<script language=\"JavaScript\">document.write('foo');</script>";
 
+        private const string YOUTUBE_IFRAME = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XNbc2HhL7J4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
+
+        // What MSHTML gives back after a round trip: same attributes, reordered, minimized
+        // attributes expanded. Semantically equivalent but not what the user typed.
+        private const string YOUTUBE_IFRAME_MANGLED = "<iframe title=\"YouTube video player\" height=\"315\" allowfullscreen=\"allowfullscreen\" src=\"https://www.youtube.com/embed/XNbc2HhL7J4\" frameborder=\"0\" width=\"560\" referrerpolicy=\"strict-origin-when-cross-origin\" allow=\"accelerometer; autoplay; encrypted-media\"></iframe>";
+
         [Test]
         public void Test1()
         {
@@ -53,6 +59,17 @@ namespace OpenLiveWriter.UnitTest.PostEditor
             Assert.AreEqual(
                 SCRIPT,
                 hp.RestorePreserved(working));
+        }
+
+        [Test]
+        public void IframeSurvivesEditorRoundTrip()
+        {
+            HtmlPreserver hp = new HtmlPreserver();
+            string scanned = hp.ScanAndPreserve(YOUTUBE_IFRAME);
+            Assert.AreNotEqual(YOUTUBE_IFRAME, scanned);
+            Assert.AreEqual(
+                YOUTUBE_IFRAME,
+                hp.RestorePreserved(scanned.Replace(YOUTUBE_IFRAME, YOUTUBE_IFRAME_MANGLED)));
         }
     }
 }
