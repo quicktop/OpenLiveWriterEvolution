@@ -41,8 +41,12 @@ namespace OpenLiveWriter.PostEditor.Commands
                     _commands[i].On = false;
                 }
 
-                // add them to the command manager
-                commandManager.Add(new CommandCollection(_commands));
+                // Add them via the Command[] overload, not Add(CommandCollection): only the
+                // former subscribes to Command.StateChanged, which is what drives
+                // FlushPendingInvalidations().  Without it the ribbon never re-queries
+                // UI_PKEY_Label for these commands and every MRU entry keeps the static
+                // placeholder label from Ribbon.xml instead of the post/draft title.
+                commandManager.Add(_commands);
                 commandManager.Add(this);
             }
         }
