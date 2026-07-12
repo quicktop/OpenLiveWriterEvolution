@@ -28,4 +28,5 @@
     <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(RepoRoot)\writer.build.targets" />
 </Project>
